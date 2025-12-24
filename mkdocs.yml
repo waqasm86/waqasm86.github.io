@@ -1,0 +1,20 @@
+site_name: Waqas — CUDA Projects
+site_url: https://waqasm86.github.io/
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+
+nav:
+  - Home: index.md
+  - CUDA Projects:
+      - Overview: projects/index.md
+      - cuda-tcp-llama.cpp: projects/cuda-tcp-llama.md
+      - cuda-openmpi: projects/cuda-openmpi.md
+      - cuda-mpi-llama-scheduler: projects/cuda-mpi-llama-scheduler.md
+      - cuda-llm-storage-pipeline: projects/cuda-llm-storage-pipeline.md
+  - About: about.md
