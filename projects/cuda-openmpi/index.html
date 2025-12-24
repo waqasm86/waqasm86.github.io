@@ -1,0 +1,1170 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://waqasm86.github.io/projects/cuda-openmpi/">
+      
+      
+        <link rel="prev" href="../cuda-tcp-llama/">
+      
+      
+        <link rel="next" href="../cuda-mpi-llama-scheduler/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>cuda-openmpi - Waqas — CUDA Projects</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cuda-openmpi" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Waqas — CUDA Projects" class="md-header__button md-logo" aria-label="Waqas — CUDA Projects" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Waqas — CUDA Projects
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              cuda-openmpi
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  CUDA Projects
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Waqas — CUDA Projects" class="md-nav__button md-logo" aria-label="Waqas — CUDA Projects" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Waqas — CUDA Projects
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CUDA Projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CUDA Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cuda-tcp-llama/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    cuda-tcp-llama.cpp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    cuda-openmpi
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    cuda-openmpi
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Coverage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Test Coverage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-basic-cuda-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Basic CUDA Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-standard-mpi-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Standard MPI Communication
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-cuda-aware-mpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. CUDA-aware MPI
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-specifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Specifications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Structure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Project Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Build">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-cmake-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using CMake (Recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-direct-makefile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using Direct Makefile
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Run">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-cuda-only-single-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test CUDA Only (Single Process)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-cuda-mpi-multiple-processes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test CUDA + MPI (Multiple Processes)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-cuda-aware-mpi-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Check CUDA-aware MPI Support
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Output
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture Notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Architecture Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-vs-cuda-aware-mpi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Standard vs CUDA-aware MPI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memory Considerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mpi-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MPI Not Found
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuda-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CUDA Not Found
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpu-memory-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GPU Memory Errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Cases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Future Enhancements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cuda-mpi-llama-scheduler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    cuda-mpi-llama-scheduler
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cuda-llm-storage-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    cuda-llm-storage-pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="cuda-openmpi">cuda-openmpi</h1>
+<p>A comprehensive testing framework to validate NVIDIA CUDA and OpenMPI integration on Linux systems.</p>
+<p><a href="https://github.com/waqasm86/cuda-openmpi">:fontawesome-brands-github: View on GitHub</a>{ .md-button }</p>
+<hr />
+<h2 id="overview">Overview</h2>
+<p>This repository provides an integration test suite that verifies the proper configuration of GPU computing environments for parallel computing applications. It specifically tests CUDA-aware MPI capabilities, which enable direct GPU-to-GPU communication without intermediate host memory transfers.</p>
+<p><strong>Purpose:</strong></p>
+<p>Validate that your CUDA toolkit and OpenMPI installation are correctly configured and can work together for distributed GPU computing workloads.</p>
+<hr />
+<h2 id="test-coverage">Test Coverage</h2>
+<p>The suite evaluates three core areas:</p>
+<h3 id="1-basic-cuda-operations">1. Basic CUDA Operations</h3>
+<ul>
+<li>GPU device detection and enumeration</li>
+<li>Memory allocation and deallocation on device</li>
+<li>Kernel execution (vector addition test)</li>
+<li>Host-to-device and device-to-host data transfers</li>
+<li>Result validation</li>
+</ul>
+<h3 id="2-standard-mpi-communication">2. Standard MPI Communication</h3>
+<ul>
+<li>Process initialization and rank assignment</li>
+<li>Host-to-host data transfers between MPI ranks</li>
+<li>Data integrity verification across multiple processes</li>
+<li>Inter-process communication patterns</li>
+</ul>
+<h3 id="3-cuda-aware-mpi">3. CUDA-aware MPI</h3>
+<ul>
+<li>Direct GPU-to-GPU communication capabilities</li>
+<li>Automatic detection of CUDA support in OpenMPI</li>
+<li>Performance comparison with host-staged transfers</li>
+</ul>
+<hr />
+<h2 id="system-specifications">System Specifications</h2>
+<p>The test suite has been validated on:</p>
+<ul>
+<li><strong>CUDA Version</strong>: 12.8</li>
+<li><strong>OpenMPI Version</strong>: 5.0.6</li>
+<li><strong>Test GPU</strong>: NVIDIA GeForce 940M</li>
+<li>1GB VRAM</li>
+<li>Compute Capability 5.0</li>
+<li><strong>Operating System</strong>: Xubuntu 22.04</li>
+</ul>
+<hr />
+<h2 id="project-structure">Project Structure</h2>
+<pre><code>cuda-openmpi/
+├── cuda_mpi_test.cu        # Main CUDA/MPI test program
+├── CMakeLists.txt          # CMake build configuration
+├── Makefile.direct         # Alternative direct build
+├── build_and_run.sh        # Interactive build/test script
+├── quick_test.sh           # Automated quick test
+├── logs/                   # Test execution logs
+└── README.md               # Documentation
+</code></pre>
+<h3 id="key-files">Key Files</h3>
+<ul>
+<li><strong>cuda_mpi_test.cu</strong>: Comprehensive test program covering CUDA operations, MPI communication, and CUDA-aware MPI</li>
+<li><strong>build_and_run.sh</strong>: Interactive script for building and testing with multiple configurations</li>
+<li><strong>quick_test.sh</strong>: Automated testing for CI/CD pipelines</li>
+</ul>
+<hr />
+<h2 id="dependencies">Dependencies</h2>
+<ul>
+<li><strong>NVIDIA CUDA Toolkit</strong> (12.8+)</li>
+<li><strong>OpenMPI</strong> (5.0.6+)</li>
+<li><strong>CMake</strong> (3.15+)</li>
+<li><strong>C++ compiler</strong> with CUDA support (nvcc)</li>
+<li><strong>Linux environment</strong></li>
+</ul>
+<hr />
+<h2 id="build">Build</h2>
+<h3 id="using-cmake-recommended">Using CMake (Recommended)</h3>
+<pre><code class="language-bash"># Create build directory
+mkdir -p build &amp;&amp; cd build
+
+# Configure the project
+cmake ..
+
+# Compile
+make
+</code></pre>
+<p>Expected build output confirms:
+- MPI detection and configuration
+- CUDA toolkit version (12.8)
+- Target GPU architecture (Compute Capability 5.0)</p>
+<h3 id="using-direct-makefile">Using Direct Makefile</h3>
+<pre><code class="language-bash"># Alternative build method
+make -f Makefile.direct
+</code></pre>
+<hr />
+<h2 id="run">Run</h2>
+<h3 id="test-cuda-only-single-process">Test CUDA Only (Single Process)</h3>
+<pre><code class="language-bash">./cuda_mpi_test
+</code></pre>
+<p>This runs basic CUDA operations without MPI communication.</p>
+<h3 id="test-cuda-mpi-multiple-processes">Test CUDA + MPI (Multiple Processes)</h3>
+<pre><code class="language-bash"># Run with 2 MPI ranks
+mpirun -np 2 ./cuda_mpi_test
+
+# Run with 4 MPI ranks
+mpirun -np 4 ./cuda_mpi_test
+</code></pre>
+<h3 id="check-cuda-aware-mpi-support">Check CUDA-aware MPI Support</h3>
+<pre><code class="language-bash"># Verify if OpenMPI was built with CUDA support
+ompi_info --parsable --all | grep mpi_built_with_cuda_support
+</code></pre>
+<p>If the output shows <code>false</code>, your OpenMPI installation uses the standard data flow:</p>
+<pre><code>GPU → Host Memory → MPI Transfer → Host Memory → GPU
+</code></pre>
+<hr />
+<h2 id="test-output">Test Output</h2>
+<p>Successful execution displays:</p>
+<pre><code>=== CUDA Basic Test ===
+Found 1 CUDA device(s)
+Using device 0: GeForce 940M
+CUDA vector addition test PASSED
+
+=== MPI Communication Test ===
+Rank 0/2: Host-to-host MPI test PASSED
+Rank 1/2: Host-to-host MPI test PASSED
+
+=== CUDA-aware MPI Test ===
+CUDA-aware MPI: Not supported (using host staging)
+GPU-to-GPU communication test PASSED
+</code></pre>
+<hr />
+<h2 id="architecture-notes">Architecture Notes</h2>
+<h3 id="standard-vs-cuda-aware-mpi">Standard vs CUDA-aware MPI</h3>
+<p><strong>Standard MPI</strong> (most common):</p>
+<pre><code>Process A GPU → Host Memory → MPI Send → Host Memory → Process B GPU
+</code></pre>
+<p><strong>CUDA-aware MPI</strong> (requires special OpenMPI build):</p>
+<pre><code>Process A GPU ────────── MPI Send ──────────→ Process B GPU
+</code></pre>
+<p>CUDA-aware MPI eliminates intermediate host copies, reducing latency and improving throughput for GPU-intensive parallel applications.</p>
+<h3 id="memory-considerations">Memory Considerations</h3>
+<p>With 1GB VRAM on the test GPU:
+- Safe allocation per process: &lt;400MB
+- Test suite memory usage: ~12KB per process
+- Suitable for resource-constrained hardware testing</p>
+<hr />
+<h2 id="performance">Performance</h2>
+<p>The test suite uses minimal resources to ensure compatibility with constrained hardware:</p>
+<ul>
+<li><strong>Vector Size</strong>: 3 elements (minimal test)</li>
+<li><strong>Memory per Process</strong>: ~12KB GPU memory</li>
+<li><strong>Scalability</strong>: Tested up to 4 MPI ranks on single GPU</li>
+</ul>
+<p>This conservative approach ensures the tests run on older or low-VRAM GPUs like the GeForce 940M.</p>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="mpi-not-found">MPI Not Found</h3>
+<pre><code class="language-bash"># Install OpenMPI on Ubuntu/Debian
+sudo apt-get install libopenmpi-dev openmpi-bin
+</code></pre>
+<h3 id="cuda-not-found">CUDA Not Found</h3>
+<p>Ensure CUDA toolkit is installed and <code>nvcc</code> is in your PATH:</p>
+<pre><code class="language-bash">nvcc --version
+</code></pre>
+<h3 id="gpu-memory-errors">GPU Memory Errors</h3>
+<p>Reduce the test vector size in <code>cuda_mpi_test.cu</code> if running on GPUs with &lt;1GB VRAM.</p>
+<hr />
+<h2 id="use-cases">Use Cases</h2>
+<ul>
+<li><strong>Environment Validation</strong>: Verify CUDA + MPI setup before running production workloads</li>
+<li><strong>CI/CD Testing</strong>: Automated verification of GPU cluster configurations</li>
+<li><strong>Educational</strong>: Learn CUDA-MPI integration patterns</li>
+<li><strong>Benchmarking</strong>: Baseline performance testing for distributed GPU applications</li>
+</ul>
+<hr />
+<h2 id="future-enhancements">Future Enhancements</h2>
+<ul>
+<li>Support for multi-GPU systems</li>
+<li>Performance benchmarking suite</li>
+<li>Advanced CUDA-aware MPI patterns</li>
+<li>Integration with NCCL for multi-GPU communication</li>
+</ul>
+<hr />
+<h2 id="notes">Notes</h2>
+<p>This test suite is essential for validating distributed GPU computing environments. While most OpenMPI installations don't include CUDA-aware support by default, the test suite gracefully handles both scenarios and provides clear feedback on available capabilities.</p>
+<p><strong>Author</strong>: Mohammad Waqas</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
