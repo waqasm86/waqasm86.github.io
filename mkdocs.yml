@@ -13,6 +13,7 @@ nav:
   - Home: index.md
   - CUDA Projects:
       - Overview: projects/index.md
+      - local-llama-cuda: projects/local-llama-cuda.md
       - cuda-tcp-llama.cpp: projects/cuda-tcp-llama.md
       - cuda-openmpi: projects/cuda-openmpi.md
       - cuda-mpi-llama-scheduler: projects/cuda-mpi-llama-scheduler.md
