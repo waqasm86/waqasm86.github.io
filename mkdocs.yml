@@ -1,16 +1,80 @@
-site_name: Waqas — CUDA Projects
+site_name: Waqas Muhammad — Product Engineer
 site_url: https://waqasm86.github.io/
+site_description: Product-minded engineer building on-device AI tools. Published llcuda to PyPI. Specializing in CUDA + Python systems for LLM optimization.
+site_author: Waqas Muhammad
+
 theme:
   name: material
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
   features:
     - navigation.tabs
     - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.tracking
     - toc.integrate
     - search.suggest
     - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/waqasm86
+      name: GitHub
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/llcuda/
+      name: PyPI - llcuda
+    - icon: fontawesome/solid/envelope
+      link: mailto:waqasm86@gmail.com
+      name: Email
 
 nav:
   - Home: index.md
-  - llcuda - Python Package: llcuda.md
-  - CUDA Projects: projects/index.md
-  - About: about.md
+  - llcuda:
+      - Overview: llcuda/index.md
+      - Quick Start: llcuda/quickstart.md
+      - Installation: llcuda/installation.md
+      - Performance: llcuda/performance.md
+      - Examples: llcuda/examples.md
+  - Ubuntu CUDA Executable: ubuntu-cuda-executable/index.md
+  - About:
+      - About Me: about.md
+      - Resume: resume/Muhammad_Waqas_Resume_2025.pdf
+      - Contact: contact.md
