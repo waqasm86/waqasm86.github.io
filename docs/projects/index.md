@@ -2,18 +2,8 @@
 
 This section contains documentation, design notes, build steps, and results for my CUDA repositories.
 
-## Featured Projects
-
 ### [cuda-nvidia-systems-engg](cuda-nvidia-systems-engg.md)
-**Production-grade distributed LLM inference system** - Unified C++20/CUDA platform combining TCP networking (epoll), MPI scheduling (work-stealing), content-addressed storage (SeaweedFS), and empirical performance research (p50/p95/p99 latencies). 3200+ LOC demonstrating systems engineering expertise for on-device AI.
-
-**Technologies**: C++20, CUDA 17, OpenMPI, Epoll, SeaweedFS, CMake
-
----
-
-## Individual Components
-
-The following projects were later unified into cuda-nvidia-systems-engg:
+Production-grade distributed LLM inference system combining TCP networking, MPI scheduling, content-addressed storage, and empirical performance research.
 
 ### [local-llama-cuda](local-llama-cuda.md)
 Custom CUDA implementation with MPI-based distributed inference
