@@ -2,30 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://waqasm86.github.io/</loc>
-         <lastmod>2025-12-24</lastmod>
+         <lastmod>2025-12-27</lastmod>
     </url>
     <url>
          <loc>https://waqasm86.github.io/about/</loc>
-         <lastmod>2025-12-24</lastmod>
+         <lastmod>2025-12-27</lastmod>
     </url>
     <url>
-         <loc>https://waqasm86.github.io/projects/</loc>
-         <lastmod>2025-12-24</lastmod>
+         <loc>https://waqasm86.github.io/contact/</loc>
+         <lastmod>2025-12-27</lastmod>
     </url>
     <url>
-         <loc>https://waqasm86.github.io/projects/cuda-llm-storage-pipeline/</loc>
-         <lastmod>2025-12-24</lastmod>
+         <loc>https://waqasm86.github.io/llcuda/</loc>
+         <lastmod>2025-12-27</lastmod>
     </url>
     <url>
-         <loc>https://waqasm86.github.io/projects/cuda-mpi-llama-scheduler/</loc>
-         <lastmod>2025-12-24</lastmod>
+         <loc>https://waqasm86.github.io/llcuda/examples/</loc>
+         <lastmod>2025-12-27</lastmod>
     </url>
     <url>
-         <loc>https://waqasm86.github.io/projects/cuda-openmpi/</loc>
-         <lastmod>2025-12-24</lastmod>
+         <loc>https://waqasm86.github.io/llcuda/installation/</loc>
+         <lastmod>2025-12-27</lastmod>
     </url>
     <url>
-         <loc>https://waqasm86.github.io/projects/cuda-tcp-llama/</loc>
-         <lastmod>2025-12-24</lastmod>
+         <loc>https://waqasm86.github.io/llcuda/performance/</loc>
+         <lastmod>2025-12-27</lastmod>
+    </url>
+    <url>
+         <loc>https://waqasm86.github.io/llcuda/quickstart/</loc>
+         <lastmod>2025-12-27</lastmod>
+    </url>
+    <url>
+         <loc>https://waqasm86.github.io/resume/</loc>
+         <lastmod>2025-12-27</lastmod>
+    </url>
+    <url>
+         <loc>https://waqasm86.github.io/ubuntu-cuda-executable/</loc>
+         <lastmod>2025-12-27</lastmod>
     </url>
 </urlset>
