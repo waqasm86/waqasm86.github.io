@@ -11,12 +11,5 @@ theme:
 
 nav:
   - Home: index.md
-  - CUDA Projects:
-      - Overview: projects/index.md
-      - cuda-nvidia-systems-engg: projects/cuda-nvidia-systems-engg.md
-      - local-llama-cuda: projects/local-llama-cuda.md
-      - cuda-tcp-llama.cpp: projects/cuda-tcp-llama.md
-      - cuda-openmpi: projects/cuda-openmpi.md
-      - cuda-mpi-llama-scheduler: projects/cuda-mpi-llama-scheduler.md
-      - cuda-llm-storage-pipeline: projects/cuda-llm-storage-pipeline.md
+  - CUDA Projects: projects/index.md
   - About: about.md
