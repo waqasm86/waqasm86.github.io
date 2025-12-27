@@ -11,5 +11,6 @@ theme:
 
 nav:
   - Home: index.md
+  - llcuda - Python Package: llcuda.md
   - CUDA Projects: projects/index.md
   - About: about.md
