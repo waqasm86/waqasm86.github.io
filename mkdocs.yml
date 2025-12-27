@@ -1,7 +1,11 @@
-site_name: Muhammad Waqas Software Developer
+site_name: Muhammad Waqas - Software Engineer | CUDA & AI Developer
 site_url: https://waqasm86.github.io/
-site_description: Product-minded engineer building on-device AI tools. Published llcuda to PyPI. Specializing in CUDA + Python systems for LLM optimization.
-site_author: Waqas Muhammad
+site_description: Product-minded engineer building on-device AI tools for legacy NVIDIA GPUs. Creator of llcuda Python package (published to PyPI). Specializing in CUDA + Python systems for LLM optimization on GeForce 940M and legacy GPUs. Empirical testing, zero-configuration design, production-ready tools.
+site_author: Muhammad Waqas
+repo_name: waqasm86/llcuda
+repo_url: https://github.com/waqasm86/llcuda
+edit_uri: ""
+copyright: Copyright &copy; 2024-2025 Muhammad Waqas
 
 theme:
   name: material
@@ -34,7 +38,10 @@ theme:
     - content.code.annotate
 
 plugins:
-  - search
+  - search:
+      lang: en
+      separator: '[\s\-\.]+'
+  - tags
 
 markdown_extensions:
   - admonition
@@ -57,13 +64,16 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/waqasm86
-      name: GitHub
+      name: GitHub - waqasm86
     - icon: fontawesome/brands/python
       link: https://pypi.org/project/llcuda/
-      name: PyPI - llcuda
+      name: PyPI - llcuda Package
     - icon: fontawesome/solid/envelope
       link: mailto:waqasm86@gmail.com
-      name: Email
+      name: Email - waqasm86@gmail.com
+  generator: false
+  seo:
+    keywords: "CUDA Python developer, llcuda, LLM inference, GeForce 940M, on-device AI, legacy GPU, Ubuntu 22.04, JupyterLab, PyPI package, llama.cpp, GGUF models, automatic server management, zero configuration, product engineer"
 
 nav:
   - Home: index.md
