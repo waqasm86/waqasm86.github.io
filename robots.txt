@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+Disallow: /assets/javascripts/
+Disallow: /assets/stylesheets/
+Disallow: /search/
+
+# Sitemap
+Sitemap: https://waqasm86.github.io/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Google
+User-agent: Googlebot
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+
+# Yandex
+User-agent: Yandex
+Allow: /
