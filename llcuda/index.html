@@ -1329,7 +1329,7 @@
 </code></pre></div>
 <p>That's it. No compilation. No CUDA toolkit. No configuration. It just works.</p>
 <p><strong>How?</strong>
-- Pre-built llama.cpp binaries with CUDA 12.6 support
+- Pre-built llama.cpp binaries with CUDA 12.8 support (build 7489)
 - Automatic model downloading from Hugging Face
 - Optimized for low-VRAM GPUs (tested on 1GB)
 - Intelligent quantization selection (Q4_K_M by default)
@@ -1391,8 +1391,8 @@
 <a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>                  │
 <a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>┌─────────────────▼───────────────────────┐
 <a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>│  Ubuntu-Cuda-Llama.cpp-Executable       │
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>│  - Pre-built binary                     │
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>│  - CUDA 12.6 support                    │
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>│  - Pre-built binary (build 7489)        │
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>│  - CUDA 12.8 support                    │
 <a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>│  - Optimized for legacy GPUs            │
 <a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>└─────────────────┬───────────────────────┘
 <a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>                  │
@@ -1411,10 +1411,10 @@
 - Conversation history tracking
 - Error handling and recovery</p>
 <p><strong>2. Ubuntu-Cuda-Llama.cpp-Executable</strong>
-- Pre-compiled llama.cpp with CUDA support
-- Statically linked (no external dependencies)
-- Compiled with CUDA 12.6 for Ubuntu 22.04
-- Optimized build flags for legacy GPUs</p>
+- Pre-compiled llama.cpp with CUDA support (build 7489)
+- Shared libraries for flexibility
+- Compiled with CUDA 12.8 for Ubuntu 22.04
+- Optimized build flags for legacy GPUs with FlashAttention support</p>
 <p><strong>3. Model Management</strong>
 - Automatic GGUF model downloading
 - Smart quantization selection (Q4_K_M default)

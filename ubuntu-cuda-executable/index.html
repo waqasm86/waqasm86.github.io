@@ -1340,10 +1340,11 @@
 
 
 <h1 id="ubuntu-cuda-llamacpp-executable">Ubuntu-Cuda-Llama.cpp-Executable</h1>
-<p>Pre-built llama.cpp binary with CUDA 12.6 support for Ubuntu 22.04. The essential infrastructure that powers llcuda.</p>
+<p>Pre-built llama.cpp binary with CUDA 12.8 support for Ubuntu 22.04. The essential infrastructure that powers llcuda. <strong>Updated December 28, 2025</strong> - Build 7489.</p>
 <hr />
 <h2 id="overview">Overview</h2>
-<p><strong>Ubuntu-Cuda-Llama.cpp-Executable</strong> is a pre-compiled, statically-linked llama.cpp binary optimized for Ubuntu 22.04 with CUDA 12.6 support. It eliminates the need for users to compile llama.cpp themselves, removing a major barrier to entry for running LLMs on legacy GPUs.</p>
+<p><strong>Ubuntu-Cuda-Llama.cpp-Executable</strong> is a pre-compiled llama.cpp binary optimized for Ubuntu 22.04 with CUDA 12.8 support (build 7489). It eliminates the need for users to compile llama.cpp themselves, removing a major barrier to entry for running LLMs on legacy GPUs.</p>
+<p><strong>Latest Update (Dec 28, 2025)</strong>: Updated from build 6093 to build 7489 with critical CUDA bug fixes, performance improvements, and new features. Now uses shared libraries for better maintainability.</p>
 <p><strong>Repository</strong>: <a href="https://github.com/waqasm86/Ubuntu-Cuda-Llama.cpp-Executable">github.com/waqasm86/Ubuntu-Cuda-Llama.cpp-Executable</a></p>
 <hr />
 <h2 id="why-this-exists">Why This Exists</h2>
@@ -1369,11 +1370,12 @@
 <hr />
 <h2 id="features">Features</h2>
 <h3 id="zero-dependencies">Zero Dependencies</h3>
-<p>The binary is statically linked and includes:
-- CUDA runtime (12.6)
+<p>The distribution includes shared libraries for flexibility:
+- CUDA runtime (12.8)
 - cuBLAS library
-- All llama.cpp dependencies</p>
-<p><strong>No external libraries required.</strong></p>
+- All llama.cpp dependencies
+- Shared libraries (libggml-cuda.so, libllama.so, etc.)</p>
+<p><strong>Wrapper script handles library paths automatically.</strong></p>
 <h3 id="optimized-for-legacy-gpus">Optimized for Legacy GPUs</h3>
 <p>Compiled with:
 - Compute capability 5.0 (Maxwell architecture)
@@ -1391,39 +1393,43 @@
 <h2 id="technical-details">Technical Details</h2>
 <h3 id="compilation-flags">Compilation Flags</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cmake<span class="w"> </span>-B<span class="w"> </span>build<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span>-DLLAMA_CUDA<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span>-DLLAMA_CUDA_F16<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span>-DCMAKE_CUDA_ARCHITECTURES<span class="o">=</span><span class="m">50</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span>-DCUDA_TOOLKIT_ROOT_DIR<span class="o">=</span>/usr/local/cuda-12.6<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span>-DBUILD_SHARED_LIBS<span class="o">=</span>OFF
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"> </span>--config<span class="w"> </span>Release<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span>-DGGML_CUDA<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span>-DGGML_CUDA_FORCE_CUBLAS<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span>-DGGML_CUDA_FA<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span>-DGGML_CUDA_GRAPHS<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span>-DGGML_NATIVE<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span>-DGGML_OPENMP<span class="o">=</span>ON
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>cmake<span class="w"> </span>--build<span class="w"> </span>build<span class="w"> </span>--config<span class="w"> </span>Release<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</span>
 </code></pre></div>
 <p><strong>Key flags:</strong>
-- <code>LLAMA_CUDA=ON</code>: Enable CUDA support
-- <code>CMAKE_CUDA_ARCHITECTURES=50</code>: Maxwell architecture (compute 5.0)
-- <code>BUILD_SHARED_LIBS=OFF</code>: Static linking
-- <code>LLAMA_CUDA_F16=ON</code>: Half-precision support</p>
+- <code>GGML_CUDA=ON</code>: Enable CUDA support
+- <code>GGML_CUDA_FORCE_CUBLAS=ON</code>: Use cuBLAS for matrix operations
+- <code>GGML_CUDA_FA=ON</code>: Enable FlashAttention CUDA kernels
+- <code>GGML_CUDA_GRAPHS=ON</code>: Use CUDA graphs for efficiency
+- <code>GGML_NATIVE=ON</code>: Native CPU optimizations
+- <code>GGML_OPENMP=ON</code>: OpenMP multi-threading</p>
 <h3 id="build-environment">Build Environment</h3>
 <ul>
 <li><strong>OS</strong>: Ubuntu 22.04 LTS</li>
-<li><strong>CUDA</strong>: 12.6.68</li>
+<li><strong>CUDA</strong>: 12.8.61</li>
 <li><strong>GCC</strong>: 11.4.0</li>
-<li><strong>CMake</strong>: 3.22.1</li>
-<li><strong>llama.cpp</strong>: Latest stable release</li>
+<li><strong>CMake</strong>: 3.24+</li>
+<li><strong>llama.cpp</strong>: Build 7489 (commit 10b4f82d4, Dec 20, 2025)</li>
 </ul>
 <h3 id="binary-details">Binary Details</h3>
 <ul>
-<li><strong>Size</strong>: ~45MB (statically linked)</li>
+<li><strong>llama-server</strong>: 6.5MB (uses shared libraries)</li>
+<li><strong>llama-cli</strong>: 4.1MB (uses shared libraries)</li>
 <li><strong>Format</strong>: ELF 64-bit LSB executable</li>
 <li><strong>Architecture</strong>: x86-64</li>
-<li><strong>CUDA</strong>: Runtime 12.6 embedded</li>
-<li><strong>Dependencies</strong>: None (statically linked)</li>
+<li><strong>CUDA Library</strong>: libggml-cuda.so.0.9.4 (24MB)</li>
+<li><strong>Libraries</strong>: Shared libraries in lib/ directory</li>
 </ul>
-<p><strong>Verify static linking:</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ldd<span class="w"> </span>llama-cli
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># Output: not a dynamic executable</span>
+<p><strong>Check library dependencies:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ldd<span class="w"> </span>bin/llama-server<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;cuda|ggml&quot;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># Shows: libggml-cuda.so.0, libcudart.so.12, libcublas.so.12</span>
 </code></pre></div></p>
 <hr />
 <h2 id="usage">Usage</h2>
@@ -1632,8 +1638,8 @@
 - AMD GPUs (need ROCm build)
 - ARM processors (need ARM build)</p>
 <h3 id="cuda-version">CUDA Version</h3>
-<p>Binary includes CUDA 12.6 runtime. Requires:
-- <strong>NVIDIA driver 450.80.02 or newer</strong></p>
+<p>Binary includes CUDA 12.8 runtime. Requires:
+- <strong>NVIDIA driver 525.60.13 or newer</strong></p>
 <p>Most modern drivers satisfy this requirement.</p>
 <hr />
 <h2 id="troubleshooting">Troubleshooting</h2>
