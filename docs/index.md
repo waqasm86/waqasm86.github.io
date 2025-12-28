@@ -27,7 +27,7 @@ python -m llcuda
 
 ### Infrastructure: Ubuntu-Cuda-Llama.cpp-Executable
 
-The foundation of the llcuda ecosystem is a pre-built, statically-linked llama.cpp binary compiled for Ubuntu 22.04 with CUDA 12.6 support. This eliminates the need for users to compile llama.cpp themselves.
+The foundation of the llcuda ecosystem is a pre-built llama.cpp binary (build 7489) compiled for Ubuntu 22.04 with CUDA 12.8 support. This eliminates the need for users to compile llama.cpp themselves. **Updated December 28, 2025** with critical bug fixes and performance improvements.
 
 **Why This Matters:**
 
@@ -162,7 +162,7 @@ Python package for LLM inference on legacy NVIDIA GPUs. Zero-configuration insta
 #### Ubuntu-Cuda-Llama.cpp-Executable
 **[GitHub](https://github.com/waqasm86/Ubuntu-Cuda-Llama.cpp-Executable)**
 
-Pre-built llama.cpp binary for Ubuntu 22.04 with CUDA 12.6 support. The foundation that makes llcuda possible.
+Pre-built llama.cpp binary for Ubuntu 22.04 with CUDA 12.8 support (build 7489). The foundation that makes llcuda possible. **Updated Dec 28, 2025**.
 
 [View documentation &rarr;](/ubuntu-cuda-executable/)
 
@@ -186,7 +186,7 @@ Pre-built llama.cpp binary for Ubuntu 22.04 with CUDA 12.6 support. The foundati
 **Hardware Testing:**
 - GeForce 940M (1GB VRAM, Maxwell architecture)
 - Ubuntu 22.04 LTS
-- CUDA 12.6
+- CUDA 12.8 (build 7489)
 
 ---
 

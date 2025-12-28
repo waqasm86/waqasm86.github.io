@@ -43,7 +43,7 @@ Python package that brings LLM inference to old NVIDIA GPUs with zero configurat
 
 **[GitHub](https://github.com/waqasm86/Ubuntu-Cuda-Llama.cpp-Executable)** | **[Documentation](/ubuntu-cuda-executable/)**
 
-Pre-built llama.cpp binary with CUDA 12.6 support for Ubuntu 22.04. The infrastructure that makes llcuda possible.
+Pre-built llama.cpp binary with CUDA 12.8 support for Ubuntu 22.04 (build 7489). The infrastructure that makes llcuda possible. Updated December 28, 2025.
 
 **Key Achievements:**
 - Eliminated compilation requirement for llama.cpp

@@ -38,7 +38,7 @@ Empirical performance data for llcuda on real hardware. All benchmarks conducted
 - OS: Ubuntu 22.04 LTS
 - Kernel: 5.15.0
 - NVIDIA Driver: 535.183.01
-- CUDA: 12.6 (via pre-built binary)
+- CUDA: 12.8 (via pre-built binary, build 7489)
 
 ### Secondary Test Systems
 

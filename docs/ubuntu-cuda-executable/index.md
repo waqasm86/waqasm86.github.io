@@ -1,12 +1,14 @@
 # Ubuntu-Cuda-Llama.cpp-Executable
 
-Pre-built llama.cpp binary with CUDA 12.6 support for Ubuntu 22.04. The essential infrastructure that powers llcuda.
+Pre-built llama.cpp binary with CUDA 12.8 support for Ubuntu 22.04. The essential infrastructure that powers llcuda. **Updated December 28, 2025** - Build 7489.
 
 ---
 
 ## Overview
 
-**Ubuntu-Cuda-Llama.cpp-Executable** is a pre-compiled, statically-linked llama.cpp binary optimized for Ubuntu 22.04 with CUDA 12.6 support. It eliminates the need for users to compile llama.cpp themselves, removing a major barrier to entry for running LLMs on legacy GPUs.
+**Ubuntu-Cuda-Llama.cpp-Executable** is a pre-compiled llama.cpp binary optimized for Ubuntu 22.04 with CUDA 12.8 support (build 7489). It eliminates the need for users to compile llama.cpp themselves, removing a major barrier to entry for running LLMs on legacy GPUs.
+
+**Latest Update (Dec 28, 2025)**: Updated from build 6093 to build 7489 with critical CUDA bug fixes, performance improvements, and new features. Now uses shared libraries for better maintainability.
 
 **Repository**: [github.com/waqasm86/Ubuntu-Cuda-Llama.cpp-Executable](https://github.com/waqasm86/Ubuntu-Cuda-Llama.cpp-Executable)
 
@@ -44,12 +46,13 @@ A pre-built binary that:
 
 ### Zero Dependencies
 
-The binary is statically linked and includes:
-- CUDA runtime (12.6)
+The distribution includes shared libraries for flexibility:
+- CUDA runtime (12.8)
 - cuBLAS library
 - All llama.cpp dependencies
+- Shared libraries (libggml-cuda.so, libllama.so, etc.)
 
-**No external libraries required.**
+**Wrapper script handles library paths automatically.**
 
 ### Optimized for Legacy GPUs
 
@@ -76,42 +79,46 @@ Verified working on:
 
 ```bash
 cmake -B build \
-  -DLLAMA_CUDA=ON \
-  -DLLAMA_CUDA_F16=ON \
-  -DCMAKE_CUDA_ARCHITECTURES=50 \
-  -DCUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda-12.6 \
   -DCMAKE_BUILD_TYPE=Release \
-  -DBUILD_SHARED_LIBS=OFF
+  -DGGML_CUDA=ON \
+  -DGGML_CUDA_FORCE_CUBLAS=ON \
+  -DGGML_CUDA_FA=ON \
+  -DGGML_CUDA_GRAPHS=ON \
+  -DGGML_NATIVE=ON \
+  -DGGML_OPENMP=ON
 
 cmake --build build --config Release -j$(nproc)
 ```
 
 **Key flags:**
-- `LLAMA_CUDA=ON`: Enable CUDA support
-- `CMAKE_CUDA_ARCHITECTURES=50`: Maxwell architecture (compute 5.0)
-- `BUILD_SHARED_LIBS=OFF`: Static linking
-- `LLAMA_CUDA_F16=ON`: Half-precision support
+- `GGML_CUDA=ON`: Enable CUDA support
+- `GGML_CUDA_FORCE_CUBLAS=ON`: Use cuBLAS for matrix operations
+- `GGML_CUDA_FA=ON`: Enable FlashAttention CUDA kernels
+- `GGML_CUDA_GRAPHS=ON`: Use CUDA graphs for efficiency
+- `GGML_NATIVE=ON`: Native CPU optimizations
+- `GGML_OPENMP=ON`: OpenMP multi-threading
 
 ### Build Environment
 
 - **OS**: Ubuntu 22.04 LTS
-- **CUDA**: 12.6.68
+- **CUDA**: 12.8.61
 - **GCC**: 11.4.0
-- **CMake**: 3.22.1
-- **llama.cpp**: Latest stable release
+- **CMake**: 3.24+
+- **llama.cpp**: Build 7489 (commit 10b4f82d4, Dec 20, 2025)
 
 ### Binary Details
 
-- **Size**: ~45MB (statically linked)
+- **llama-server**: 6.5MB (uses shared libraries)
+- **llama-cli**: 4.1MB (uses shared libraries)
 - **Format**: ELF 64-bit LSB executable
 - **Architecture**: x86-64
-- **CUDA**: Runtime 12.6 embedded
-- **Dependencies**: None (statically linked)
+- **CUDA Library**: libggml-cuda.so.0.9.4 (24MB)
+- **Libraries**: Shared libraries in lib/ directory
 
-**Verify static linking:**
+**Check library dependencies:**
 ```bash
-ldd llama-cli
-# Output: not a dynamic executable
+ldd bin/llama-server | grep -E "cuda|ggml"
+# Shows: libggml-cuda.so.0, libcudart.so.12, libcublas.so.12
 ```
 
 ---
@@ -363,8 +370,8 @@ This binary is built specifically for:
 
 ### CUDA Version
 
-Binary includes CUDA 12.6 runtime. Requires:
-- **NVIDIA driver 450.80.02 or newer**
+Binary includes CUDA 12.8 runtime. Requires:
+- **NVIDIA driver 525.60.13 or newer**
 
 Most modern drivers satisfy this requirement.
 

@@ -39,7 +39,7 @@ python -m llcuda
 That's it. No compilation. No CUDA toolkit. No configuration. It just works.
 
 **How?**
-- Pre-built llama.cpp binaries with CUDA 12.6 support
+- Pre-built llama.cpp binaries with CUDA 12.8 support (build 7489)
 - Automatic model downloading from Hugging Face
 - Optimized for low-VRAM GPUs (tested on 1GB)
 - Intelligent quantization selection (Q4_K_M by default)
@@ -119,8 +119,8 @@ Every performance claim is backed by real measurements on real hardware.
                   │
 ┌─────────────────▼───────────────────────┐
 │  Ubuntu-Cuda-Llama.cpp-Executable       │
-│  - Pre-built binary                     │
-│  - CUDA 12.6 support                    │
+│  - Pre-built binary (build 7489)        │
+│  - CUDA 12.8 support                    │
 │  - Optimized for legacy GPUs            │
 └─────────────────┬───────────────────────┘
                   │
@@ -142,10 +142,10 @@ Every performance claim is backed by real measurements on real hardware.
 - Error handling and recovery
 
 **2. Ubuntu-Cuda-Llama.cpp-Executable**
-- Pre-compiled llama.cpp with CUDA support
-- Statically linked (no external dependencies)
-- Compiled with CUDA 12.6 for Ubuntu 22.04
-- Optimized build flags for legacy GPUs
+- Pre-compiled llama.cpp with CUDA support (build 7489)
+- Shared libraries for flexibility
+- Compiled with CUDA 12.8 for Ubuntu 22.04
+- Optimized build flags for legacy GPUs with FlashAttention support
 
 **3. Model Management**
 - Automatic GGUF model downloading
