@@ -1,445 +1,317 @@
 # Quick Start Guide
 
-Get llcuda running in under 5 minutes. This guide assumes you have Ubuntu 22.04 and an NVIDIA GPU.
-
----
-
-## Prerequisites Check
-
-Before installation, verify your system meets the requirements:
-
-```bash
-# Check if you have an NVIDIA GPU
-lspci | grep -i nvidia
-
-# Check CUDA compute capability (should be 5.0+)
-nvidia-smi
-
-# Check Python version (need 3.8+)
-python3 --version
-```
-
-!!! success "System Requirements Met?"
-    If all commands above work, you're ready to install llcuda!
+Get llcuda v1.0.0 running in under 5 minutes.
 
 ---
 
 ## Installation (30 seconds)
 
-Install llcuda via pip:
-
 ```bash
 pip install llcuda
 ```
 
-That's it. No compilation, no CUDA toolkit, no configuration files.
-
-??? question "Installation Failed?"
-    See the [Installation Guide](/llcuda/installation/) for troubleshooting.
+That's it. All CUDA binaries and libraries are bundled in the package.
 
 ---
 
-## First Run: Interactive Chat (2 minutes)
-
-Launch the interactive chat interface:
-
-```bash
-python -m llcuda
-```
-
-**What happens on first run:**
-1. llcuda detects your GPU
-2. Downloads Gemma 2 2B model (~1.4GB) from Hugging Face
-3. Loads model into GPU memory
-4. Starts interactive chat
-
-**First download takes 2-3 minutes on typical internet. Subsequent runs start instantly.**
-
-??? info "Model Download Location"
-    Models are cached in `~/.cache/llcuda/models/`. You won't need to download again.
-
----
-
-## Your First Conversation
-
-Once the model loads, you'll see:
-
-```
-llcuda v0.1.0 - LLM Inference on Legacy GPUs
-Loaded: gemma-2-2b-it (Q4_K_M)
-GPU: GeForce 940M (1GB VRAM)
-
-Type your message (or 'quit' to exit):
->
-```
-
-Try asking a question:
-
-```
-> Explain quantum computing in simple terms
-```
-
-The model will generate a response at ~15 tokens/second on GeForce 940M.
-
-**Tips:**
-- Type `quit` or `exit` to close
-- Press Ctrl+C to interrupt generation
-- Each message maintains conversation context
-
----
-
-## Using llcuda in Python (1 minute)
-
-Create a Python file `test_llcuda.py`:
+## Basic Usage (2 minutes)
 
 ```python
-from llcuda import LLM
+import llcuda
 
-# Initialize LLM (downloads model on first run)
-llm = LLM()
+# Create inference engine (auto-detects GPU)
+engine = llcuda.InferenceEngine()
 
-# Ask a question
-response = llm.chat("What is machine learning?")
-print(response)
+# Load model (auto-downloads from HuggingFace)
+engine.load_model("gemma-3-1b-Q4_K_M")
+
+# Run inference
+result = engine.infer("What is artificial intelligence?", max_tokens=100)
+
+# Display results
+print(result.text)
+print(f"Speed: {result.tokens_per_sec:.1f} tok/s")
 ```
 
-Run it:
-
-```bash
-python test_llcuda.py
+**Output**:
 ```
+Artificial intelligence (AI) is the simulation of human intelligence
+in machines that are programmed to think and learn like humans...
 
-**Output:**
-```
-Machine learning is a type of artificial intelligence where computers
-learn from data without being explicitly programmed. Instead of following
-rigid rules, ML systems find patterns in data and make predictions...
+Speed: 15.2 tok/s
 ```
 
 ---
 
-## JupyterLab Integration (30 seconds)
+## List Available Models
 
-llcuda works perfectly in Jupyter notebooks:
+llcuda v1.0.0 includes 11 curated models in the registry:
 
 ```python
-# Cell 1: Import and initialize
-from llcuda import LLM
-llm = LLM()
+from llcuda.models import list_registry_models
 
-# Cell 2: Interactive chat
-response = llm.chat("Explain gradient descent")
-print(response)
+models = list_registry_models()
 
-# Cell 3: Follow-up question (maintains context)
-response = llm.chat("Give me a Python example")
-print(response)
+for name, info in models.items():
+    print(f"{name}: {info['description']}")
+    print(f"  Size: {info['size_mb']} MB, Min VRAM: {info['min_vram_gb']} GB\n")
 ```
 
-The LLM maintains conversation context across cells, perfect for iterative development.
+**Output**:
+```
+tinyllama-1.1b-Q5_K_M: TinyLlama 1.1B Chat (fastest option)
+  Size: 800 MB, Min VRAM: 1 GB
+
+gemma-3-1b-Q4_K_M: Google Gemma 3 1B (recommended for 1GB VRAM)
+  Size: 700 MB, Min VRAM: 1 GB
+
+llama-3.2-1b-Q4_K_M: Meta Llama 3.2 1B Instruct
+  Size: 750 MB, Min VRAM: 1 GB
+
+...
+```
 
 ---
 
-## Common Use Cases
-
-### Simple Q&A
+## Check System Info
 
 ```python
-from llcuda import LLM
+import llcuda
 
-llm = LLM()
-answer = llm.chat("What is the capital of France?")
-print(answer)
+# Print comprehensive system information
+llcuda.print_system_info()
 ```
 
-### Code Generation
+**Output**:
+```
+=== llcuda System Information ===
+llcuda version: 1.0.0
+Python version: 3.11.0
 
-```python
-from llcuda import LLM
+=== CUDA Information ===
+CUDA Available: Yes
+CUDA Version: 12.8
 
-llm = LLM()
-code = llm.chat("Write a Python function to calculate factorial")
-print(code)
+GPU 0: GeForce 940M
+  Memory: 1024 MB
+  Driver: 535.183.01
+  Compute Capability: 5.0
+
+=== llama-server ===
+Path: /home/user/.local/lib/python3.11/site-packages/llcuda/bin/llama-server
+Status: Auto-configured (bundled)
 ```
 
-### Multi-Turn Conversation
+---
+
+## Interactive Conversation
 
 ```python
-from llcuda import LLM
+import llcuda
 
-llm = LLM()
+engine = llcuda.InferenceEngine()
+engine.load_model("gemma-3-1b-Q4_K_M")
 
-# Context is maintained across calls
-llm.chat("My name is Alice and I'm learning Python")
-llm.chat("What topics should I focus on?")
-response = llm.chat("What was my name?")  # Remembers "Alice"
-print(response)
+# Multi-turn conversation
+prompts = [
+    "What is machine learning?",
+    "How does it differ from traditional programming?",
+    "Give me a practical example"
+]
+
+for prompt in prompts:
+    result = engine.infer(prompt, max_tokens=80)
+    print(f"Q: {prompt}")
+    print(f"A: {result.text}\n")
 ```
 
-### Data Analysis Helper
+---
+
+## Batch Inference
+
+Process multiple prompts efficiently:
 
 ```python
+import llcuda
+
+engine = llcuda.InferenceEngine()
+engine.load_model("gemma-3-1b-Q4_K_M")
+
+prompts = [
+    "Explain neural networks",
+    "What is deep learning?",
+    "Describe natural language processing"
+]
+
+results = engine.batch_infer(prompts, max_tokens=50)
+
+for prompt, result in zip(prompts, results):
+    print(f"Q: {prompt}")
+    print(f"A: {result.text}")
+    print(f"Speed: {result.tokens_per_sec:.1f} tok/s\n")
+```
+
+---
+
+## Performance Metrics
+
+Get detailed P50/P95/P99 latency statistics:
+
+```python
+import llcuda
+
+engine = llcuda.InferenceEngine()
+engine.load_model("gemma-3-1b-Q4_K_M")
+
+# Run some inferences
+for i in range(10):
+    engine.infer("Hello, how are you?", max_tokens=20)
+
+# Get metrics
+metrics = engine.get_metrics()
+
+print("Latency Statistics:")
+print(f"  Mean: {metrics['latency']['mean_ms']:.2f} ms")
+print(f"  p50:  {metrics['latency']['p50_ms']:.2f} ms")
+print(f"  p95:  {metrics['latency']['p95_ms']:.2f} ms")
+print(f"  p99:  {metrics['latency']['p99_ms']:.2f} ms")
+
+print("\nThroughput:")
+print(f"  Total Tokens: {metrics['throughput']['total_tokens']}")
+print(f"  Tokens/sec: {metrics['throughput']['tokens_per_sec']:.2f}")
+```
+
+---
+
+## Using Local GGUF Files
+
+You can also use local GGUF model files:
+
+```python
+import llcuda
+
+engine = llcuda.InferenceEngine()
+
+# Find local GGUF models
+models = llcuda.find_gguf_models()
+
+if models:
+    print(f"Found {len(models)} local GGUF models")
+    # Use first model found
+    engine.load_model(str(models[0]))
+else:
+    # Fall back to registry
+    engine.load_model("gemma-3-1b-Q4_K_M")
+```
+
+---
+
+## Context Manager Usage
+
+Use llcuda with Python context managers for automatic cleanup:
+
+```python
+import llcuda
+
+# Context manager handles cleanup automatically
+with llcuda.InferenceEngine() as engine:
+    engine.load_model("gemma-3-1b-Q4_K_M")
+
+    result = engine.infer("Explain quantum computing", max_tokens=80)
+    print(result.text)
+
+# Engine automatically cleaned up after context exit
+print("Resources cleaned up")
+```
+
+---
+
+## Temperature Comparison
+
+Compare outputs with different temperature settings:
+
+```python
+import llcuda
+
+engine = llcuda.InferenceEngine()
+engine.load_model("gemma-3-1b-Q4_K_M")
+
+prompt = "Write a creative opening for a science fiction story"
+temperatures = [0.3, 0.7, 1.2]
+
+for temp in temperatures:
+    result = engine.infer(prompt, temperature=temp, max_tokens=60)
+    print(f"\nTemperature {temp}:")
+    print(result.text)
+```
+
+---
+
+## JupyterLab Integration
+
+llcuda works seamlessly in Jupyter notebooks:
+
+```python
+import llcuda
 import pandas as pd
-from llcuda import LLM
 
-df = pd.read_csv("sales.csv")
+# Create engine
+engine = llcuda.InferenceEngine()
+engine.load_model("gemma-3-1b-Q4_K_M")
+
+# Analyze data with LLM
+df = pd.read_csv("data.csv")
 summary = df.describe().to_string()
 
-llm = LLM()
-analysis = llm.chat(f"Analyze this sales data:\n{summary}")
-print(analysis)
+analysis = engine.infer(f"Analyze this data:\n{summary}", max_tokens=150)
+print(analysis.text)
 ```
 
----
-
-## Choosing a Different Model
-
-By default, llcuda uses Gemma 2 2B. You can specify a different model:
-
-### Llama 3.2 1B (Faster)
-
-```python
-from llcuda import LLM
-
-llm = LLM(model="llama-3.2-1b-instruct")
-response = llm.chat("Hello!")
-```
-
-**Performance**: ~18 tok/s on GeForce 940M (faster but less capable)
-
-### Qwen 2.5 0.5B (Ultra-Fast)
-
-```python
-from llcuda import LLM
-
-llm = LLM(model="qwen-2.5-0.5b-instruct")
-response = llm.chat("Hello!")
-```
-
-**Performance**: ~25 tok/s on GeForce 940M (fastest but basic)
-
-### Custom Model from Hugging Face
-
-```python
-from llcuda import LLM
-
-llm = LLM(
-    model="TheBloke/Mistral-7B-Instruct-v0.2-GGUF",
-    model_file="mistral-7b-instruct-v0.2.Q4_K_M.gguf"
-)
-```
-
-!!! warning "VRAM Limitations"
-    For 1GB VRAM GPUs, stick to ≤2B parameter models with Q4_K_M quantization.
-
----
-
-## Performance Expectations
-
-On **GeForce 940M (1GB VRAM)**:
-
-| Model | Speed | Quality | Use Case |
-|-------|-------|---------|----------|
-| Gemma 2 2B | ~15 tok/s | High | General chat, code |
-| Llama 3.2 1B | ~18 tok/s | Medium | Fast responses |
-| Qwen 2.5 0.5B | ~25 tok/s | Basic | Simple tasks |
-
-**What does ~15 tok/s feel like?**
-- A 100-word response takes ~8 seconds
-- Interactive enough for real-time chat
-- Much faster than human reading speed
-
-[View detailed benchmarks &rarr;](/llcuda/performance/)
-
----
-
-## Configuration Options
-
-llcuda works with zero configuration, but you can customize:
-
-### Basic Options
-
-```python
-from llcuda import LLM
-
-llm = LLM(
-    model="gemma-2-2b-it",          # Model name
-    max_tokens=512,                  # Max response length
-    temperature=0.7,                 # Randomness (0-1)
-    context_length=2048,             # Context window size
-    gpu_layers=32,                   # Layers on GPU (auto-detected)
-)
-```
-
-### Advanced Options
-
-```python
-from llcuda import LLM
-
-llm = LLM(
-    model="gemma-2-2b-it",
-    max_tokens=1024,
-    temperature=0.8,
-    top_p=0.9,                       # Nucleus sampling
-    top_k=40,                        # Top-K sampling
-    repeat_penalty=1.1,              # Penalize repetition
-    verbose=True,                    # Show generation stats
-)
-```
-
----
-
-## Verifying Your Setup
-
-Run this verification script to confirm everything works:
-
-```python
-from llcuda import LLM
-import time
-
-print("llcuda Verification Script")
-print("-" * 40)
-
-# Initialize
-print("1. Initializing LLM...")
-start = time.time()
-llm = LLM(model="gemma-2-2b-it")
-print(f"   ✓ Loaded in {time.time() - start:.1f}s")
-
-# Test inference
-print("\n2. Testing inference...")
-start = time.time()
-response = llm.chat("Say 'Hello World' and nothing else")
-elapsed = time.time() - start
-tokens = len(response.split())
-print(f"   ✓ Generated {tokens} tokens in {elapsed:.1f}s")
-print(f"   ✓ Speed: ~{tokens/elapsed:.1f} tok/s")
-
-# Test context
-print("\n3. Testing context retention...")
-llm.chat("Remember this number: 42")
-response = llm.chat("What number did I tell you to remember?")
-if "42" in response:
-    print("   ✓ Context maintained")
-else:
-    print("   ✗ Context not maintained")
-
-print("\n" + "=" * 40)
-print("Verification complete! llcuda is working.")
-```
-
-**Expected output:**
-```
-llcuda Verification Script
-----------------------------------------
-1. Initializing LLM...
-   ✓ Loaded in 2.3s
-
-2. Testing inference...
-   ✓ Generated 4 tokens in 0.3s
-   ✓ Speed: ~13.3 tok/s
-
-3. Testing context retention...
-   ✓ Context maintained
-
-========================================
-Verification complete! llcuda is working.
-```
-
----
-
-## Troubleshooting Quick Fixes
-
-### "CUDA out of memory"
-
-Your GPU ran out of VRAM. Solutions:
-
-```python
-# Use a smaller model
-llm = LLM(model="llama-3.2-1b-instruct")
-
-# Or reduce context length
-llm = LLM(context_length=1024)
-
-# Or offload some layers to CPU (slower)
-llm = LLM(gpu_layers=16)  # Default is auto
-```
-
-### "Model download failed"
-
-Check your internet connection and retry:
-
-```python
-from llcuda import LLM
-
-# Force re-download
-llm = LLM(model="gemma-2-2b-it", force_download=True)
-```
-
-### "Slow generation speed"
-
-If you're getting <5 tok/s, the model might be using CPU instead of GPU:
-
-```bash
-# Verify GPU is detected
-nvidia-smi
-
-# Check llcuda is using GPU
-python -c "from llcuda import LLM; llm = LLM(verbose=True)"
-# Should show "Using GPU: GeForce XXX"
-```
-
-For more troubleshooting: [Installation Guide](/llcuda/installation/#troubleshooting)
+See the complete [JupyterLab example notebook](https://github.com/waqasm86/llcuda/blob/main/examples/quickstart_jupyterlab.ipynb).
 
 ---
 
 ## Next Steps
 
-Now that llcuda is working, explore:
-
-1. **[Installation Guide](/llcuda/installation/)** - Deep dive into setup and troubleshooting
-2. **[Performance Guide](/llcuda/performance/)** - Optimize for your GPU
-3. **[Examples](/llcuda/examples/)** - Production-ready code samples
-4. **[Full Documentation](/llcuda/)** - Complete API reference
+- **[Installation Guide](/llcuda/installation/)** - Detailed setup and troubleshooting
+- **[Performance Guide](/llcuda/performance/)** - Benchmarks and optimization tips
+- **[Examples](/llcuda/examples/)** - Production-ready code samples
+- **[GitHub](https://github.com/waqasm86/llcuda)** - Source code and issues
 
 ---
 
-## Quick Reference
+## Common Questions
 
-### Installation
-```bash
-pip install llcuda
-```
+### Which model should I use?
 
-### Interactive Chat
-```bash
-python -m llcuda
-```
+For 1GB VRAM: `gemma-3-1b-Q4_K_M` (recommended) or `tinyllama-1.1b-Q5_K_M` (faster)
 
-### Basic Python Usage
+For 2GB+ VRAM: `phi-3-mini-Q4_K_M` (best for code) or `llama-3.2-3b-Q4_K_M`
+
+### How do I change GPU layers?
+
+llcuda auto-configures based on your VRAM, but you can override:
+
 ```python
-from llcuda import LLM
-llm = LLM()
-response = llm.chat("Your question here")
+engine.load_model("gemma-3-1b-Q4_K_M", gpu_layers=30)  # More GPU offloading
 ```
 
-### Different Models
+### Can I use my own GGUF models?
+
+Yes, either use local files:
+
 ```python
-llm = LLM(model="llama-3.2-1b-instruct")  # Faster
-llm = LLM(model="qwen-2.5-0.5b-instruct") # Ultra-fast
-llm = LLM(model="gemma-2-2b-it")          # Default, best quality
+engine.load_model("/path/to/model.gguf")
 ```
 
-### Common Options
+Or HuggingFace models:
+
 ```python
-llm = LLM(
-    model="gemma-2-2b-it",
-    max_tokens=512,
-    temperature=0.7,
-    verbose=True
-)
+engine.load_model("author/repo-name", model_filename="model.gguf")
 ```
 
----
+### How do I unload a model?
 
-**You're all set! Start building with llcuda.**
+```python
+engine.unload_model()  # Stops server and frees resources
+```
