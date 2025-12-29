@@ -1,13 +1,17 @@
 # Quick Start Guide
 
-Get llcuda v1.0.0 running in under 5 minutes.
+Get llcuda v1.0.1 running in under 5 minutes.
 
 ---
 
 ## Installation (30 seconds)
 
 ```bash
-pip install llcuda
+# Install or upgrade to latest version
+pip install --upgrade llcuda
+
+# Or install specific version
+pip install llcuda==1.0.1
 ```
 
 That's it. All CUDA binaries and libraries are bundled in the package.
@@ -45,7 +49,7 @@ Speed: 15.2 tok/s
 
 ## List Available Models
 
-llcuda v1.0.0 includes 11 curated models in the registry:
+llcuda v1.0.1 includes 11 curated models in the registry:
 
 ```python
 from llcuda.models import list_registry_models
@@ -85,7 +89,7 @@ llcuda.print_system_info()
 **Output**:
 ```
 === llcuda System Information ===
-llcuda version: 1.0.0
+llcuda version: 1.0.1
 Python version: 3.11.0
 
 === CUDA Information ===

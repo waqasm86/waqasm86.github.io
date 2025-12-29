@@ -1,4 +1,4 @@
-# llcuda v1.0.0: PyTorch-Style CUDA LLM Inference
+# llcuda v1.0.1: PyTorch-Style CUDA LLM Inference
 
 **Zero-configuration CUDA-accelerated LLM inference for Python with bundled binaries, smart model loading, and hardware auto-configuration.**
 
@@ -8,7 +8,7 @@
 
 ---
 
-## What is llcuda v1.0.0?
+## What is llcuda v1.0.1?
 
 A **PyTorch-style Python package** that makes LLM inference on legacy NVIDIA GPUs as easy as:
 
@@ -29,7 +29,7 @@ print(result.text)
 
 ---
 
-## Key Features - v1.0.0
+## Key Features - v1.0.1
 
 ### 1. Zero Configuration
 
@@ -123,7 +123,7 @@ Not a GitHub experiment - a maintained package with semantic versioning.
 
 ## Performance Benchmarks
 
-All benchmarks on **GeForce 940M (1GB VRAM, 384 CUDA cores, Maxwell architecture)**, Ubuntu 22.04, llcuda v1.0.0.
+All benchmarks on **GeForce 940M (1GB VRAM, 384 CUDA cores, Maxwell architecture)**, Ubuntu 22.04, llcuda v1.0.1.
 
 ### Gemma 3 1B Q4_K_M (Recommended)
 
@@ -157,7 +157,11 @@ Memory Usage: ~800MB VRAM
 ### Installation (30 seconds)
 
 ```bash
-pip install llcuda
+# Install or upgrade to latest version
+pip install --upgrade llcuda
+
+# Or install specific version
+pip install llcuda==1.0.1
 ```
 
 That's it. All binaries and libraries included.
@@ -204,11 +208,43 @@ for prompt in prompts:
 
 ---
 
-## What's New in v1.0.0
+## What's New in v1.0.1
+
+### Bug Fixes from v1.0.0
+
+llcuda v1.0.1 fixes critical issues for low-VRAM GPUs:
+
+**Fixed Issues**:
+1. **Invalid `--n-batch` parameter** - Server crashed with parameter mapping error
+2. **Shared library loading failure** - `libmtmd.so.0` not found
+3. **Wrong parameter names** - `n_batch` and `n_ubatch` now correctly use `batch_size` and `ubatch_size`
+
+**API Changes**:
+- Use `batch_size` instead of `n_batch`
+- Use `ubatch_size` instead of `n_ubatch`
+- Automatic `LD_LIBRARY_PATH` configuration
+
+**Before (v1.0.0 - BROKEN)**:
+```python
+engine.load_model("gemma-3-1b-Q4_K_M", n_batch=128, n_ubatch=64)
+# ✗ ERROR: invalid argument --n-batch
+```
+
+**After (v1.0.1 - FIXED)**:
+```python
+engine.load_model("gemma-3-1b-Q4_K_M", batch_size=128, ubatch_size=64)
+# ✓ Works correctly
+```
+
+[View v1.0.1 changelog →](https://github.com/waqasm86/llcuda/blob/main/CHANGELOG.md#v101---2025-12-29)
+
+---
+
+## What Was New in v1.0.0
 
 ### Breaking Changes from v0.3.0
 
-llcuda v1.0.0 is a **major rewrite** with significant improvements:
+llcuda v1.0.0 was a **major rewrite** with significant improvements:
 
 **Before (v0.3.0)**:
 ```python
@@ -405,7 +441,7 @@ Ready to run LLMs on your old GPU?
 
 - **PyPI**: [pypi.org/project/llcuda](https://pypi.org/project/llcuda/)
 - **GitHub**: [github.com/waqasm86/llcuda](https://github.com/waqasm86/llcuda)
-- **GitHub Release**: [v1.0.0](https://github.com/waqasm86/llcuda/releases/tag/v1.0.0)
+- **Latest Release**: [v1.0.1](https://github.com/waqasm86/llcuda/releases/tag/v1.0.1)
 - **Documentation**: [waqasm86.github.io/llcuda](https://waqasm86.github.io/llcuda/)
 
 ---

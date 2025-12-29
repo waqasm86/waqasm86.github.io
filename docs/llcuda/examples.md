@@ -1,6 +1,6 @@
 # Code Examples
 
-Production-ready code samples for llcuda v1.0.0. All examples tested on GeForce 940M (1GB VRAM).
+Production-ready code samples for llcuda v1.0.1. All examples tested on GeForce 940M (1GB VRAM).
 
 ---
 

@@ -1,6 +1,6 @@
 # Performance Benchmarks
 
-Real-world benchmarks on actual hardware running llcuda v1.0.0.
+Real-world benchmarks on actual hardware running llcuda v1.0.1.
 
 ---
 
@@ -8,7 +8,7 @@ Real-world benchmarks on actual hardware running llcuda v1.0.0.
 
 **Hardware**: GeForce 940M (1GB VRAM, 384 CUDA cores, Maxwell architecture)
 **OS**: Ubuntu 22.04 LTS
-**llcuda**: v1.0.0
+**llcuda**: v1.0.1
 **CUDA**: 12.8 (bundled)
 
 ---

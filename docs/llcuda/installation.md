@@ -1,13 +1,17 @@
 # Installation Guide
 
-Complete installation instructions for llcuda v1.0.0.
+Complete installation instructions for llcuda v1.0.1.
 
 ---
 
 ## Quick Install
 
 ```bash
-pip install llcuda
+# Install or upgrade to latest version
+pip install --upgrade llcuda
+
+# Or install specific version
+pip install llcuda==1.0.1
 ```
 
 That's it! All CUDA binaries and libraries are bundled in the 47 MB wheel.
@@ -60,7 +64,8 @@ You should see your GPU listed. If not, install NVIDIA drivers first.
 ### 2. Install llcuda
 
 ```bash
-pip install llcuda
+# Install latest version
+pip install --upgrade llcuda
 ```
 
 ### 3. Verify Installation
