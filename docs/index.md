@@ -8,33 +8,33 @@
 
 Making large language models accessible on legacy hardware through empirical engineering and zero-configuration design.
 
-### Featured Project: llcuda
+### Featured Project: llcuda v1.0.0
 
-**[llcuda on PyPI](https://pypi.org/project/llcuda/)** is a Python package that brings LLM inference to old NVIDIA GPUs with minimal setup. Built specifically for Ubuntu 22.04 and tested extensively on GeForce 940M (1GB VRAM).
+**[llcuda on PyPI](https://pypi.org/project/llcuda/)** is a PyTorch-style Python package that brings LLM inference to old NVIDIA GPUs with zero configuration. Built for Ubuntu 22.04 with bundled CUDA 12.8 binaries and tested extensively on GeForce 940M (1GB VRAM).
 
 ```bash
 pip install llcuda
-python -m llcuda
+```
+
+```python
+import llcuda
+
+engine = llcuda.InferenceEngine()
+engine.load_model("gemma-3-1b-Q4_K_M")  # Auto-downloads from HuggingFace
+result = engine.infer("What is AI?")
+print(result.text)
 ```
 
 **Key Features:**
 
-- **Zero Configuration**: Works out of the box on Ubuntu 22.04
-- **Legacy GPU Support**: Optimized for GPUs with 1GB VRAM (GeForce 940M tested)
-- **Production Ready**: Published to PyPI with comprehensive testing
-- **JupyterLab Integration**: First-class support for notebook workflows
-- **Empirical Performance**: ~15 tokens/second with Gemma 2 2B Q4_K_M on GeForce 940M
-
-### Infrastructure: Ubuntu-Cuda-Llama.cpp-Executable
-
-The foundation of the llcuda ecosystem is a pre-built llama.cpp binary (build 7489) compiled for Ubuntu 22.04 with CUDA 12.8 support. This eliminates the need for users to compile llama.cpp themselves. **Updated December 28, 2025** with critical bug fixes and performance improvements.
-
-**Why This Matters:**
-
-- No compilation required
-- No CUDA toolkit installation needed
-- No dependency hell
-- Just download and run
+- **Zero Configuration**: No manual path setup, no LLAMA_SERVER_PATH needed
+- **Bundled Binaries**: All CUDA 12.8 binaries and libraries included (47 MB wheel)
+- **Smart Model Loading**: Auto-download from HuggingFace registry with user confirmation
+- **Hardware Auto-Config**: Detects VRAM and optimizes settings automatically
+- **11 Curated Models**: Ready to use out of the box
+- **Performance Metrics**: P50/P95/P99 latency tracking built-in
+- **Production Ready**: Published to PyPI, works like PyTorch
+- **Empirical Performance**: ~15 tokens/second with Gemma 3 1B Q4_K_M on GeForce 940M
 
 ---
 
@@ -54,17 +54,35 @@ I build tools that **actually work** on real hardware people own. No assumptions
 
 ## Performance Data
 
-All benchmarks run on **GeForce 940M (1GB VRAM, 384 CUDA cores, Maxwell architecture)** on Ubuntu 22.04.
+All benchmarks run on **GeForce 940M (1GB VRAM, 384 CUDA cores, Maxwell architecture)** on Ubuntu 22.04 with llcuda v1.0.0.
 
-### Gemma 2 2B Q4_K_M
+### Gemma 3 1B Q4_K_M
 
 ```
-Model: google/gemma-2-2b-it (Q4_K_M quantization)
+Model: google/gemma-3-1b-it (Q4_K_M quantization)
 Hardware: GeForce 940M (1GB VRAM)
 Performance: ~15 tokens/second
-Context: 2048 tokens
-Memory Usage: ~950MB VRAM
+GPU Layers: 20 (auto-configured)
+Context: 512 tokens
+Memory Usage: ~800MB VRAM
 ```
+
+**Auto-Configuration Details:**
+- VRAM detected: 1.0 GB
+- Optimal settings calculated automatically
+- No manual tuning required
+
+### Available Models (11 total)
+
+llcuda includes a curated registry of models tested on GeForce 940M:
+
+- **gemma-3-1b-Q4_K_M** (700 MB) - Recommended for 1GB VRAM
+- **tinyllama-1.1b-Q5_K_M** (800 MB) - Smallest option
+- **phi-3-mini-Q4_K_M** (2.2 GB) - For 2GB+ VRAM
+- **mistral-7b-Q4_K_M** (4.1 GB) - For 4GB+ VRAM
+- ... and 7 more models
+
+[View full model registry →](/llcuda/performance/)
 
 ### Real-World Use Cases
 
@@ -72,6 +90,7 @@ Memory Usage: ~950MB VRAM
 - **Jupyter Notebooks**: Perfect for exploratory data analysis and prototyping
 - **Local Development**: Test LLM integrations without cloud APIs
 - **Learning**: Understand LLM behavior without expensive hardware
+- **Production**: P50/P95/P99 latency tracking for monitoring
 
 ---
 
@@ -80,28 +99,32 @@ Memory Usage: ~950MB VRAM
 Get up and running in under 5 minutes:
 
 ```bash
-# Install llcuda
+# Install llcuda (includes all CUDA binaries)
 pip install llcuda
+```
 
-# Run interactive chat (downloads model automatically)
-python -m llcuda
+```python
+# Basic usage - auto-downloads model with confirmation
+import llcuda
 
-# Or use in Python
-from llcuda import LLM
-
-llm = LLM()
-response = llm.chat("Explain quantum computing in simple terms.")
-print(response)
+engine = llcuda.InferenceEngine()
+engine.load_model("gemma-3-1b-Q4_K_M")  # Auto-downloads from HuggingFace
+result = engine.infer("Explain quantum computing in simple terms.")
+print(result.text)
+print(f"Performance: {result.tokens_per_sec:.1f} tok/s")
 ```
 
 For JupyterLab integration:
 
 ```python
-from llcuda import LLM
+import llcuda
 
-llm = LLM(model="gemma-2-2b-it")
+engine = llcuda.InferenceEngine()
 
-# Interactive chat with context
+# Load model with auto-configuration for your GPU
+engine.load_model("gemma-3-1b-Q4_K_M")
+
+# Interactive chat with performance tracking
 conversation = [
     "What is machine learning?",
     "How does it differ from traditional programming?",
@@ -109,9 +132,10 @@ conversation = [
 ]
 
 for message in conversation:
-    response = llm.chat(message)
+    result = engine.infer(message, max_tokens=100)
     print(f"User: {message}")
-    print(f"AI: {response}\n")
+    print(f"AI: {result.text}")
+    print(f"Speed: {result.tokens_per_sec:.1f} tok/s\n")
 ```
 
 [View detailed quick start guide &rarr;](/llcuda/quickstart/)
@@ -148,23 +172,20 @@ llcuda is designed for the hardware people actually own:
 
 ---
 
-## Projects
+## Project: llcuda
 
-### Core Infrastructure
+**[PyPI Package](https://pypi.org/project/llcuda/)** | **[GitHub](https://github.com/waqasm86/llcuda)** | **[v1.0.0 Release](https://github.com/waqasm86/llcuda/releases/tag/v1.0.0)**
 
-#### llcuda
-**[PyPI Package](https://pypi.org/project/llcuda/)** | **[GitHub](https://github.com/waqasm86/llcuda)**
+PyTorch-style Python package for LLM inference on legacy NVIDIA GPUs. Zero-configuration installation with bundled CUDA 12.8 binaries, smart model loading from HuggingFace, hardware auto-configuration, and JupyterLab integration. Empirically tested on GeForce 940M.
 
-Python package for LLM inference on legacy NVIDIA GPUs. Zero-configuration installation, JupyterLab integration, empirically tested on GeForce 940M.
+**What's New in v1.0.0:**
+- Bundled CUDA binaries and libraries (47 MB wheel)
+- Auto-configuration on import (no manual path setup)
+- Smart model loading with HuggingFace registry (11 curated models)
+- Hardware auto-detection and optimization
+- Performance metrics tracking (P50/P95/P99)
 
 [Explore llcuda documentation &rarr;](/llcuda/)
-
-#### Ubuntu-Cuda-Llama.cpp-Executable
-**[GitHub](https://github.com/waqasm86/Ubuntu-Cuda-Llama.cpp-Executable)**
-
-Pre-built llama.cpp binary for Ubuntu 22.04 with CUDA 12.8 support (build 7489). The foundation that makes llcuda possible. **Updated Dec 28, 2025**.
-
-[View documentation &rarr;](/ubuntu-cuda-executable/)
 
 ---
 

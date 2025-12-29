@@ -22,34 +22,26 @@ I build tools that **actually work** on real hardware, not just theoretical benc
 
 ### llcuda - LLM Inference for Legacy GPUs
 
-**[PyPI Package](https://pypi.org/project/llcuda/)** | **[Documentation](/llcuda/)** | **[GitHub](https://github.com/waqasm86/llcuda)**
+**[PyPI Package](https://pypi.org/project/llcuda/)** | **[Documentation](/llcuda/)** | **[GitHub](https://github.com/waqasm86/llcuda)** | **[v1.0.0 Release](https://github.com/waqasm86/llcuda/releases/tag/v1.0.0)**
 
-Python package that brings LLM inference to old NVIDIA GPUs with zero configuration. Published to PyPI, tested extensively on GeForce 940M (1GB VRAM).
+PyTorch-style Python package that brings LLM inference to old NVIDIA GPUs with zero configuration. Published to PyPI, tested extensively on GeForce 940M (1GB VRAM).
 
-**Key Achievements:**
-- Published production-ready package to PyPI
+**Key Achievements (v1.0.0):**
+- Published production-ready package to PyPI with bundled CUDA 12.8 binaries
 - Achieved ~15 tokens/second on GeForce 940M
-- Zero-configuration installation (no CUDA toolkit, no compilation)
+- Zero-configuration installation - no manual path setup required
+- Smart model loading with HuggingFace registry (11 curated models)
+- Hardware auto-configuration based on VRAM detection
+- Performance metrics tracking (P50/P95/P99 latency)
 - JupyterLab-first design for data science workflows
 - Comprehensive documentation and examples
 
 **Technical Stack:**
-- Python packaging and PyPI distribution
+- Python packaging and PyPI distribution (47 MB wheel with binaries)
 - CUDA programming for legacy GPUs (compute capability 5.0)
-- CMake build systems and static linking
+- Bundled llama.cpp binaries and shared libraries
 - Empirical performance testing and optimization
-
-### Ubuntu-Cuda-Llama.cpp-Executable
-
-**[GitHub](https://github.com/waqasm86/Ubuntu-Cuda-Llama.cpp-Executable)** | **[Documentation](/ubuntu-cuda-executable/)**
-
-Pre-built llama.cpp binary with CUDA 12.8 support for Ubuntu 22.04 (build 7489). The infrastructure that makes llcuda possible. Updated December 28, 2025.
-
-**Key Achievements:**
-- Eliminated compilation requirement for llama.cpp
-- Static linking removes all external dependencies
-- Optimized for Maxwell architecture (compute 5.0)
-- Verified on multiple legacy GPU models
+- Auto-configuration and hardware detection
 
 ---
 
@@ -129,8 +121,7 @@ If it's not on PyPI with proper versioning, it's not production-ready.
 - Technical documentation and developer experience
 
 **Key Projects:**
-- **llcuda**: PyPI package for LLM inference on legacy GPUs
-- **Ubuntu-Cuda-Llama.cpp-Executable**: Pre-built llama.cpp binaries
+- **llcuda v1.0.0**: PyPI package for LLM inference on legacy GPUs with bundled CUDA binaries
 - **CUDA Systems Research**: Empirical testing on Maxwell-era GPUs
 
 ---
@@ -162,17 +153,14 @@ Make AI tools accessible on hardware people already own. No expensive upgrades n
 
 ## Projects
 
-### Active Projects
+### Active Project
 
-**llcuda** - LLM inference for legacy NVIDIA GPUs
+**llcuda v1.0.0** - PyTorch-style LLM inference for legacy NVIDIA GPUs
 - **Status**: Published to PyPI, actively maintained
-- **Focus**: Python API, JupyterLab integration, documentation
-- **Links**: [PyPI](https://pypi.org/project/llcuda/) | [Docs](/llcuda/) | [GitHub](https://github.com/waqasm86/llcuda)
-
-**Ubuntu-Cuda-Llama.cpp-Executable** - Pre-built llama.cpp binaries
-- **Status**: Released, stable
-- **Focus**: Build optimization, platform support
-- **Links**: [GitHub](https://github.com/waqasm86/Ubuntu-Cuda-Llama.cpp-Executable) | [Docs](/ubuntu-cuda-executable/)
+- **Version**: 1.0.0 (December 2025)
+- **Focus**: Zero-configuration installation, smart model loading, hardware auto-config
+- **Features**: Bundled CUDA 12.8 binaries, HuggingFace registry, performance metrics
+- **Links**: [PyPI](https://pypi.org/project/llcuda/) | [Docs](/llcuda/) | [GitHub](https://github.com/waqasm86/llcuda) | [v1.0.0 Release](https://github.com/waqasm86/llcuda/releases/tag/v1.0.0)
 
 ### Future Directions
 
@@ -225,15 +213,11 @@ I believe in **documentation as a core feature** of software. Good documentation
 
 All my projects are open source:
 
-**llcuda**
+**llcuda v1.0.0**
 - **License**: MIT
 - **Repository**: [github.com/waqasm86/llcuda](https://github.com/waqasm86/llcuda)
-- **Contributions**: Bug reports, feature requests, and PRs welcome
-
-**Ubuntu-Cuda-Llama.cpp-Executable**
-- **License**: MIT
-- **Repository**: [github.com/waqasm86/Ubuntu-Cuda-Llama.cpp-Executable](https://github.com/waqasm86/Ubuntu-Cuda-Llama.cpp-Executable)
-- **Contributions**: Build configurations, platform support, optimizations
+- **PyPI**: [pypi.org/project/llcuda](https://pypi.org/project/llcuda/)
+- **Contributions**: Bug reports, feature requests, model testing, and PRs welcome
 
 ---
 

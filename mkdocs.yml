@@ -83,7 +83,6 @@ nav:
       - Installation: llcuda/installation.md
       - Performance: llcuda/performance.md
       - Examples: llcuda/examples.md
-  - Ubuntu CUDA Executable: ubuntu-cuda-executable/index.md
   - About:
       - About Me: about.md
       - Resume: resume/Muhammad_Waqas_Resume_2025.pdf
