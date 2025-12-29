@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://waqasm86.github.io/llcuda/performance/">
       
       
-        <link rel="prev" href="../installation/">
+        <link rel="prev" href="../cloud-platforms/">
       
       
         <link rel="next" href="../examples/">
@@ -506,6 +506,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud-platforms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Platforms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -569,26 +597,66 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#test-platform" class="md-nav__link">
+  <a href="#cloud-platforms" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Test Platform
+        Cloud Platforms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cloud Platforms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tesla-t4-google-colab-kaggle-15gb-vram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tesla T4 (Google Colab / Kaggle) - 15GB VRAM
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#model-performance" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#tesla-p100-google-colab-16gb-vram" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Model Performance
+        Tesla P100 (Google Colab) - 16GB VRAM
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Model Performance">
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-gpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local GPUs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Local GPUs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#geforce-940m-1gb-vram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GeForce 940M - 1GB VRAM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GeForce 940M - 1GB VRAM">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -628,6 +696,22 @@
     </nav>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-gpu-architectures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supported GPU Architectures
+      
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#full-model-registry" class="md-nav__link">
@@ -638,33 +722,72 @@
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#latency-metrics-gemma-3-1b" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Latency Metrics (Gemma 3 1B)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#memory-usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Memory Usage
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Memory Usage">
+    <nav class="md-nav" aria-label="Full Model Registry">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#geforce-940m-1gb-vram" class="md-nav__link">
+  <a href="#1gb-vram-tier-geforce-940m" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1GB VRAM Tier (GeForce 940M)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2gb-vram-tier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2GB+ VRAM Tier
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4gb-vram-tier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4GB+ VRAM Tier
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8gb-vram-tier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8GB+ VRAM Tier
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#latency-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Latency Metrics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Latency Metrics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#geforce-940m-1gb-vram_1" class="md-nav__link">
     <span class="md-ellipsis">
       
         GeForce 940M (1GB VRAM)
@@ -674,28 +797,83 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#tesla-t4-colabkaggle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tesla T4 (Colab/Kaggle)
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#performance-comparison" class="md-nav__link">
+  <a href="#testing-methodology" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Performance Comparison
+        Testing Methodology
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Performance Comparison">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips-for-best-performance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tips for Best Performance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tips for Best Performance">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#llcuda-vs-cloud-apis-per-100-tokens" class="md-nav__link">
+  <a href="#1-gpu-layer-tuning" class="md-nav__link">
     <span class="md-ellipsis">
       
-        llcuda vs Cloud APIs (per 100 tokens)
+        1. GPU Layer Tuning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-context-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Context Size
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-batch-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Batch Size
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-quantization-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Quantization Selection
       
     </span>
   </a>
@@ -708,22 +886,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#optimization-tips" class="md-nav__link">
+  <a href="#cloud-platform-quick-start" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Optimization Tips
+        Cloud Platform Quick Start
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Optimization Tips">
+    <nav class="md-nav" aria-label="Cloud Platform Quick Start">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-choose-right-model-for-vram" class="md-nav__link">
+  <a href="#google-colab" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Choose Right Model for VRAM
+        Google Colab
       
     </span>
   </a>
@@ -731,32 +909,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-adjust-gpu-layers" class="md-nav__link">
+  <a href="#kaggle" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Adjust GPU Layers
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-use-batch-inference" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Use Batch Inference
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-monitor-performance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Monitor Performance
+        Kaggle
       
     </span>
   </a>
@@ -769,99 +925,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hardware-scaling" class="md-nav__link">
+  <a href="#comparison-v10x-vs-v110" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Hardware Scaling
+        Comparison: v1.0.x vs v1.1.0
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Hardware Scaling">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#expected-performance-on-different-gpus" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Expected Performance on Different GPUs
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#real-world-use-cases" class="md-nav__link">
+  <a href="#links" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Real-World Use Cases
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Real-World Use Cases">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#interactive-chat-good" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Interactive Chat: ✓ Good
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#code-generation-good" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Code Generation: ✓ Good
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#data-analysis-excellent" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Data Analysis: ✓ Excellent
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#production-apis-consider-batching" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Production APIs: ⚠ Consider Batching
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Next Steps
+        Links
       
     </span>
   </a>
@@ -1075,16 +1153,94 @@
 
 
 <h1 id="performance-benchmarks">Performance Benchmarks</h1>
-<p>Real-world benchmarks on actual hardware running llcuda v1.0.1.</p>
+<p>Real-world benchmarks on actual hardware running llcuda v1.1.0.</p>
 <hr />
-<h2 id="test-platform">Test Platform</h2>
-<p><strong>Hardware</strong>: GeForce 940M (1GB VRAM, 384 CUDA cores, Maxwell architecture)
+<h2 id="cloud-platforms">Cloud Platforms</h2>
+<p>llcuda v1.1.0 now supports Google Colab and Kaggle!</p>
+<h3 id="tesla-t4-google-colab-kaggle-15gb-vram">Tesla T4 (Google Colab / Kaggle) - 15GB VRAM</h3>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Quantization</th>
+<th>GPU Layers</th>
+<th>Speed</th>
+<th>VRAM Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gemma 3 1B</td>
+<td>Q4_K_M</td>
+<td>26 (all)</td>
+<td>~15 tok/s</td>
+<td>~1.2 GB</td>
+</tr>
+<tr>
+<td>Llama 3.1 7B</td>
+<td>Q4_K_M</td>
+<td>20</td>
+<td>~5-8 tok/s</td>
+<td>~8 GB</td>
+</tr>
+<tr>
+<td>Llama 3.1 7B</td>
+<td>Q4_K_M</td>
+<td>32 (all)</td>
+<td>~8-10 tok/s</td>
+<td>~12 GB</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Platform</strong>: Google Colab Free / Kaggle (2x T4, 30GB total VRAM)
+<strong>llcuda</strong>: v1.1.0
+<strong>Use case</strong>: Research, education, rapid prototyping</p>
+<h3 id="tesla-p100-google-colab-16gb-vram">Tesla P100 (Google Colab) - 16GB VRAM</h3>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Quantization</th>
+<th>GPU Layers</th>
+<th>Speed</th>
+<th>VRAM Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gemma 3 1B</td>
+<td>Q4_K_M</td>
+<td>26 (all)</td>
+<td>~18 tok/s</td>
+<td>~1.2 GB</td>
+</tr>
+<tr>
+<td>Llama 3.1 7B</td>
+<td>Q4_K_M</td>
+<td>32 (all)</td>
+<td>~10 tok/s</td>
+<td>~12 GB</td>
+</tr>
+<tr>
+<td>Llama 3.1 13B</td>
+<td>Q4_K_M</td>
+<td>20</td>
+<td>~5-7 tok/s</td>
+<td>~14 GB</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Platform</strong>: Google Colab (varies by availability)
+<strong>llcuda</strong>: v1.1.0
+<strong>Use case</strong>: Larger models, faster inference</p>
+<hr />
+<h2 id="local-gpus">Local GPUs</h2>
+<h3 id="geforce-940m-1gb-vram">GeForce 940M - 1GB VRAM</h3>
+<p><strong>Hardware</strong>: GeForce 940M (384 CUDA cores, Maxwell architecture)
 <strong>OS</strong>: Ubuntu 22.04 LTS
-<strong>llcuda</strong>: v1.0.1
+<strong>llcuda</strong>: v1.1.0
 <strong>CUDA</strong>: 12.8 (bundled)</p>
-<hr />
-<h2 id="model-performance">Model Performance</h2>
-<h3 id="gemma-3-1b-q4_k_m-recommended">Gemma 3 1B Q4_K_M (Recommended)</h3>
+<h4 id="gemma-3-1b-q4_k_m-recommended">Gemma 3 1B Q4_K_M (Recommended)</h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Model: google/gemma-3-1b-it (Q4_K_M quantization)
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Size: 700 MB
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>VRAM Usage: ~800 MB
@@ -1093,7 +1249,7 @@
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>Context: 512 tokens
 </code></pre></div>
 <p><strong>Use case</strong>: General chat, Q&amp;A, code assistance</p>
-<h3 id="tinyllama-11b-q5_k_m-fastest">TinyLlama 1.1B Q5_K_M (Fastest)</h3>
+<h4 id="tinyllama-11b-q5_k_m-fastest">TinyLlama 1.1B Q5_K_M (Fastest)</h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Model: TinyLlama-1.1B-Chat (Q5_K_M quantization)
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Size: 800 MB
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>VRAM Usage: ~750 MB
@@ -1102,7 +1258,7 @@
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Context: 512 tokens
 </code></pre></div>
 <p><strong>Use case</strong>: Fast responses, simple tasks</p>
-<h3 id="llama-32-1b-q4_k_m-best-quality">Llama 3.2 1B Q4_K_M (Best Quality)</h3>
+<h4 id="llama-32-1b-q4_k_m-best-quality">Llama 3.2 1B Q4_K_M (Best Quality)</h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Model: meta-llama/Llama-3.2-1B-Instruct (Q4_K_M)
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Size: 750 MB
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>VRAM Usage: ~800 MB
@@ -1112,276 +1268,319 @@
 </code></pre></div>
 <p><strong>Use case</strong>: Best quality for 1GB VRAM</p>
 <hr />
+<h2 id="supported-gpu-architectures">Supported GPU Architectures</h2>
+<p>llcuda v1.1.0 supports all modern NVIDIA GPUs with compute capability 5.0+:</p>
+<table>
+<thead>
+<tr>
+<th>Architecture</th>
+<th>Compute Cap</th>
+<th>Examples</th>
+<th>Platforms</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Maxwell</td>
+<td>5.0-5.3</td>
+<td>GTX 900, 940M</td>
+<td>Local</td>
+</tr>
+<tr>
+<td>Pascal</td>
+<td>6.0-6.2</td>
+<td>GTX 10xx, P100</td>
+<td>Local, Colab</td>
+</tr>
+<tr>
+<td>Volta</td>
+<td>7.0</td>
+<td>V100</td>
+<td>Colab Pro</td>
+</tr>
+<tr>
+<td>Turing</td>
+<td>7.5</td>
+<td>T4, RTX 20xx</td>
+<td>Colab, Kaggle</td>
+</tr>
+<tr>
+<td>Ampere</td>
+<td>8.0-8.6</td>
+<td>A100, RTX 30xx</td>
+<td>Colab Pro, Local</td>
+</tr>
+<tr>
+<td>Ada Lovelace</td>
+<td>8.9</td>
+<td>RTX 40xx</td>
+<td>Local</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="full-model-registry">Full Model Registry</h2>
+<p>llcuda includes 11 curated models optimized for different VRAM tiers:</p>
+<h3 id="1gb-vram-tier-geforce-940m">1GB VRAM Tier (GeForce 940M)</h3>
 <table>
 <thead>
 <tr>
 <th>Model</th>
 <th>Size</th>
-<th>Min VRAM</th>
-<th>940M Speed</th>
+<th>Performance (940M)</th>
 <th>Use Case</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>tinyllama-1.1b-Q5_K_M</td>
+<td><strong>tinyllama-1.1b-Q5_K_M</strong></td>
 <td>800 MB</td>
-<td>1 GB</td>
 <td>~18 tok/s</td>
-<td>Fastest</td>
+<td>Fastest option</td>
 </tr>
 <tr>
-<td>gemma-3-1b-Q4_K_M</td>
+<td><strong>gemma-3-1b-Q4_K_M</strong></td>
 <td>700 MB</td>
-<td>1 GB</td>
 <td>~15 tok/s</td>
 <td>Recommended</td>
 </tr>
 <tr>
-<td>llama-3.2-1b-Q4_K_M</td>
+<td><strong>llama-3.2-1b-Q4_K_M</strong></td>
 <td>750 MB</td>
-<td>1 GB</td>
 <td>~16 tok/s</td>
 <td>Best quality</td>
 </tr>
-<tr>
-<td>qwen-2.5-0.5b-Q4_K_M</td>
-<td>350 MB</td>
-<td>1 GB</td>
-<td>~25 tok/s</td>
-<td>Ultra-fast</td>
-</tr>
-<tr>
-<td>phi-2-Q4_K_M</td>
-<td>1.6 GB</td>
-<td>2 GB</td>
-<td>~13 tok/s</td>
-<td>Math/code</td>
-</tr>
-<tr>
-<td>phi-3-mini-Q4_K_M</td>
-<td>2.2 GB</td>
-<td>2 GB</td>
-<td>~12 tok/s</td>
-<td>Code-focused</td>
-</tr>
-<tr>
-<td>llama-3.2-3b-Q4_K_M</td>
-<td>1.9 GB</td>
-<td>2 GB</td>
-<td>~10 tok/s</td>
-<td>Better quality</td>
-</tr>
-<tr>
-<td>gemma-2-2b-Q4_K_M</td>
-<td>1.6 GB</td>
-<td>2 GB</td>
-<td>~12 tok/s</td>
-<td>Google model</td>
-</tr>
-<tr>
-<td>mistral-7b-Q4_K_M</td>
-<td>4.1 GB</td>
-<td>4 GB</td>
-<td>~8 tok/s</td>
-<td>High quality</td>
-</tr>
-<tr>
-<td>llama-3.1-8b-Q4_K_M</td>
-<td>4.9 GB</td>
-<td>6 GB</td>
-<td>~6 tok/s</td>
-<td>Best quality</td>
-</tr>
-<tr>
-<td>qwen-2.5-7b-Q4_K_M</td>
-<td>4.4 GB</td>
-<td>4 GB</td>
-<td>~7 tok/s</td>
-<td>Multilingual</td>
-</tr>
 </tbody>
 </table>
-<hr />
-<h2 id="latency-metrics-gemma-3-1b">Latency Metrics (Gemma 3 1B)</h2>
-<p>Based on 100 inference runs on GeForce 940M:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>p50 (median): 850 ms
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>p95: 1200 ms
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>p99: 1500 ms
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>Mean: 920 ms
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>Min: 720 ms
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>Max: 1650 ms
-</code></pre></div>
-<p><strong>Throughput</strong>: ~15 tokens/second average</p>
-<hr />
-<h2 id="memory-usage">Memory Usage</h2>
-<h3 id="geforce-940m-1gb-vram">GeForce 940M (1GB VRAM)</h3>
+<h3 id="2gb-vram-tier">2GB+ VRAM Tier</h3>
 <table>
 <thead>
 <tr>
 <th>Model</th>
-<th>VRAM Used</th>
-<th>GPU Layers</th>
-<th>Fits?</th>
+<th>Size</th>
+<th>Performance (T4)</th>
+<th>Use Case</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>gemma-3-1b-Q4_K_M</td>
-<td>800 MB</td>
-<td>20</td>
-<td>✓ Yes</td>
+<td><strong>phi-3-mini-Q4_K_M</strong></td>
+<td>2.2 GB</td>
+<td>~12 tok/s</td>
+<td>Code-focused</td>
 </tr>
 <tr>
-<td>tinyllama-1.1b-Q5_K_M</td>
-<td>750 MB</td>
-<td>20</td>
-<td>✓ Yes</td>
+<td><strong>gemma-2-2b-Q4_K_M</strong></td>
+<td>1.6 GB</td>
+<td>~14 tok/s</td>
+<td>Balanced</td>
 </tr>
 <tr>
-<td>llama-3.2-1b-Q4_K_M</td>
-<td>800 MB</td>
-<td>20</td>
-<td>✓ Yes</td>
-</tr>
-<tr>
-<td>phi-3-mini-Q4_K_M</td>
-<td>950 MB</td>
-<td>15</td>
-<td>⚠ Tight</td>
-</tr>
-<tr>
-<td>mistral-7b-Q4_K_M</td>
-<td>-</td>
-<td>-</td>
-<td>✗ No</td>
+<td><strong>llama-3.2-3b-Q4_K_M</strong></td>
+<td>2.0 GB</td>
+<td>~12 tok/s</td>
+<td>Quality</td>
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="performance-comparison">Performance Comparison</h2>
-<h3 id="llcuda-vs-cloud-apis-per-100-tokens">llcuda vs Cloud APIs (per 100 tokens)</h3>
+<h3 id="4gb-vram-tier">4GB+ VRAM Tier</h3>
 <table>
 <thead>
 <tr>
-<th>Provider</th>
-<th>Latency</th>
-<th>Cost</th>
-<th>Privacy</th>
+<th>Model</th>
+<th>Size</th>
+<th>Performance (T4)</th>
+<th>Use Case</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>llcuda (940M)</strong></td>
-<td>~6.7s</td>
-<td>$0.00</td>
-<td>Local</td>
+<td><strong>mistral-7b-Q4_K_M</strong></td>
+<td>4.1 GB</td>
+<td>~8 tok/s</td>
+<td>Highest quality</td>
 </tr>
 <tr>
-<td>OpenAI GPT-4</td>
-<td>~2s</td>
-<td>$0.30</td>
-<td>Cloud</td>
+<td><strong>llama-3.1-7b-Q4_K_M</strong></td>
+<td>4.3 GB</td>
+<td>~5-8 tok/s</td>
+<td>Latest Llama</td>
 </tr>
 <tr>
-<td>OpenAI GPT-3.5</td>
-<td>~1s</td>
-<td>$0.002</td>
-<td>Cloud</td>
-</tr>
-<tr>
-<td>Claude Sonnet</td>
-<td>~1.5s</td>
-<td>$0.30</td>
-<td>Cloud</td>
+<td><strong>phi-3-medium-Q4_K_M</strong></td>
+<td>8.0 GB</td>
+<td>~5 tok/s</td>
+<td>Code expert</td>
 </tr>
 </tbody>
 </table>
-<p><strong>llcuda advantage</strong>: Zero cost, complete privacy, works offline</p>
-<hr />
-<h2 id="optimization-tips">Optimization Tips</h2>
-<h3 id="1-choose-right-model-for-vram">1. Choose Right Model for VRAM</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># 1GB VRAM</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">engine</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;gemma-3-1b-Q4_K_M&quot;</span><span class="p">)</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># 2GB VRAM</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">engine</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;phi-3-mini-Q4_K_M&quot;</span><span class="p">)</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># 4GB+ VRAM</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="n">engine</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;mistral-7b-Q4_K_M&quot;</span><span class="p">)</span>
-</code></pre></div>
-<h3 id="2-adjust-gpu-layers">2. Adjust GPU Layers</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># More GPU = faster (if VRAM available)</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">engine</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;gemma-3-1b-Q4_K_M&quot;</span><span class="p">,</span> <span class="n">gpu_layers</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Less GPU = saves VRAM</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">engine</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;gemma-3-1b-Q4_K_M&quot;</span><span class="p">,</span> <span class="n">gpu_layers</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-</code></pre></div>
-<h3 id="3-use-batch-inference">3. Use Batch Inference</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># More efficient than individual calls</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">results</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">batch_infer</span><span class="p">(</span><span class="n">prompts</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-</code></pre></div>
-<h3 id="4-monitor-performance">4. Monitor Performance</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">metrics</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">get_metrics</span><span class="p">()</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;p95: </span><span class="si">{</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;latency&#39;</span><span class="p">][</span><span class="s1">&#39;p95_ms&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> ms&quot;</span><span class="p">)</span>
-</code></pre></div>
-<hr />
-<h2 id="hardware-scaling">Hardware Scaling</h2>
-<h3 id="expected-performance-on-different-gpus">Expected Performance on Different GPUs</h3>
+<h3 id="8gb-vram-tier">8GB+ VRAM Tier</h3>
 <table>
 <thead>
 <tr>
-<th>GPU</th>
-<th>VRAM</th>
-<th>Estimated Speed</th>
-<th>Recommended Model</th>
+<th>Model</th>
+<th>Size</th>
+<th>Performance (P100)</th>
+<th>Use Case</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>GeForce 940M</td>
-<td>1 GB</td>
-<td>~15 tok/s</td>
-<td>gemma-3-1b-Q4_K_M</td>
+<td><strong>llama-3.1-13b-Q4_K_M</strong></td>
+<td>7.8 GB</td>
+<td>~5-7 tok/s</td>
+<td>Large context</td>
 </tr>
 <tr>
-<td>GTX 1050</td>
-<td>2 GB</td>
-<td>~25 tok/s</td>
-<td>phi-3-mini-Q4_K_M</td>
-</tr>
-<tr>
-<td>GTX 1060</td>
-<td>6 GB</td>
-<td>~50 tok/s</td>
-<td>mistral-7b-Q4_K_M</td>
-</tr>
-<tr>
-<td>RTX 3060</td>
-<td>12 GB</td>
-<td>~80 tok/s</td>
-<td>llama-3.1-8b-Q4_K_M</td>
+<td><strong>mixtral-8x7b-Q4_K_M</strong></td>
+<td>26 GB</td>
+<td>~3-5 tok/s</td>
+<td>MoE architecture</td>
 </tr>
 </tbody>
 </table>
-<p><em>Estimates based on relative compute capability</em></p>
 <hr />
-<h2 id="real-world-use-cases">Real-World Use Cases</h2>
-<h3 id="interactive-chat-good">Interactive Chat: ✓ Good</h3>
-<p>15 tok/s ≈ 150 words/minute (human reading speed: 250 wpm)</p>
-<h3 id="code-generation-good">Code Generation: ✓ Good</h3>
-<p>Fast enough for real-time code completion and review</p>
-<h3 id="data-analysis-excellent">Data Analysis: ✓ Excellent</h3>
-<p>Perfect for JupyterLab exploratory analysis</p>
-<h3 id="production-apis-consider-batching">Production APIs: ⚠ Consider Batching</h3>
-<p>Use batch inference for better throughput</p>
+<h2 id="latency-metrics">Latency Metrics</h2>
+<p>llcuda tracks P50/P95/P99 latencies:</p>
+<h3 id="geforce-940m-1gb-vram_1">GeForce 940M (1GB VRAM)</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Model: gemma-3-1b-Q4_K_M
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>GPU Layers: 20
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Context: 512 tokens
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>P50 latency: 65 ms
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>P95 latency: 72 ms
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>P99 latency: 78 ms
+</code></pre></div>
+<h3 id="tesla-t4-colabkaggle">Tesla T4 (Colab/Kaggle)</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Model: gemma-3-1b-Q4_K_M
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>GPU Layers: 26
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Context: 2048 tokens
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>P50 latency: 62 ms
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>P95 latency: 68 ms
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>P99 latency: 74 ms
+</code></pre></div>
 <hr />
-<h2 id="next-steps">Next Steps</h2>
+<h2 id="testing-methodology">Testing Methodology</h2>
+<p>All benchmarks measured using:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">llcuda</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">engine</span> <span class="o">=</span> <span class="n">llcuda</span><span class="o">.</span><span class="n">InferenceEngine</span><span class="p">()</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">engine</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;gemma-3-1b-Q4_K_M&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1"># Warmup</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="n">engine</span><span class="o">.</span><span class="n">infer</span><span class="p">(</span><span class="s2">&quot;Test&quot;</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="c1"># Measure</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">infer</span><span class="p">(</span><span class="s2">&quot;Explain AI&quot;</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">tokens_per_sec</span><span class="p">)</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mean: </span><span class="si">{</span><span class="nb">sum</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> tok/s&quot;</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="tips-for-best-performance">Tips for Best Performance</h2>
+<h3 id="1-gpu-layer-tuning">1. GPU Layer Tuning</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Start with auto-configuration</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">engine</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;model.gguf&quot;</span><span class="p">,</span> <span class="n">auto_configure</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Then manually tune</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">engine</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;model.gguf&quot;</span><span class="p">,</span> <span class="n">gpu_layers</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>  <span class="c1"># Adjust based on VRAM</span>
+</code></pre></div>
+<h3 id="2-context-size">2. Context Size</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Smaller context = less VRAM</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">engine</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;model.gguf&quot;</span><span class="p">,</span> <span class="n">ctx_size</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>   <span class="c1"># 1GB VRAM</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">engine</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;model.gguf&quot;</span><span class="p">,</span> <span class="n">ctx_size</span><span class="o">=</span><span class="mi">2048</span><span class="p">)</span>  <span class="c1"># 4GB+ VRAM</span>
+</code></pre></div>
+<h3 id="3-batch-size">3. Batch Size</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Larger batch = better throughput (if VRAM allows)</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">engine</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;model.gguf&quot;</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="4-quantization-selection">4. Quantization Selection</h3>
+<p>Lower quantization = smaller model = faster loading, but slightly lower quality:</p>
 <ul>
-<li><strong><a href="/llcuda/quickstart/">Quick Start</a></strong> - Basic usage</li>
-<li><strong><a href="/llcuda/installation/">Installation</a></strong> - Setup guide</li>
-<li><strong><a href="/llcuda/examples/">Examples</a></strong> - Production code samples</li>
+<li><strong>Q4_K_M</strong>: Best balance (recommended)</li>
+<li><strong>Q5_K_M</strong>: Higher quality, larger size</li>
+<li><strong>Q6_K</strong>: Highest quality, biggest size</li>
+<li><strong>Q3_K_M</strong>: Smallest, fastest, lower quality</li>
+</ul>
+<hr />
+<h2 id="cloud-platform-quick-start">Cloud Platform Quick Start</h2>
+<h3 id="google-colab">Google Colab</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">llcuda</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">llcuda</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">engine</span> <span class="o">=</span> <span class="n">llcuda</span><span class="o">.</span><span class="n">InferenceEngine</span><span class="p">()</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="n">engine</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;gemma-3-1b-Q4_K_M&quot;</span><span class="p">,</span> <span class="n">gpu_layers</span><span class="o">=</span><span class="mi">26</span><span class="p">)</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="n">result</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">infer</span><span class="p">(</span><span class="s2">&quot;What is AI?&quot;</span><span class="p">)</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="kaggle">Kaggle</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">llcuda</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">llcuda</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="n">engine</span> <span class="o">=</span> <span class="n">llcuda</span><span class="o">.</span><span class="n">InferenceEngine</span><span class="p">()</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="n">engine</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>    <span class="s2">&quot;unsloth/gemma-3-1b-it-GGUF:gemma-3-1b-it-Q4_K_M.gguf&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>    <span class="n">gpu_layers</span><span class="o">=</span><span class="mi">26</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="p">)</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="n">result</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">infer</span><span class="p">(</span><span class="s2">&quot;Explain machine learning&quot;</span><span class="p">)</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
+<p><a href="/llcuda/cloud-platforms/">View complete cloud platform guide →</a></p>
+<hr />
+<h2 id="comparison-v10x-vs-v110">Comparison: v1.0.x vs v1.1.0</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>v1.0.x</th>
+<th>v1.1.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Supported GPUs</strong></td>
+<td>Compute 5.0 only</td>
+<td>Compute 5.0-8.9</td>
+</tr>
+<tr>
+<td><strong>Cloud Platforms</strong></td>
+<td>❌ None</td>
+<td>✅ Colab, Kaggle</td>
+</tr>
+<tr>
+<td><strong>Package Size</strong></td>
+<td>50 MB</td>
+<td>313 MB</td>
+</tr>
+<tr>
+<td><strong>Performance (940M)</strong></td>
+<td>~15 tok/s</td>
+<td>~15 tok/s (same)</td>
+</tr>
+<tr>
+<td><strong>T4 Support</strong></td>
+<td>❌ Failed</td>
+<td>✅ Works</td>
+</tr>
+<tr>
+<td><strong>P100 Support</strong></td>
+<td>❌ Failed</td>
+<td>✅ Works</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Backward compatible</strong>: v1.1.0 works exactly the same on GeForce 940M as v1.0.x.</p>
+<hr />
+<h2 id="links">Links</h2>
+<ul>
+<li><strong>PyPI</strong>: <a href="https://pypi.org/project/llcuda/">pypi.org/project/llcuda</a></li>
+<li><strong>GitHub</strong>: <a href="https://github.com/waqasm86/llcuda">github.com/waqasm86/llcuda</a></li>
+<li><strong>Latest Release</strong>: <a href="https://github.com/waqasm86/llcuda/releases/tag/v1.1.0">v1.1.0</a></li>
+<li><strong>Cloud Guide</strong>: <a href="/llcuda/cloud-platforms/">Cloud Platforms</a></li>
 </ul>
 
 
