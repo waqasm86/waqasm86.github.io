@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#llcuda-llm-inference-for-legacy-nvidia-gpus" class="md-skip">
+        <a href="#llcuda-v100-pytorch-style-cuda-llm-inference" class="md-skip">
           Skip to content
         </a>
       
@@ -485,22 +485,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#what-is-llcuda-v100" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Overview
+        What is llcuda v1.0.0?
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Overview">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-features-v100" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Features - v1.0.0
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Features - v1.0.0">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#the-challenge" class="md-nav__link">
+  <a href="#1-zero-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The Challenge
+        1. Zero Configuration
       
     </span>
   </a>
@@ -508,10 +519,54 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#the-solution" class="md-nav__link">
+  <a href="#2-bundled-cuda-binaries" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The Solution
+        2. Bundled CUDA Binaries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-smart-model-loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Smart Model Loading
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-hardware-auto-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Hardware Auto-Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-performance-metrics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Performance Metrics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-production-ready" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Production Ready
       
     </span>
   </a>
@@ -524,22 +579,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
+  <a href="#performance-benchmarks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Key Features
+        Performance Benchmarks
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Key Features">
+    <nav class="md-nav" aria-label="Performance Benchmarks">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#zero-configuration" class="md-nav__link">
+  <a href="#gemma-3-1b-q4_k_m-recommended" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Zero Configuration
+        Gemma 3 1B Q4_K_M (Recommended)
       
     </span>
   </a>
@@ -547,10 +602,38 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#legacy-gpu-support" class="md-nav__link">
+  <a href="#available-models-11-total" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Legacy GPU Support
+        Available Models (11 total)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick Start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation-30-seconds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation (30 seconds)
       
     </span>
   </a>
@@ -558,10 +641,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#production-ready" class="md-nav__link">
+  <a href="#basic-usage-2-minutes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Production Ready
+        Basic Usage (2 minutes)
       
     </span>
   </a>
@@ -579,39 +662,28 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#empirical-performance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Empirical Performance
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
+  <a href="#whats-new-in-v100" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How It Works
+        What's New in v1.0.0
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="How It Works">
+    <nav class="md-nav" aria-label="What&#39;s New in v1.0.0">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#architecture" class="md-nav__link">
+  <a href="#breaking-changes-from-v030" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Architecture
+        Breaking Changes from v0.3.0
       
     </span>
   </a>
@@ -619,49 +691,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#component-breakdown" class="md-nav__link">
+  <a href="#major-features" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Component Breakdown
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#supported-models" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Supported Models
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Supported Models">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#recommended-models" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Recommended Models
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#custom-models" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Custom Models
+        Major Features
       
     </span>
   </a>
@@ -697,10 +730,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#jupyter-notebooks" class="md-nav__link">
+  <a href="#data-science-workflows" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Jupyter Notebooks
+        Data Science Workflows
       
     </span>
   </a>
@@ -718,11 +751,39 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#offline-applications" class="md-nav__link">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-hardware" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Offline Applications
+        Supported Hardware
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Supported Hardware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tested-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tested Platforms
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements
       
     </span>
   </a>
@@ -735,43 +796,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
+  <a href="#technical-architecture" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Installation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quick Start
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#performance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Performance
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Examples
+        Technical Architecture
       
     </span>
   </a>
@@ -791,10 +819,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-zero-configuration" class="md-nav__link">
+  <a href="#1-product-minded-engineering" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Zero Configuration
+        1. Product-Minded Engineering
       
     </span>
   </a>
@@ -802,10 +830,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-real-hardware-testing" class="md-nav__link">
+  <a href="#2-zero-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Real Hardware Testing
+        2. Zero Configuration
       
     </span>
   </a>
@@ -813,10 +841,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-production-quality" class="md-nav__link">
+  <a href="#3-empirical-testing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Production Quality
+        3. Empirical Testing
       
     </span>
   </a>
@@ -824,10 +852,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-python-first" class="md-nav__link">
+  <a href="#4-production-quality" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Python-First
+        4. Production Quality
       
     </span>
   </a>
@@ -835,60 +863,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-empirical-optimization" class="md-nav__link">
+  <a href="#5-pytorch-style-api" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Empirical Optimization
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#technical-details" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Technical Details
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Technical Details">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Requirements
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dependencies" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Dependencies
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#package-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Package Structure
+        5. PyTorch-Style API
       
     </span>
   </a>
@@ -912,10 +890,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#roadmap" class="md-nav__link">
+  <a href="#getting-started" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Roadmap
+        Getting Started
       
     </span>
   </a>
@@ -923,10 +901,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#contributing" class="md-nav__link">
+  <a href="#links" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Contributing
+        Links
       
     </span>
   </a>
@@ -949,17 +927,6 @@
     <span class="md-ellipsis">
       
         License
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Next Steps
       
     </span>
   </a>
@@ -1256,426 +1223,400 @@
 
 
 
-<h1 id="llcuda-llm-inference-for-legacy-nvidia-gpus">llcuda: LLM Inference for Legacy NVIDIA GPUs</h1>
-<p><strong>A Python package that brings large language model inference to old NVIDIA GPUs with zero configuration.</strong></p>
+<h1 id="llcuda-v100-pytorch-style-cuda-llm-inference">llcuda v1.0.0: PyTorch-Style CUDA LLM Inference</h1>
+<p><strong>Zero-configuration CUDA-accelerated LLM inference for Python with bundled binaries, smart model loading, and hardware auto-configuration.</strong></p>
 <p><a href="https://pypi.org/project/llcuda/"><img alt="PyPI" src="https://img.shields.io/pypi/v/llcuda" /></a>
 <a href="https://pypi.org/project/llcuda/"><img alt="Python" src="https://img.shields.io/pypi/pyversions/llcuda" /></a>
 <a href="https://github.com/waqasm86/llcuda"><img alt="License" src="https://img.shields.io/github/license/waqasm86/llcuda" /></a></p>
 <hr />
-<h2 id="overview">Overview</h2>
-<p>llcuda is designed to make LLM inference accessible on hardware you already own. No expensive GPU upgrades. No complex compilation. No CUDA toolkit installation. Just <code>pip install llcuda</code> and start running models.</p>
-<h3 id="the-challenge">The Challenge</h3>
-<p>Running large language models typically requires:
-- Modern NVIDIA RTX GPUs
-- 8GB+ VRAM
-- Complex compilation of llama.cpp with CUDA support
-- CUDA toolkit installation and configuration
-- Deep understanding of model quantization</p>
-<p><strong>This creates a huge barrier for:</strong>
-- Students learning AI/ML
-- Developers with older laptops
-- Researchers in resource-constrained environments
-- Anyone with legacy NVIDIA GPUs (GeForce 900/800 series)</p>
-<h3 id="the-solution">The Solution</h3>
-<p>llcuda removes all these barriers:</p>
+<h2 id="what-is-llcuda-v100">What is llcuda v1.0.0?</h2>
+<p>A <strong>PyTorch-style Python package</strong> that makes LLM inference on legacy NVIDIA GPUs as easy as:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>llcuda
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>python<span class="w"> </span>-m<span class="w"> </span>llcuda
 </code></pre></div>
-<p>That's it. No compilation. No CUDA toolkit. No configuration. It just works.</p>
-<p><strong>How?</strong>
-- Pre-built llama.cpp binaries with CUDA 12.8 support (build 7489)
-- Automatic model downloading from Hugging Face
-- Optimized for low-VRAM GPUs (tested on 1GB)
-- Intelligent quantization selection (Q4_K_M by default)
-- JupyterLab-first design for data science workflows</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">llcuda</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">engine</span> <span class="o">=</span> <span class="n">llcuda</span><span class="o">.</span><span class="n">InferenceEngine</span><span class="p">()</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">engine</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;gemma-3-1b-Q4_K_M&quot;</span><span class="p">)</span>  <span class="c1"># Auto-downloads from HuggingFace</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">result</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">infer</span><span class="p">(</span><span class="s2">&quot;What is AI?&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>That's it.</strong> No manual binary downloads, no LLAMA_SERVER_PATH, no configuration files.</p>
 <hr />
-<h2 id="key-features">Key Features</h2>
-<h3 id="zero-configuration">Zero Configuration</h3>
-<p>Install via pip and run immediately. No manual steps, no dependencies, no compilation.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pip<span class="w"> </span>install<span class="w"> </span>llcuda
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>python<span class="w"> </span>-m<span class="w"> </span>llcuda<span class="w">  </span><span class="c1"># Interactive chat</span>
-</code></pre></div>
-<h3 id="legacy-gpu-support">Legacy GPU Support</h3>
-<p>Tested extensively on GeForce 940M (1GB VRAM, Maxwell architecture). If you have a CUDA-capable NVIDIA GPU from 2014 or later, llcuda will work.</p>
-<p><strong>Supported GPUs:</strong>
-- GeForce 900 series (940M, 950M, 960M, 970M, 980M)
-- GeForce 800 series (840M, 850M, 860M)
-- GeForce GTX 750/750 Ti and newer
-- Any GPU with compute capability 5.0+ (Maxwell architecture and later)</p>
-<h3 id="production-ready">Production Ready</h3>
-<p>Published to PyPI with semantic versioning. Not a GitHub experiment, but a maintained package you can depend on.</p>
-<ul>
-<li><strong>PyPI</strong>: <a href="https://pypi.org/project/llcuda/">pypi.org/project/llcuda</a></li>
-<li><strong>GitHub</strong>: <a href="https://github.com/waqasm86/llcuda">github.com/waqasm86/llcuda</a></li>
-<li><strong>Version</strong>: 0.1.x (actively maintained)</li>
-</ul>
-<h3 id="jupyterlab-integration">JupyterLab Integration</h3>
-<p>First-class support for Jupyter notebooks. Perfect for:
-- Exploratory data analysis with LLM assistance
-- Prototyping LLM-powered features
-- Interactive learning and experimentation
-- Documentation generation</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">llcuda</span><span class="w"> </span><span class="kn">import</span> <span class="n">LLM</span>
+<h2 id="key-features-v100">Key Features - v1.0.0</h2>
+<h3 id="1-zero-configuration">1. Zero Configuration</h3>
+<p><strong>Truly zero setup</strong>: Import automatically configures all paths and libraries.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">llcuda</span>  <span class="c1"># ← This line configures everything</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">llm</span> <span class="o">=</span> <span class="n">LLM</span><span class="p">()</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">response</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">chat</span><span class="p">(</span><span class="s2">&quot;Explain gradient descent&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">engine</span> <span class="o">=</span> <span class="n">llcuda</span><span class="o">.</span><span class="n">InferenceEngine</span><span class="p">()</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">engine</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;gemma-3-1b-Q4_K_M&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h3 id="empirical-performance">Empirical Performance</h3>
-<p>Every performance claim is backed by real measurements on real hardware.</p>
-<p><strong>GeForce 940M (1GB VRAM) - Gemma 2 2B Q4_K_M:</strong>
-- <strong>Speed</strong>: ~15 tokens/second
-- <strong>Memory</strong>: ~950MB VRAM usage
-- <strong>Context</strong>: 2048 tokens
-- <strong>Quality</strong>: Coherent, context-aware responses</p>
-<p><a href="/llcuda/performance/">View detailed benchmarks &rarr;</a></p>
+<p>No environment variables. No manual path setup. No LLAMA_SERVER_PATH. It just works.</p>
+<h3 id="2-bundled-cuda-binaries">2. Bundled CUDA Binaries</h3>
+<p><strong>47 MB wheel with everything included</strong>:
+- llama-server binary (CUDA 12.8)
+- All shared libraries
+- CUDA runtime
+- No external dependencies</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pip<span class="w"> </span>install<span class="w"> </span>llcuda<span class="w">  </span><span class="c1"># Installs binaries + libraries</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import llcuda; print(&#39;Ready!&#39;)&quot;</span><span class="w">  </span><span class="c1"># Works immediately</span>
+</code></pre></div>
+<h3 id="3-smart-model-loading">3. Smart Model Loading</h3>
+<p><strong>11 curated models in the registry</strong>, optimized for different VRAM tiers:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Auto-downloads from HuggingFace with user confirmation</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">engine</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;gemma-3-1b-Q4_K_M&quot;</span><span class="p">)</span>       <span class="c1"># 700 MB, 1GB VRAM</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">engine</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;tinyllama-1.1b-Q5_K_M&quot;</span><span class="p">)</span>  <span class="c1"># 800 MB, 1GB VRAM</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">engine</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;phi-3-mini-Q4_K_M&quot;</span><span class="p">)</span>      <span class="c1"># 2.2 GB, 2GB+ VRAM</span>
+</code></pre></div>
+<p>Model registry handles:
+- HuggingFace repository IDs
+- Automatic downloading with progress bars
+- Size and VRAM recommendations
+- User confirmation before downloads</p>
+<h3 id="4-hardware-auto-configuration">4. Hardware Auto-Configuration</h3>
+<p><strong>Detects GPU VRAM and optimizes settings automatically</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">engine</span> <span class="o">=</span> <span class="n">llcuda</span><span class="o">.</span><span class="n">InferenceEngine</span><span class="p">()</span>  <span class="c1"># Detects: GeForce 940M, 1GB VRAM</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">engine</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;gemma-3-1b-Q4_K_M&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># Automatically sets:</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1"># - gpu_layers=20 (based on VRAM)</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1"># - ctx_size=512 (optimal for 1GB)</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1"># - batch_size=256</span>
+</code></pre></div>
+<p>No manual tuning required.</p>
+<h3 id="5-performance-metrics">5. Performance Metrics</h3>
+<p><strong>P50/P95/P99 latency tracking built-in</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">metrics</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">get_metrics</span><span class="p">()</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;p50: </span><span class="si">{</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;latency&#39;</span><span class="p">][</span><span class="s1">&#39;p50_ms&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> ms&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;p95: </span><span class="si">{</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;latency&#39;</span><span class="p">][</span><span class="s1">&#39;p95_ms&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> ms&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;p99: </span><span class="si">{</span><span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;latency&#39;</span><span class="p">][</span><span class="s1">&#39;p99_ms&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> ms&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Track performance in production with proper percentile metrics.</p>
+<h3 id="6-production-ready">6. Production Ready</h3>
+<p><strong>Published to PyPI, works like PyTorch</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Install</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">pip</span> <span class="n">install</span> <span class="n">llcuda</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># Import and use</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">llcuda</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">engine</span> <span class="o">=</span> <span class="n">llcuda</span><span class="o">.</span><span class="n">InferenceEngine</span><span class="p">()</span>
+</code></pre></div>
+<p>Not a GitHub experiment - a maintained package with semantic versioning.</p>
 <hr />
-<h2 id="how-it-works">How It Works</h2>
-<h3 id="architecture">Architecture</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>┌─────────────────────────────────────────┐
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>│         Your Python Code / Jupyter      │
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>└─────────────────┬───────────────────────┘
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>                  │
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>┌─────────────────▼───────────────────────┐
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>│            llcuda (Python)              │
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>│  - Model management                     │
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>│  - API interface                        │
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>│  - Context handling                     │
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>└─────────────────┬───────────────────────┘
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>                  │
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>┌─────────────────▼───────────────────────┐
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>│  Ubuntu-Cuda-Llama.cpp-Executable       │
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>│  - Pre-built binary (build 7489)        │
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>│  - CUDA 12.8 support                    │
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>│  - Optimized for legacy GPUs            │
-<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>└─────────────────┬───────────────────────┘
-<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>                  │
-<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>┌─────────────────▼───────────────────────┐
-<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>│         NVIDIA GPU (CUDA)               │
-<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>│  - GeForce 940M tested                  │
-<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>│  - 1GB VRAM minimum                     │
-<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>│  - Compute capability 5.0+              │
-<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>└─────────────────────────────────────────┘
+<h2 id="performance-benchmarks">Performance Benchmarks</h2>
+<p>All benchmarks on <strong>GeForce 940M (1GB VRAM, 384 CUDA cores, Maxwell architecture)</strong>, Ubuntu 22.04, llcuda v1.0.0.</p>
+<h3 id="gemma-3-1b-q4_k_m-recommended">Gemma 3 1B Q4_K_M (Recommended)</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Model: google/gemma-3-1b-it (Q4_K_M)
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Hardware: GeForce 940M (1GB VRAM)
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>Performance: ~15 tokens/second
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>GPU Layers: 20 (auto-configured)
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>Context: 512 tokens
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>Memory Usage: ~800MB VRAM
 </code></pre></div>
-<h3 id="component-breakdown">Component Breakdown</h3>
-<p><strong>1. llcuda (Python Package)</strong>
-- High-level Python API for LLM inference
-- Automatic model downloading from Hugging Face
-- Context window management
-- Conversation history tracking
-- Error handling and recovery</p>
-<p><strong>2. Ubuntu-Cuda-Llama.cpp-Executable</strong>
-- Pre-compiled llama.cpp with CUDA support (build 7489)
-- Shared libraries for flexibility
-- Compiled with CUDA 12.8 for Ubuntu 22.04
-- Optimized build flags for legacy GPUs with FlashAttention support</p>
-<p><strong>3. Model Management</strong>
-- Automatic GGUF model downloading
-- Smart quantization selection (Q4_K_M default)
-- Model caching to avoid re-downloads
-- Support for custom models via Hugging Face IDs</p>
-<hr />
-<h2 id="supported-models">Supported Models</h2>
-<p>llcuda works with any GGUF-format model from Hugging Face. Default recommendations for 1GB VRAM:</p>
-<h3 id="recommended-models">Recommended Models</h3>
-<p><strong>Gemma 2 2B (Default)</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">llm</span> <span class="o">=</span> <span class="n">LLM</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;gemma-2-2b-it&quot;</span><span class="p">)</span>
-</code></pre></div>
-- <strong>Size</strong>: ~1.4GB (Q4_K_M quantization)
-- <strong>Performance</strong>: ~15 tok/s on GeForce 940M
-- <strong>Use Case</strong>: General chat, Q&amp;A, code assistance
-- <strong>Context</strong>: 2048 tokens</p>
-<p><strong>Llama 3.2 1B</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">llm</span> <span class="o">=</span> <span class="n">LLM</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;llama-3.2-1b-instruct&quot;</span><span class="p">)</span>
-</code></pre></div>
-- <strong>Size</strong>: ~900MB (Q4_K_M quantization)
-- <strong>Performance</strong>: ~18 tok/s on GeForce 940M
-- <strong>Use Case</strong>: Fast responses, simple tasks
-- <strong>Context</strong>: 2048 tokens</p>
-<p><strong>Qwen 2.5 0.5B</strong>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">llm</span> <span class="o">=</span> <span class="n">LLM</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;qwen-2.5-0.5b-instruct&quot;</span><span class="p">)</span>
-</code></pre></div>
-- <strong>Size</strong>: ~400MB (Q4_K_M quantization)
-- <strong>Performance</strong>: ~25 tok/s on GeForce 940M
-- <strong>Use Case</strong>: Ultra-fast, basic chat
-- <strong>Context</strong>: 2048 tokens</p>
-<h3 id="custom-models">Custom Models</h3>
-<p>Use any GGUF model from Hugging Face:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">llm</span> <span class="o">=</span> <span class="n">LLM</span><span class="p">(</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;TheBloke/Mistral-7B-Instruct-v0.2-GGUF&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="n">model_file</span><span class="o">=</span><span class="s2">&quot;mistral-7b-instruct-v0.2.Q4_K_M.gguf&quot;</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="p">)</span>
-</code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">VRAM Considerations</p>
-<p>For 1GB VRAM GPUs, stick to models ≤2B parameters with Q4_K_M quantization. Larger models require more VRAM or CPU offloading (which is much slower).</p>
-</div>
-<hr />
-<h2 id="use-cases">Use Cases</h2>
-<h3 id="interactive-development">Interactive Development</h3>
-<p>Run LLMs locally during development without cloud API costs:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">llcuda</span><span class="w"> </span><span class="kn">import</span> <span class="n">LLM</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">llm</span> <span class="o">=</span> <span class="n">LLM</span><span class="p">()</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="c1"># Generate code</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="n">code</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">chat</span><span class="p">(</span><span class="s2">&quot;Write a Python function to calculate Fibonacci numbers&quot;</span><span class="p">)</span>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="c1"># Review code</span>
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="n">review</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">chat</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Review this code for improvements: </span><span class="si">{</span><span class="n">code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">review</span><span class="p">)</span>
-</code></pre></div>
-<h3 id="jupyter-notebooks">Jupyter Notebooks</h3>
-<p>Perfect for data science workflows:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">llcuda</span><span class="w"> </span><span class="kn">import</span> <span class="n">LLM</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">llm</span> <span class="o">=</span> <span class="n">LLM</span><span class="p">()</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="c1"># Analyze data with LLM assistance</span>
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;sales_data.csv&quot;</span><span class="p">)</span>
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="n">summary</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">()</span>
-<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>
-<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="n">analysis</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">chat</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Analyze this sales data:</span><span class="se">\n</span><span class="si">{</span><span class="n">summary</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">analysis</span><span class="p">)</span>
-</code></pre></div>
-<h3 id="learning-experimentation">Learning &amp; Experimentation</h3>
-<p>Understand LLM behavior without cloud costs:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">llcuda</span><span class="w"> </span><span class="kn">import</span> <span class="n">LLM</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">llm</span> <span class="o">=</span> <span class="n">LLM</span><span class="p">()</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
-<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="c1"># Test different prompting strategies</span>
-<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="n">prompts</span> <span class="o">=</span> <span class="p">[</span>
-<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>    <span class="s2">&quot;What is photosynthesis?&quot;</span><span class="p">,</span>
-<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>    <span class="s2">&quot;Explain photosynthesis to a 5-year-old&quot;</span><span class="p">,</span>
-<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>    <span class="s2">&quot;You are a biology professor. Explain photosynthesis.&quot;</span><span class="p">,</span>
-<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="p">]</span>
-<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>
-<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="k">for</span> <span class="n">prompt</span> <span class="ow">in</span> <span class="n">prompts</span><span class="p">:</span>
-<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">chat</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
-<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Prompt: </span><span class="si">{</span><span class="n">prompt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Response: </span><span class="si">{</span><span class="n">response</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre></div>
-<h3 id="offline-applications">Offline Applications</h3>
-<p>Build applications that work without internet:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">llcuda</span><span class="w"> </span><span class="kn">import</span> <span class="n">LLM</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">OfflineAssistant</span><span class="p">:</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">llm</span> <span class="o">=</span> <span class="n">LLM</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">&quot;gemma-2-2b-it&quot;</span><span class="p">)</span>
-<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
-<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">answer_question</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">question</span><span class="p">):</span>
-<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">llm</span><span class="o">.</span><span class="n">chat</span><span class="p">(</span><span class="n">question</span><span class="p">)</span>
-<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
-<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">summarize_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
-<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>        <span class="n">prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Summarize this text:</span><span class="se">\n\n</span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span>
-<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">llm</span><span class="o">.</span><span class="n">chat</span><span class="p">(</span><span class="n">prompt</span><span class="p">)</span>
-<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>
-<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="n">assistant</span> <span class="o">=</span> <span class="n">OfflineAssistant</span><span class="p">()</span>
-<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="n">answer</span> <span class="o">=</span> <span class="n">assistant</span><span class="o">.</span><span class="n">answer_question</span><span class="p">(</span><span class="s2">&quot;What is quantum computing?&quot;</span><span class="p">)</span>
-</code></pre></div>
-<hr />
-<h2 id="installation">Installation</h2>
-<p>Quick installation:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>pip<span class="w"> </span>install<span class="w"> </span>llcuda
-</code></pre></div>
-<p>For detailed installation instructions, including system requirements and troubleshooting:</p>
-<p><a href="/llcuda/installation/">View Installation Guide &rarr;</a></p>
-<hr />
-<h2 id="quick-start">Quick Start</h2>
-<p>Get up and running in under 5 minutes:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># Install</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>pip<span class="w"> </span>install<span class="w"> </span>llcuda
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="c1"># Run interactive chat</span>
-<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>python<span class="w"> </span>-m<span class="w"> </span>llcuda
-</code></pre></div>
-<p>For detailed tutorials and examples:</p>
-<p><a href="/llcuda/quickstart/">View Quick Start Guide &rarr;</a></p>
-<hr />
-<h2 id="performance">Performance</h2>
-<p>Real-world benchmarks on actual hardware (GeForce 940M, 1GB VRAM):</p>
+<p><strong>Fast enough for</strong> interactive chat, code generation, data analysis.</p>
+<h3 id="available-models-11-total">Available Models (11 total)</h3>
 <table>
 <thead>
 <tr>
 <th>Model</th>
-<th>Quantization</th>
-<th>Speed</th>
-<th>VRAM</th>
-<th>Context</th>
+<th>Size</th>
+<th>Min VRAM</th>
+<th>Performance (940M)</th>
+<th>Use Case</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Gemma 2 2B</td>
-<td>Q4_K_M</td>
-<td>~15 tok/s</td>
-<td>950MB</td>
-<td>2048</td>
-</tr>
-<tr>
-<td>Llama 3.2 1B</td>
-<td>Q4_K_M</td>
+<td><strong>tinyllama-1.1b-Q5_K_M</strong></td>
+<td>800 MB</td>
+<td>1 GB</td>
 <td>~18 tok/s</td>
-<td>750MB</td>
-<td>2048</td>
+<td>Fastest option</td>
 </tr>
 <tr>
-<td>Qwen 2.5 0.5B</td>
-<td>Q4_K_M</td>
-<td>~25 tok/s</td>
-<td>450MB</td>
-<td>2048</td>
+<td><strong>gemma-3-1b-Q4_K_M</strong></td>
+<td>700 MB</td>
+<td>1 GB</td>
+<td>~15 tok/s</td>
+<td>Recommended</td>
+</tr>
+<tr>
+<td><strong>llama-3.2-1b-Q4_K_M</strong></td>
+<td>750 MB</td>
+<td>1 GB</td>
+<td>~16 tok/s</td>
+<td>Best quality</td>
+</tr>
+<tr>
+<td><strong>phi-3-mini-Q4_K_M</strong></td>
+<td>2.2 GB</td>
+<td>2 GB</td>
+<td>~12 tok/s</td>
+<td>Code-focused</td>
+</tr>
+<tr>
+<td><strong>mistral-7b-Q4_K_M</strong></td>
+<td>4.1 GB</td>
+<td>4 GB</td>
+<td>~8 tok/s</td>
+<td>Highest quality</td>
 </tr>
 </tbody>
 </table>
-<p>For comprehensive benchmarks and optimization tips:</p>
-<p><a href="/llcuda/performance/">View Performance Guide &rarr;</a></p>
+<p><a href="/llcuda/performance/">View full model registry and benchmarks →</a></p>
 <hr />
-<h2 id="examples">Examples</h2>
-<p>Production-ready code samples for common use cases:</p>
-<ul>
-<li><strong>Basic Chat</strong>: Simple question-answering</li>
-<li><strong>Context Management</strong>: Multi-turn conversations</li>
-<li><strong>Custom Models</strong>: Loading specific GGUF files</li>
-<li><strong>JupyterLab Integration</strong>: Notebook workflows</li>
-<li><strong>Batch Processing</strong>: Processing multiple inputs</li>
-<li><strong>Error Handling</strong>: Robust production code</li>
-</ul>
-<p><a href="/llcuda/examples/">View Examples &rarr;</a></p>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="installation-30-seconds">Installation (30 seconds)</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>pip<span class="w"> </span>install<span class="w"> </span>llcuda
+</code></pre></div>
+<p>That's it. All binaries and libraries included.</p>
+<h3 id="basic-usage-2-minutes">Basic Usage (2 minutes)</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">llcuda</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1"># Create engine (auto-detects GPU)</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="n">engine</span> <span class="o">=</span> <span class="n">llcuda</span><span class="o">.</span><span class="n">InferenceEngine</span><span class="p">()</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="c1"># Load model (auto-downloads)</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="n">engine</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;gemma-3-1b-Q4_K_M&quot;</span><span class="p">)</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="c1"># Run inference</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="n">result</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">infer</span><span class="p">(</span><span class="s2">&quot;What is quantum computing?&quot;</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Speed: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">tokens_per_sec</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> tok/s&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="jupyterlab-integration">JupyterLab Integration</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">llcuda</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">engine</span> <span class="o">=</span> <span class="n">llcuda</span><span class="o">.</span><span class="n">InferenceEngine</span><span class="p">()</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="n">engine</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;gemma-3-1b-Q4_K_M&quot;</span><span class="p">)</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="c1"># Interactive exploration</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="n">prompts</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>    <span class="s2">&quot;Explain neural networks&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>    <span class="s2">&quot;Compare supervised vs unsupervised learning&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>    <span class="s2">&quot;What is transfer learning?&quot;</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="p">]</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="k">for</span> <span class="n">prompt</span> <span class="ow">in</span> <span class="n">prompts</span><span class="p">:</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">infer</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Q: </span><span class="si">{</span><span class="n">prompt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;A: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">text</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><a href="/llcuda/quickstart/">View detailed quick start guide →</a></p>
 <hr />
-<h2 id="philosophy">Philosophy</h2>
-<p>llcuda is built on these principles:</p>
-<h3 id="1-zero-configuration">1. Zero Configuration</h3>
-<p>Installation should be <code>pip install</code> and done. No manual steps, no compilation, no configuration files.</p>
-<h3 id="2-real-hardware-testing">2. Real Hardware Testing</h3>
-<p>Every performance claim is tested on GeForce 940M (1GB VRAM). No theoretical benchmarks.</p>
-<h3 id="3-production-quality">3. Production Quality</h3>
-<p>Published to PyPI, not just GitHub. Semantic versioning, proper packaging, comprehensive documentation.</p>
-<h3 id="4-python-first">4. Python-First</h3>
-<p>Designed for Python developers and data scientists. Native Jupyter support, Pythonic API.</p>
-<h3 id="5-empirical-optimization">5. Empirical Optimization</h3>
-<p>Optimize based on measurements, not assumptions. Profile on real hardware, fix real bottlenecks.</p>
+<h2 id="whats-new-in-v100">What's New in v1.0.0</h2>
+<h3 id="breaking-changes-from-v030">Breaking Changes from v0.3.0</h3>
+<p>llcuda v1.0.0 is a <strong>major rewrite</strong> with significant improvements:</p>
+<p><strong>Before (v0.3.0)</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;LLAMA_SERVER_PATH&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/path/to/llama-server&#39;</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="n">engine</span> <span class="o">=</span> <span class="n">llcuda</span><span class="o">.</span><span class="n">InferenceEngine</span><span class="p">()</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="n">engine</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;/path/to/model.gguf&quot;</span><span class="p">,</span> <span class="n">auto_start</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">gpu_layers</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</code></pre></div></p>
+<p><strong>After (v1.0.0)</strong>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">llcuda</span>  <span class="c1"># Auto-configures everything</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">engine</span> <span class="o">=</span> <span class="n">llcuda</span><span class="o">.</span><span class="n">InferenceEngine</span><span class="p">()</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="n">engine</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;gemma-3-1b-Q4_K_M&quot;</span><span class="p">)</span>  <span class="c1"># Auto-downloads and configures</span>
+</code></pre></div></p>
+<h3 id="major-features">Major Features</h3>
+<ol>
+<li><strong>Bundled Binaries</strong> - 47 MB wheel with all CUDA binaries and libraries</li>
+<li><strong>Auto-Configuration</strong> - No manual path setup on import</li>
+<li><strong>Model Registry</strong> - 11 curated models with auto-download</li>
+<li><strong>Hardware Auto-Config</strong> - VRAM detection and optimal settings</li>
+<li><strong>Performance Metrics</strong> - P50/P95/P99 latency tracking</li>
+</ol>
+<p><a href="https://github.com/waqasm86/llcuda/blob/main/CHANGELOG.md">View full changelog →</a></p>
 <hr />
-<h2 id="technical-details">Technical Details</h2>
+<h2 id="use-cases">Use Cases</h2>
+<h3 id="interactive-development">Interactive Development</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">llcuda</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="n">engine</span> <span class="o">=</span> <span class="n">llcuda</span><span class="o">.</span><span class="n">InferenceEngine</span><span class="p">()</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="n">engine</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;gemma-3-1b-Q4_K_M&quot;</span><span class="p">)</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="c1"># Generate code</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="n">code</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">infer</span><span class="p">(</span><span class="s2">&quot;Write a Python function for quicksort&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="c1"># Review code</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="n">review</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">infer</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Review this code:</span><span class="se">\n</span><span class="si">{</span><span class="n">code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="nb">print</span><span class="p">(</span><span class="n">review</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="data-science-workflows">Data Science Workflows</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">llcuda</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="n">engine</span> <span class="o">=</span> <span class="n">llcuda</span><span class="o">.</span><span class="n">InferenceEngine</span><span class="p">()</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="n">engine</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;gemma-3-1b-Q4_K_M&quot;</span><span class="p">)</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="c1"># Analyze data with LLM</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;sales.csv&quot;</span><span class="p">)</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="n">summary</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">()</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="n">analysis</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">infer</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Analyze this data:</span><span class="se">\n</span><span class="si">{</span><span class="n">summary</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="nb">print</span><span class="p">(</span><span class="n">analysis</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="learning-experimentation">Learning &amp; Experimentation</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">llcuda</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="n">engine</span> <span class="o">=</span> <span class="n">llcuda</span><span class="o">.</span><span class="n">InferenceEngine</span><span class="p">()</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="n">engine</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;gemma-3-1b-Q4_K_M&quot;</span><span class="p">)</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="c1"># Test different temperatures</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="k">for</span> <span class="n">temp</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">]:</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">infer</span><span class="p">(</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>        <span class="s2">&quot;Write a haiku about AI&quot;</span><span class="p">,</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>        <span class="n">temperature</span><span class="o">=</span><span class="n">temp</span><span class="p">,</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>        <span class="n">max_tokens</span><span class="o">=</span><span class="mi">50</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>    <span class="p">)</span>
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperature </span><span class="si">{</span><span class="n">temp</span><span class="si">}</span><span class="s2">:</span><span class="se">\n</span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">text</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><a href="/llcuda/examples/">View more examples →</a></p>
+<hr />
+<h2 id="supported-hardware">Supported Hardware</h2>
+<h3 id="tested-platforms">Tested Platforms</h3>
+<p><strong>Primary</strong>: GeForce 940M (1GB VRAM, Maxwell architecture), Ubuntu 22.04</p>
+<p><strong>Should work on</strong>:
+- GeForce 900 series (940M, 950M, 960M, 970M, 980M)
+- GeForce 800 series (840M, 850M, 860M)
+- GeForce GTX 750/750 Ti and newer
+- Any NVIDIA GPU with compute capability 5.0+</p>
 <h3 id="requirements">Requirements</h3>
 <ul>
 <li><strong>OS</strong>: Ubuntu 22.04 LTS (tested), likely works on other Linux distros</li>
-<li><strong>GPU</strong>: NVIDIA GPU with compute capability 5.0+ (Maxwell architecture or later)</li>
-<li><strong>VRAM</strong>: 1GB minimum (for 2B models with Q4_K_M quantization)</li>
-<li><strong>Python</strong>: 3.8+</li>
-<li><strong>CUDA</strong>: Not required (pre-built binaries include CUDA runtime)</li>
+<li><strong>GPU</strong>: NVIDIA with compute capability 5.0+ (Maxwell or later)</li>
+<li><strong>VRAM</strong>: 1GB minimum (for 1B-2B models with Q4_K_M quantization)</li>
+<li><strong>Python</strong>: 3.11+</li>
+<li><strong>CUDA</strong>: Not required (bundled in package)</li>
 </ul>
-<h3 id="dependencies">Dependencies</h3>
-<ul>
-<li>Minimal Python dependencies (requests, tqdm)</li>
-<li>Pre-built llama.cpp binary (no compilation required)</li>
-<li>No CUDA toolkit installation needed</li>
-</ul>
-<h3 id="package-structure">Package Structure</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>llcuda/
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>├── __init__.py          # Public API
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>├── llm.py              # Main LLM class
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>├── model_manager.py    # Model downloading/caching
-<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>├── llama_wrapper.py    # llama.cpp interface
-<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>└── binaries/           # Pre-built executables
-<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>    └── llama-cli       # CUDA-enabled llama.cpp
+<hr />
+<h2 id="technical-architecture">Technical Architecture</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>┌─────────────────────────────────────────┐
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>│      Your Python Code / Jupyter        │
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>└─────────────────┬───────────────────────┘
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>                  │
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>┌─────────────────▼───────────────────────┐
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>│     llcuda.InferenceEngine (Python)     │
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>│  - Auto-configuration on import         │
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>│  - Model registry management            │
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>│  - Hardware detection                   │
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>│  - Performance metrics                  │
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>└─────────────────┬───────────────────────┘
+<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>                  │
+<a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>┌─────────────────▼───────────────────────┐
+<a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>│    Bundled llama-server (CUDA 12.8)     │
+<a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>│  - Pre-built binary (build 733c851f)    │
+<a id="__codelineno-17-16" name="__codelineno-17-16" href="#__codelineno-17-16"></a>│  - Shared libraries included            │
+<a id="__codelineno-17-17" name="__codelineno-17-17" href="#__codelineno-17-17"></a>│  - Automatic startup/shutdown           │
+<a id="__codelineno-17-18" name="__codelineno-17-18" href="#__codelineno-17-18"></a>└─────────────────┬───────────────────────┘
+<a id="__codelineno-17-19" name="__codelineno-17-19" href="#__codelineno-17-19"></a>                  │
+<a id="__codelineno-17-20" name="__codelineno-17-20" href="#__codelineno-17-20"></a>┌─────────────────▼───────────────────────┐
+<a id="__codelineno-17-21" name="__codelineno-17-21" href="#__codelineno-17-21"></a>│         NVIDIA GPU (CUDA)               │
+<a id="__codelineno-17-22" name="__codelineno-17-22" href="#__codelineno-17-22"></a>│  - GeForce 940M tested                  │
+<a id="__codelineno-17-23" name="__codelineno-17-23" href="#__codelineno-17-23"></a>│  - 1GB VRAM minimum                     │
+<a id="__codelineno-17-24" name="__codelineno-17-24" href="#__codelineno-17-24"></a>│  - Compute capability 5.0+              │
+<a id="__codelineno-17-25" name="__codelineno-17-25" href="#__codelineno-17-25"></a>└─────────────────────────────────────────┘
 </code></pre></div>
+<hr />
+<h2 id="philosophy">Philosophy</h2>
+<h3 id="1-product-minded-engineering">1. Product-Minded Engineering</h3>
+<p>Build for real users on real hardware, not ideal scenarios.</p>
+<h3 id="2-zero-configuration">2. Zero Configuration</h3>
+<p>If it requires manual setup, we haven't finished the job.</p>
+<h3 id="3-empirical-testing">3. Empirical Testing</h3>
+<p>Every claim backed by measurements on GeForce 940M (1GB VRAM).</p>
+<h3 id="4-production-quality">4. Production Quality</h3>
+<p>Published to PyPI, semantic versioning, comprehensive documentation.</p>
+<h3 id="5-pytorch-style-api">5. PyTorch-Style API</h3>
+<p>Familiar interface for ML engineers. Import and use like any ML library.</p>
 <hr />
 <h2 id="comparison-with-alternatives">Comparison with Alternatives</h2>
 <table>
 <thead>
 <tr>
-<th>Tool</th>
-<th>Compilation</th>
-<th>CUDA Required</th>
-<th>PyPI</th>
-<th>Legacy GPU Support</th>
+<th>Feature</th>
+<th>llcuda v1.0.0</th>
+<th>llama.cpp</th>
+<th>llama-cpp-python</th>
+<th>Ollama</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>llcuda</strong></td>
-<td>No</td>
-<td>No</td>
-<td>Yes</td>
+<td><strong>Installation</strong></td>
+<td><code>pip install</code></td>
+<td>Manual build</td>
+<td><code>pip install</code> + compile</td>
+<td>Manual install</td>
+</tr>
+<tr>
+<td><strong>CUDA Setup</strong></td>
+<td>Bundled</td>
+<td>Manual</td>
+<td>Manual</td>
+<td>Manual</td>
+</tr>
+<tr>
+<td><strong>Model Loading</strong></td>
+<td>Auto-download</td>
+<td>Manual</td>
+<td>Manual</td>
+<td>Auto-download</td>
+</tr>
+<tr>
+<td><strong>Legacy GPU</strong></td>
 <td>Excellent</td>
-</tr>
-<tr>
-<td>llama.cpp</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>No</td>
 <td>Good</td>
-</tr>
-<tr>
-<td>llama-cpp-python</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Yes</td>
 <td>Good</td>
-</tr>
-<tr>
-<td>Ollama</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>No</td>
 <td>Limited</td>
 </tr>
 <tr>
-<td>vLLM</td>
-<td>No</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>None</td>
+<td><strong>Python API</strong></td>
+<td>PyTorch-style</td>
+<td>CLI only</td>
+<td>Pythonic</td>
+<td>CLI + API</td>
+</tr>
+<tr>
+<td><strong>Config Required</strong></td>
+<td>Zero</td>
+<td>Manual</td>
+<td>Manual</td>
+<td>Manual</td>
 </tr>
 </tbody>
 </table>
-<p><strong>llcuda's Advantage</strong>: Only solution with zero-configuration setup AND excellent legacy GPU support.</p>
+<p><strong>llcuda's advantage</strong>: Only solution with truly zero configuration AND excellent legacy GPU support.</p>
 <hr />
-<h2 id="roadmap">Roadmap</h2>
-<p><strong>Current</strong>: v0.1.x - Core functionality, PyPI publication</p>
-<p><strong>Planned Features</strong>:
-- Support for more quantization formats (Q2_K, Q5_K_M, Q6_K)
-- Multi-GPU support for older multi-GPU setups
-- Windows support (pre-built binaries for Windows + CUDA)
-- Model compression utilities
-- Fine-tuning helpers for custom models
-- Advanced context window management (sliding window, RAG integration)</p>
+<h2 id="getting-started">Getting Started</h2>
+<p>Ready to run LLMs on your old GPU?</p>
+<ol>
+<li><strong><a href="/llcuda/quickstart/">Quick Start Guide</a></strong> - Get running in 5 minutes</li>
+<li><strong><a href="/llcuda/installation/">Installation Guide</a></strong> - Detailed setup instructions</li>
+<li><strong><a href="/llcuda/performance/">Performance Data</a></strong> - Real benchmarks on real hardware</li>
+<li><strong><a href="/llcuda/examples/">Examples</a></strong> - Production-ready code samples</li>
+</ol>
 <hr />
-<h2 id="contributing">Contributing</h2>
-<p>llcuda is open source and welcomes contributions:</p>
+<h2 id="links">Links</h2>
 <ul>
-<li><strong>Bug Reports</strong>: <a href="https://github.com/waqasm86/llcuda/issues">GitHub Issues</a></li>
-<li><strong>Feature Requests</strong>: <a href="https://github.com/waqasm86/llcuda/discussions">GitHub Discussions</a></li>
-<li><strong>Pull Requests</strong>: <a href="https://github.com/waqasm86/llcuda/pulls">GitHub PRs</a></li>
+<li><strong>PyPI</strong>: <a href="https://pypi.org/project/llcuda/">pypi.org/project/llcuda</a></li>
+<li><strong>GitHub</strong>: <a href="https://github.com/waqasm86/llcuda">github.com/waqasm86/llcuda</a></li>
+<li><strong>GitHub Release</strong>: <a href="https://github.com/waqasm86/llcuda/releases/tag/v1.0.0">v1.0.0</a></li>
+<li><strong>Documentation</strong>: <a href="https://waqasm86.github.io/llcuda/">waqasm86.github.io/llcuda</a></li>
 </ul>
-<p><strong>Areas for Contribution</strong>:
-- Testing on different GPU models
-- Windows/MacOS support
-- Additional model integrations
-- Documentation improvements
-- Performance optimization</p>
 <hr />
 <h2 id="support">Support</h2>
-<p><strong>Documentation</strong>: <a href="https://waqasm86.github.io">waqasm86.github.io</a>
-<strong>GitHub</strong>: <a href="https://github.com/waqasm86/llcuda">github.com/waqasm86/llcuda</a>
-<strong>PyPI</strong>: <a href="https://pypi.org/project/llcuda/">pypi.org/project/llcuda</a>
-<strong>Email</strong>: <a href="mailto:waqasm86@gmail.com">waqasm86@gmail.com</a></p>
+<ul>
+<li><strong>Issues</strong>: <a href="https://github.com/waqasm86/llcuda/issues">GitHub Issues</a></li>
+<li><strong>Discussions</strong>: <a href="https://github.com/waqasm86/llcuda/discussions">GitHub Discussions</a></li>
+<li><strong>Email</strong>: <a href="mailto:waqasm86@gmail.com">waqasm86@gmail.com</a></li>
+</ul>
 <hr />
 <h2 id="license">License</h2>
 <p>MIT License - see <a href="https://github.com/waqasm86/llcuda/blob/main/LICENSE">LICENSE</a> for details.</p>
-<hr />
-<h2 id="next-steps">Next Steps</h2>
-<p>Ready to get started?</p>
-<ol>
-<li><strong><a href="/llcuda/quickstart/">Quick Start</a></strong> - Get running in 5 minutes</li>
-<li><strong><a href="/llcuda/installation/">Installation</a></strong> - Detailed setup guide</li>
-<li><strong><a href="/llcuda/performance/">Performance</a></strong> - Benchmarks and optimization</li>
-<li><strong><a href="/llcuda/examples/">Examples</a></strong> - Production code samples</li>
-</ol>
 
 
 
