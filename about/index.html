@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://waqasm86.github.io/about/">
       
       
-        <link rel="prev" href="../ubuntu-cuda-executable/">
+        <link rel="prev" href="../llcuda/examples/">
       
       
         <link rel="next" href="../resume/Muhammad_Waqas_Resume_2025.pdf">
@@ -262,25 +262,6 @@
         </a>
       </li>
     
-  
-
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../ubuntu-cuda-executable/" class="md-tabs__link">
-        
-  
-  
-    
-  
-  Ubuntu CUDA Executable
-
-      </a>
-    </li>
   
 
       
@@ -585,33 +566,6 @@
       
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../ubuntu-cuda-executable/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Ubuntu CUDA Executable
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
     
   
   
@@ -633,10 +587,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
@@ -654,8 +608,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -759,17 +713,6 @@
     <span class="md-ellipsis">
       
         llcuda - LLM Inference for Legacy GPUs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ubuntu-cuda-llamacpp-executable" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ubuntu-Cuda-Llama.cpp-Executable
       
     </span>
   </a>
@@ -1005,10 +948,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#active-projects" class="md-nav__link">
+  <a href="#active-project" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Active Projects
+        Active Project
       
     </span>
   </a>
@@ -1324,27 +1267,23 @@
 <hr />
 <h2 id="current-work">Current Work</h2>
 <h3 id="llcuda-llm-inference-for-legacy-gpus">llcuda - LLM Inference for Legacy GPUs</h3>
-<p><strong><a href="https://pypi.org/project/llcuda/">PyPI Package</a></strong> | <strong><a href="/llcuda/">Documentation</a></strong> | <strong><a href="https://github.com/waqasm86/llcuda">GitHub</a></strong></p>
-<p>Python package that brings LLM inference to old NVIDIA GPUs with zero configuration. Published to PyPI, tested extensively on GeForce 940M (1GB VRAM).</p>
-<p><strong>Key Achievements:</strong>
-- Published production-ready package to PyPI
+<p><strong><a href="https://pypi.org/project/llcuda/">PyPI Package</a></strong> | <strong><a href="/llcuda/">Documentation</a></strong> | <strong><a href="https://github.com/waqasm86/llcuda">GitHub</a></strong> | <strong><a href="https://github.com/waqasm86/llcuda/releases/tag/v1.0.0">v1.0.0 Release</a></strong></p>
+<p>PyTorch-style Python package that brings LLM inference to old NVIDIA GPUs with zero configuration. Published to PyPI, tested extensively on GeForce 940M (1GB VRAM).</p>
+<p><strong>Key Achievements (v1.0.0):</strong>
+- Published production-ready package to PyPI with bundled CUDA 12.8 binaries
 - Achieved ~15 tokens/second on GeForce 940M
-- Zero-configuration installation (no CUDA toolkit, no compilation)
+- Zero-configuration installation - no manual path setup required
+- Smart model loading with HuggingFace registry (11 curated models)
+- Hardware auto-configuration based on VRAM detection
+- Performance metrics tracking (P50/P95/P99 latency)
 - JupyterLab-first design for data science workflows
 - Comprehensive documentation and examples</p>
 <p><strong>Technical Stack:</strong>
-- Python packaging and PyPI distribution
+- Python packaging and PyPI distribution (47 MB wheel with binaries)
 - CUDA programming for legacy GPUs (compute capability 5.0)
-- CMake build systems and static linking
-- Empirical performance testing and optimization</p>
-<h3 id="ubuntu-cuda-llamacpp-executable">Ubuntu-Cuda-Llama.cpp-Executable</h3>
-<p><strong><a href="https://github.com/waqasm86/Ubuntu-Cuda-Llama.cpp-Executable">GitHub</a></strong> | <strong><a href="/ubuntu-cuda-executable/">Documentation</a></strong></p>
-<p>Pre-built llama.cpp binary with CUDA 12.8 support for Ubuntu 22.04 (build 7489). The infrastructure that makes llcuda possible. Updated December 28, 2025.</p>
-<p><strong>Key Achievements:</strong>
-- Eliminated compilation requirement for llama.cpp
-- Static linking removes all external dependencies
-- Optimized for Maxwell architecture (compute 5.0)
-- Verified on multiple legacy GPU models</p>
+- Bundled llama.cpp binaries and shared libraries
+- Empirical performance testing and optimization
+- Auto-configuration and hardware detection</p>
 <hr />
 <h2 id="technical-expertise">Technical Expertise</h2>
 <h3 id="programming-languages">Programming Languages</h3>
@@ -1401,8 +1340,7 @@
 - Building tools for machine learning workflows
 - Technical documentation and developer experience</p>
 <p><strong>Key Projects:</strong>
-- <strong>llcuda</strong>: PyPI package for LLM inference on legacy GPUs
-- <strong>Ubuntu-Cuda-Llama.cpp-Executable</strong>: Pre-built llama.cpp binaries
+- <strong>llcuda v1.0.0</strong>: PyPI package for LLM inference on legacy GPUs with bundled CUDA binaries
 - <strong>CUDA Systems Research</strong>: Empirical testing on Maxwell-era GPUs</p>
 <hr />
 <h2 id="why-legacy-gpus">Why Legacy GPUs?</h2>
@@ -1422,15 +1360,13 @@
 <p>Make AI tools accessible on hardware people already own. No expensive upgrades needed.</p>
 <hr />
 <h2 id="projects">Projects</h2>
-<h3 id="active-projects">Active Projects</h3>
-<p><strong>llcuda</strong> - LLM inference for legacy NVIDIA GPUs
+<h3 id="active-project">Active Project</h3>
+<p><strong>llcuda v1.0.0</strong> - PyTorch-style LLM inference for legacy NVIDIA GPUs
 - <strong>Status</strong>: Published to PyPI, actively maintained
-- <strong>Focus</strong>: Python API, JupyterLab integration, documentation
-- <strong>Links</strong>: <a href="https://pypi.org/project/llcuda/">PyPI</a> | <a href="/llcuda/">Docs</a> | <a href="https://github.com/waqasm86/llcuda">GitHub</a></p>
-<p><strong>Ubuntu-Cuda-Llama.cpp-Executable</strong> - Pre-built llama.cpp binaries
-- <strong>Status</strong>: Released, stable
-- <strong>Focus</strong>: Build optimization, platform support
-- <strong>Links</strong>: <a href="https://github.com/waqasm86/Ubuntu-Cuda-Llama.cpp-Executable">GitHub</a> | <a href="/ubuntu-cuda-executable/">Docs</a></p>
+- <strong>Version</strong>: 1.0.0 (December 2025)
+- <strong>Focus</strong>: Zero-configuration installation, smart model loading, hardware auto-config
+- <strong>Features</strong>: Bundled CUDA 12.8 binaries, HuggingFace registry, performance metrics
+- <strong>Links</strong>: <a href="https://pypi.org/project/llcuda/">PyPI</a> | <a href="/llcuda/">Docs</a> | <a href="https://github.com/waqasm86/llcuda">GitHub</a> | <a href="https://github.com/waqasm86/llcuda/releases/tag/v1.0.0">v1.0.0 Release</a></p>
 <h3 id="future-directions">Future Directions</h3>
 <p><strong>Planned Work:</strong>
 - <strong>Windows Support</strong>: Pre-built binaries for Windows + CUDA
@@ -1466,14 +1402,11 @@
 <hr />
 <h2 id="open-source">Open Source</h2>
 <p>All my projects are open source:</p>
-<p><strong>llcuda</strong>
+<p><strong>llcuda v1.0.0</strong>
 - <strong>License</strong>: MIT
 - <strong>Repository</strong>: <a href="https://github.com/waqasm86/llcuda">github.com/waqasm86/llcuda</a>
-- <strong>Contributions</strong>: Bug reports, feature requests, and PRs welcome</p>
-<p><strong>Ubuntu-Cuda-Llama.cpp-Executable</strong>
-- <strong>License</strong>: MIT
-- <strong>Repository</strong>: <a href="https://github.com/waqasm86/Ubuntu-Cuda-Llama.cpp-Executable">github.com/waqasm86/Ubuntu-Cuda-Llama.cpp-Executable</a>
-- <strong>Contributions</strong>: Build configurations, platform support, optimizations</p>
+- <strong>PyPI</strong>: <a href="https://pypi.org/project/llcuda/">pypi.org/project/llcuda</a>
+- <strong>Contributions</strong>: Bug reports, feature requests, model testing, and PRs welcome</p>
 <hr />
 <h2 id="contact">Contact</h2>
 <p>I'm always interested in:
