@@ -134,20 +134,21 @@ cat /etc/os-release
 
 **Example Bug Report:**
 ```
-**Title**: CUDA out of memory with Gemma 2 2B on GTX 1050
+**Title**: CUDA out of memory with Phi-3 Mini on GTX 1050
 
 **System**:
-- llcuda version: 0.1.5
-- Python: 3.10.12
+- llcuda version: 1.0.0
+- Python: 3.11.0
 - GPU: GeForce GTX 1050 (2GB VRAM)
 - OS: Ubuntu 22.04
 
 **Issue**:
-Getting CUDA OOM error when loading Gemma 2 2B model.
+Getting CUDA OOM error when loading Phi-3 Mini model.
 
 **Code**:
-from llcuda import LLM
-llm = LLM(model="gemma-2-2b-it")  # Fails here
+import llcuda
+engine = llcuda.InferenceEngine()
+engine.load_model("phi-3-mini-Q4_K_M")  # Fails here
 
 **Error**:
 RuntimeError: CUDA out of memory...
@@ -177,7 +178,8 @@ I welcome feature requests! Please provide:
 larger models in limited VRAM.
 
 **Example**:
-llm = LLM(model="llama-7b", quantization="Q2_K")
+engine = llcuda.InferenceEngine()
+engine.load_model("mistral-7b-Q2_K")  # Hypothetical Q2_K model
 
 **Priority**: Nice to have, not blocking
 ```
