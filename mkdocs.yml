@@ -81,6 +81,7 @@ nav:
       - Overview: llcuda/index.md
       - Quick Start: llcuda/quickstart.md
       - Installation: llcuda/installation.md
+      - Cloud Platforms: llcuda/cloud-platforms.md
       - Performance: llcuda/performance.md
       - Examples: llcuda/examples.md
   - About:
