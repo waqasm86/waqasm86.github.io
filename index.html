@@ -411,10 +411,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#featured-project-llcuda-v100" class="md-nav__link">
+  <a href="#featured-project-llcuda-v101" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Featured Project: llcuda v1.0.0
+        Featured Project: llcuda v1.0.1
       
     </span>
   </a>
@@ -979,9 +979,10 @@
 <hr />
 <h2 id="the-llcuda-ecosystem">The llcuda Ecosystem</h2>
 <p>Making large language models accessible on legacy hardware through empirical engineering and zero-configuration design.</p>
-<h3 id="featured-project-llcuda-v100">Featured Project: llcuda v1.0.0</h3>
+<h3 id="featured-project-llcuda-v101">Featured Project: llcuda v1.0.1</h3>
 <p><strong><a href="https://pypi.org/project/llcuda/">llcuda on PyPI</a></strong> is a PyTorch-style Python package that brings LLM inference to old NVIDIA GPUs with zero configuration. Built for Ubuntu 22.04 with bundled CUDA 12.8 binaries and tested extensively on GeForce 940M (1GB VRAM).</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>llcuda
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Install or upgrade to latest version</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>llcuda
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">llcuda</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
@@ -1014,7 +1015,7 @@
 </ol>
 <hr />
 <h2 id="performance-data">Performance Data</h2>
-<p>All benchmarks run on <strong>GeForce 940M (1GB VRAM, 384 CUDA cores, Maxwell architecture)</strong> on Ubuntu 22.04 with llcuda v1.0.0.</p>
+<p>All benchmarks run on <strong>GeForce 940M (1GB VRAM, 384 CUDA cores, Maxwell architecture)</strong> on Ubuntu 22.04 with llcuda v1.0.1.</p>
 <h3 id="gemma-3-1b-q4_k_m">Gemma 3 1B Q4_K_M</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Model: google/gemma-3-1b-it (Q4_K_M quantization)
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Hardware: GeForce 940M (1GB VRAM)
@@ -1048,8 +1049,8 @@
 <hr />
 <h2 id="quick-start">Quick Start</h2>
 <p>Get up and running in under 5 minutes:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Install llcuda (includes all CUDA binaries)</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>pip<span class="w"> </span>install<span class="w"> </span>llcuda
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Install or upgrade llcuda (includes all CUDA binaries)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>llcuda
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Basic usage - auto-downloads model with confirmation</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">llcuda</span>
@@ -1108,14 +1109,14 @@
 </ol>
 <hr />
 <h2 id="project-llcuda">Project: llcuda</h2>
-<p><strong><a href="https://pypi.org/project/llcuda/">PyPI Package</a></strong> | <strong><a href="https://github.com/waqasm86/llcuda">GitHub</a></strong> | <strong><a href="https://github.com/waqasm86/llcuda/releases/tag/v1.0.0">v1.0.0 Release</a></strong></p>
+<p><strong><a href="https://pypi.org/project/llcuda/">PyPI Package</a></strong> | <strong><a href="https://github.com/waqasm86/llcuda">GitHub</a></strong> | <strong><a href="https://github.com/waqasm86/llcuda/releases/tag/v1.0.1">v1.0.1 Release</a></strong></p>
 <p>PyTorch-style Python package for LLM inference on legacy NVIDIA GPUs. Zero-configuration installation with bundled CUDA 12.8 binaries, smart model loading from HuggingFace, hardware auto-configuration, and JupyterLab integration. Empirically tested on GeForce 940M.</p>
-<p><strong>What's New in v1.0.0:</strong>
-- Bundled CUDA binaries and libraries (47 MB wheel)
-- Auto-configuration on import (no manual path setup)
-- Smart model loading with HuggingFace registry (11 curated models)
-- Hardware auto-detection and optimization
-- Performance metrics tracking (P50/P95/P99)</p>
+<p><strong>What's New in v1.0.1:</strong>
+- Fixed critical parameter mapping bug (<code>batch_size</code> vs <code>n_batch</code>)
+- Fixed shared library loading issues
+- Automatic <code>LD_LIBRARY_PATH</code> configuration
+- Works correctly on low-VRAM GPUs (GeForce 940M tested)
+- All v1.0.0 features included</p>
 <p><a href="/llcuda/">Explore llcuda documentation &rarr;</a></p>
 <hr />
 <h2 id="technical-stack">Technical Stack</h2>
