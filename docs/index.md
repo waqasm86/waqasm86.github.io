@@ -8,12 +8,13 @@
 
 Making large language models accessible on legacy hardware through empirical engineering and zero-configuration design.
 
-### Featured Project: llcuda v1.0.0
+### Featured Project: llcuda v1.0.1
 
 **[llcuda on PyPI](https://pypi.org/project/llcuda/)** is a PyTorch-style Python package that brings LLM inference to old NVIDIA GPUs with zero configuration. Built for Ubuntu 22.04 with bundled CUDA 12.8 binaries and tested extensively on GeForce 940M (1GB VRAM).
 
 ```bash
-pip install llcuda
+# Install or upgrade to latest version
+pip install --upgrade llcuda
 ```
 
 ```python
@@ -54,7 +55,7 @@ I build tools that **actually work** on real hardware people own. No assumptions
 
 ## Performance Data
 
-All benchmarks run on **GeForce 940M (1GB VRAM, 384 CUDA cores, Maxwell architecture)** on Ubuntu 22.04 with llcuda v1.0.0.
+All benchmarks run on **GeForce 940M (1GB VRAM, 384 CUDA cores, Maxwell architecture)** on Ubuntu 22.04 with llcuda v1.0.1.
 
 ### Gemma 3 1B Q4_K_M
 
@@ -99,8 +100,8 @@ llcuda includes a curated registry of models tested on GeForce 940M:
 Get up and running in under 5 minutes:
 
 ```bash
-# Install llcuda (includes all CUDA binaries)
-pip install llcuda
+# Install or upgrade llcuda (includes all CUDA binaries)
+pip install --upgrade llcuda
 ```
 
 ```python
@@ -174,16 +175,16 @@ llcuda is designed for the hardware people actually own:
 
 ## Project: llcuda
 
-**[PyPI Package](https://pypi.org/project/llcuda/)** | **[GitHub](https://github.com/waqasm86/llcuda)** | **[v1.0.0 Release](https://github.com/waqasm86/llcuda/releases/tag/v1.0.0)**
+**[PyPI Package](https://pypi.org/project/llcuda/)** | **[GitHub](https://github.com/waqasm86/llcuda)** | **[v1.0.1 Release](https://github.com/waqasm86/llcuda/releases/tag/v1.0.1)**
 
 PyTorch-style Python package for LLM inference on legacy NVIDIA GPUs. Zero-configuration installation with bundled CUDA 12.8 binaries, smart model loading from HuggingFace, hardware auto-configuration, and JupyterLab integration. Empirically tested on GeForce 940M.
 
-**What's New in v1.0.0:**
-- Bundled CUDA binaries and libraries (47 MB wheel)
-- Auto-configuration on import (no manual path setup)
-- Smart model loading with HuggingFace registry (11 curated models)
-- Hardware auto-detection and optimization
-- Performance metrics tracking (P50/P95/P99)
+**What's New in v1.0.1:**
+- Fixed critical parameter mapping bug (`batch_size` vs `n_batch`)
+- Fixed shared library loading issues
+- Automatic `LD_LIBRARY_PATH` configuration
+- Works correctly on low-VRAM GPUs (GeForce 940M tested)
+- All v1.0.0 features included
 
 [Explore llcuda documentation &rarr;](/llcuda/)
 

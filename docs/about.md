@@ -22,11 +22,11 @@ I build tools that **actually work** on real hardware, not just theoretical benc
 
 ### llcuda - LLM Inference for Legacy GPUs
 
-**[PyPI Package](https://pypi.org/project/llcuda/)** | **[Documentation](/llcuda/)** | **[GitHub](https://github.com/waqasm86/llcuda)** | **[v1.0.0 Release](https://github.com/waqasm86/llcuda/releases/tag/v1.0.0)**
+**[PyPI Package](https://pypi.org/project/llcuda/)** | **[Documentation](/llcuda/)** | **[GitHub](https://github.com/waqasm86/llcuda)** | **[v1.0.1 Release](https://github.com/waqasm86/llcuda/releases/tag/v1.0.1)**
 
 PyTorch-style Python package that brings LLM inference to old NVIDIA GPUs with zero configuration. Published to PyPI, tested extensively on GeForce 940M (1GB VRAM).
 
-**Key Achievements (v1.0.0):**
+**Key Achievements (v1.0.1):**
 - Published production-ready package to PyPI with bundled CUDA 12.8 binaries
 - Achieved ~15 tokens/second on GeForce 940M
 - Zero-configuration installation - no manual path setup required
@@ -121,7 +121,7 @@ If it's not on PyPI with proper versioning, it's not production-ready.
 - Technical documentation and developer experience
 
 **Key Projects:**
-- **llcuda v1.0.0**: PyPI package for LLM inference on legacy GPUs with bundled CUDA binaries
+- **llcuda v1.0.1**: PyPI package for LLM inference on legacy GPUs with bundled CUDA binaries
 - **CUDA Systems Research**: Empirical testing on Maxwell-era GPUs
 
 ---
@@ -155,12 +155,12 @@ Make AI tools accessible on hardware people already own. No expensive upgrades n
 
 ### Active Project
 
-**llcuda v1.0.0** - PyTorch-style LLM inference for legacy NVIDIA GPUs
+**llcuda v1.0.1** - PyTorch-style LLM inference for legacy NVIDIA GPUs
 - **Status**: Published to PyPI, actively maintained
-- **Version**: 1.0.0 (December 2025)
+- **Version**: 1.0.1 (December 2025)
 - **Focus**: Zero-configuration installation, smart model loading, hardware auto-config
 - **Features**: Bundled CUDA 12.8 binaries, HuggingFace registry, performance metrics
-- **Links**: [PyPI](https://pypi.org/project/llcuda/) | [Docs](/llcuda/) | [GitHub](https://github.com/waqasm86/llcuda) | [v1.0.0 Release](https://github.com/waqasm86/llcuda/releases/tag/v1.0.0)
+- **Links**: [PyPI](https://pypi.org/project/llcuda/) | [Docs](/llcuda/) | [GitHub](https://github.com/waqasm86/llcuda) | [v1.0.1 Release](https://github.com/waqasm86/llcuda/releases/tag/v1.0.1)
 
 ### Future Directions
 
@@ -213,7 +213,7 @@ I believe in **documentation as a core feature** of software. Good documentation
 
 All my projects are open source:
 
-**llcuda v1.0.0**
+**llcuda v1.0.1**
 - **License**: MIT
 - **Repository**: [github.com/waqasm86/llcuda](https://github.com/waqasm86/llcuda)
 - **PyPI**: [pypi.org/project/llcuda](https://pypi.org/project/llcuda/)
