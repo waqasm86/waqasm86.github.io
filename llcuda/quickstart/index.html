@@ -968,10 +968,14 @@
 
 
 <h1 id="quick-start-guide">Quick Start Guide</h1>
-<p>Get llcuda v1.0.0 running in under 5 minutes.</p>
+<p>Get llcuda v1.0.1 running in under 5 minutes.</p>
 <hr />
 <h2 id="installation-30-seconds">Installation (30 seconds)</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>llcuda
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Install or upgrade to latest version</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>llcuda
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Or install specific version</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">llcuda</span><span class="o">==</span><span class="m">1</span>.0.1
 </code></pre></div>
 <p>That's it. All CUDA binaries and libraries are bundled in the package.</p>
 <hr />
@@ -999,7 +1003,7 @@
 </code></pre></div></p>
 <hr />
 <h2 id="list-available-models">List Available Models</h2>
-<p>llcuda v1.0.0 includes 11 curated models in the registry:</p>
+<p>llcuda v1.0.1 includes 11 curated models in the registry:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">llcuda.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">list_registry_models</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">models</span> <span class="o">=</span> <span class="n">list_registry_models</span><span class="p">()</span>
@@ -1029,7 +1033,7 @@
 </code></pre></div>
 <p><strong>Output</strong>:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>=== llcuda System Information ===
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>llcuda version: 1.0.0
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>llcuda version: 1.0.1
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Python version: 3.11.0
 <a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
 <a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>=== CUDA Information ===

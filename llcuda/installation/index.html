@@ -1008,10 +1008,14 @@
 
 
 <h1 id="installation-guide">Installation Guide</h1>
-<p>Complete installation instructions for llcuda v1.0.0.</p>
+<p>Complete installation instructions for llcuda v1.0.1.</p>
 <hr />
 <h2 id="quick-install">Quick Install</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>llcuda
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Install or upgrade to latest version</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>llcuda
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Or install specific version</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">llcuda</span><span class="o">==</span><span class="m">1</span>.0.1
 </code></pre></div>
 <p>That's it! All CUDA binaries and libraries are bundled in the 47 MB wheel.</p>
 <hr />
@@ -1055,7 +1059,8 @@
 </code></pre></div>
 <p>You should see your GPU listed. If not, install NVIDIA drivers first.</p>
 <h3 id="2-install-llcuda">2. Install llcuda</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pip<span class="w"> </span>install<span class="w"> </span>llcuda
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Install latest version</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>llcuda
 </code></pre></div>
 <h3 id="3-verify-installation">3. Verify Installation</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">llcuda</span>
