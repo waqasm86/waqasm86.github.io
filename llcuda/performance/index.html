@@ -1544,7 +1544,7 @@
 <tr>
 <td><strong>Supported GPUs</strong></td>
 <td>Compute 5.0 only</td>
-<td>Compute 5.0-8.9</td>
+<td>Compute 5.0-8.9 (8 architectures)</td>
 </tr>
 <tr>
 <td><strong>Cloud Platforms</strong></td>
@@ -1552,9 +1552,19 @@
 <td>✅ Colab, Kaggle</td>
 </tr>
 <tr>
-<td><strong>Package Size</strong></td>
+<td><strong>PyPI Package Size</strong></td>
 <td>50 MB</td>
-<td>313 MB</td>
+<td><strong>51 KB</strong> (hybrid architecture)</td>
+</tr>
+<tr>
+<td><strong>First Install</strong></td>
+<td>Quick</td>
+<td>+3-5 min (downloads binaries/model)</td>
+</tr>
+<tr>
+<td><strong>Subsequent Use</strong></td>
+<td>~1 sec</td>
+<td>~1 sec (cached)</td>
 </tr>
 <tr>
 <td><strong>Performance (940M)</strong></td>
@@ -1564,15 +1574,16 @@
 <tr>
 <td><strong>T4 Support</strong></td>
 <td>❌ Failed</td>
-<td>✅ Works</td>
+<td>✅ Works (~15 tok/s)</td>
 </tr>
 <tr>
 <td><strong>P100 Support</strong></td>
 <td>❌ Failed</td>
-<td>✅ Works</td>
+<td>✅ Works (~18 tok/s)</td>
 </tr>
 </tbody>
 </table>
+<p><strong>Hybrid Bootstrap Architecture</strong>: v1.1.0 uses a lightweight PyPI package (51 KB) that automatically downloads optimized binaries (~700 MB) and models (~770 MB) on first import based on your GPU. This solves PyPI's 100 MB file size limit while providing universal GPU support.</p>
 <p><strong>Backward compatible</strong>: v1.1.0 works exactly the same on GeForce 940M as v1.0.x.</p>
 <hr />
 <h2 id="links">Links</h2>
