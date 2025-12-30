@@ -1,6 +1,8 @@
 # Code Examples
 
-Production-ready code samples for llcuda v1.0.1. All examples tested on GeForce 940M (1GB VRAM).
+Production-ready code samples for llcuda v1.1.0. All examples tested on GeForce 940M (1GB VRAM) and Tesla T4 (Colab/Kaggle).
+
+**Note**: On first import, llcuda will auto-download binaries and models (one-time setup taking 3-5 minutes).
 
 ---
 

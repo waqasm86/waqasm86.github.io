@@ -1,20 +1,29 @@
 # Quick Start Guide
 
-Get llcuda v1.0.1 running in under 5 minutes.
+Get llcuda v1.1.0 running in under 10 minutes.
 
 ---
 
-## Installation (30 seconds)
+## Installation (5-10 minutes for first-time setup)
 
 ```bash
 # Install or upgrade to latest version
 pip install --upgrade llcuda
 
 # Or install specific version
-pip install llcuda==1.0.1
+pip install llcuda==1.1.0
 ```
 
-That's it. All CUDA binaries and libraries are bundled in the package.
+**First-time Setup**: When you first import llcuda, it will automatically download:
+- **Binaries** (~700 MB): Optimized for your GPU from GitHub Releases
+- **Model** (~770 MB): Default Gemma 3 1B from Hugging Face
+- **Total**: ~1.5 GB one-time download (3-5 minutes)
+- **Subsequent uses**: Instant (files cached locally)
+
+**Why the download?** llcuda v1.1.0 uses a hybrid bootstrap architecture:
+- PyPI package: Only **51 KB** (Python code only)
+- Supports **8 GPU architectures** (SM 5.0-8.9)
+- Works on **Colab, Kaggle, and local GPUs**
 
 ---
 
@@ -22,11 +31,16 @@ That's it. All CUDA binaries and libraries are bundled in the package.
 
 ```python
 import llcuda
+# 🎯 First import triggers automatic setup (one-time):
+#    - Detecting GPU: GeForce 940M (Compute 5.0)
+#    - Downloading binaries from GitHub...
+#    - Downloading model from Hugging Face...
+#    - ✅ Setup Complete!
 
 # Create inference engine (auto-detects GPU)
 engine = llcuda.InferenceEngine()
 
-# Load model (auto-downloads from HuggingFace)
+# Load model (already downloaded during first import)
 engine.load_model("gemma-3-1b-Q4_K_M")
 
 # Run inference
@@ -49,7 +63,7 @@ Speed: 15.2 tok/s
 
 ## List Available Models
 
-llcuda v1.0.1 includes 11 curated models in the registry:
+llcuda v1.1.0 includes 11 curated models in the registry:
 
 ```python
 from llcuda.models import list_registry_models

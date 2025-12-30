@@ -1,17 +1,35 @@
 # llcuda on Google Colab and Kaggle
 
-Complete guide for running llcuda on cloud GPU platforms.
+Complete guide for running llcuda v1.1.0 on cloud GPU platforms.
+
+---
+
+## Overview
+
+llcuda v1.1.0 is optimized for cloud platforms with **hybrid bootstrap architecture**:
+
+- **First run**: Auto-downloads binaries (~700 MB) and model (~770 MB) - takes 3-5 minutes
+- **Subsequent runs**: Instant (files cached)
+- **Supports**: T4, P100, V100, A100 GPUs on Colab and Kaggle
+
+---
 
 ## Quick Start
 
 ### Google Colab
 
 ```python
-# Install llcuda
+# Install llcuda (51 KB package)
 !pip install llcuda
 
-# Import and run
+# Import triggers auto-download on first run
 import llcuda
+# 🎯 llcuda First-Time Setup
+# 🎮 GPU Detected: Tesla T4 (Compute 7.5)
+# 🌐 Platform: Google Colab
+# 📥 Downloading binaries from GitHub...
+# 📥 Downloading model from Hugging Face...
+# ✅ Setup Complete!
 
 # Check GPU compatibility
 compat = llcuda.check_gpu_compatibility()
@@ -32,11 +50,17 @@ print(result.text)
 ### Kaggle
 
 ```python
-# Install llcuda
+# Install llcuda (51 KB package)
 !pip install llcuda
 
-# Import
+# Import triggers auto-download on first run
 import llcuda
+# 🎯 llcuda First-Time Setup (one-time)
+# 🎮 GPU Detected: Tesla T4 (Compute 7.5)
+# 🌐 Platform: Kaggle
+# 📥 Downloading binaries... (700 MB)
+# 📥 Downloading model... (770 MB)
+# ✅ Setup Complete!
 
 # Check GPU (Kaggle typically has 2x Tesla T4)
 compat = llcuda.check_gpu_compatibility()
