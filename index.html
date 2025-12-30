@@ -411,10 +411,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#featured-project-llcuda-v101" class="md-nav__link">
+  <a href="#featured-project-llcuda-v110" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Featured Project: llcuda v1.0.1
+        Featured Project: llcuda v1.1.0
       
     </span>
   </a>
@@ -450,10 +450,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#gemma-3-1b-q4_k_m" class="md-nav__link">
+  <a href="#gemma-3-1b-q4_k_m-performance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Gemma 3 1B Q4_K_M
+        Gemma 3 1B Q4_K_M Performance
       
     </span>
   </a>
@@ -1007,28 +1007,30 @@
 <hr />
 <h2 id="the-llcuda-ecosystem">The llcuda Ecosystem</h2>
 <p>Making large language models accessible on legacy hardware through empirical engineering and zero-configuration design.</p>
-<h3 id="featured-project-llcuda-v101">Featured Project: llcuda v1.0.1</h3>
-<p><strong><a href="https://pypi.org/project/llcuda/">llcuda on PyPI</a></strong> is a PyTorch-style Python package that brings LLM inference to old NVIDIA GPUs with zero configuration. Built for Ubuntu 22.04 with bundled CUDA 12.8 binaries and tested extensively on GeForce 940M (1GB VRAM).</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Install or upgrade to latest version</span>
+<h3 id="featured-project-llcuda-v110">Featured Project: llcuda v1.1.0</h3>
+<p><strong><a href="https://pypi.org/project/llcuda/">llcuda on PyPI</a></strong> is a PyTorch-style Python package that brings LLM inference to <strong>all modern NVIDIA GPUs</strong> with zero configuration. Works on GeForce 940M, Google Colab, and Kaggle with hybrid bootstrap architecture.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Install or upgrade to latest version (only 51 KB!)</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>llcuda
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">llcuda</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">llcuda</span>  <span class="c1"># Auto-downloads binaries and models on first run</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">engine</span> <span class="o">=</span> <span class="n">llcuda</span><span class="o">.</span><span class="n">InferenceEngine</span><span class="p">()</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">engine</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;gemma-3-1b-Q4_K_M&quot;</span><span class="p">)</span>  <span class="c1"># Auto-downloads from HuggingFace</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">engine</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;gemma-3-1b-Q4_K_M&quot;</span><span class="p">)</span>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">result</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">infer</span><span class="p">(</span><span class="s2">&quot;What is AI?&quot;</span><span class="p">)</span>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div>
 <p><strong>Key Features:</strong></p>
 <ul>
-<li><strong>Zero Configuration</strong>: No manual path setup, no LLAMA_SERVER_PATH needed</li>
-<li><strong>Bundled Binaries</strong>: All CUDA 12.8 binaries and libraries included (47 MB wheel)</li>
-<li><strong>Smart Model Loading</strong>: Auto-download from HuggingFace registry with user confirmation</li>
+<li><strong>Hybrid Bootstrap Architecture</strong>: 51 KB PyPI package, auto-downloads binaries (~700 MB) and models (~770 MB) on first import</li>
+<li><strong>Universal GPU Support</strong>: Works on all NVIDIA GPUs (compute 5.0-8.9) - Maxwell to Ada Lovelace</li>
+<li><strong>Cloud Platform Ready</strong>: Google Colab (T4, P100, V100, A100), Kaggle (T4), local GPUs</li>
+<li><strong>Zero Configuration</strong>: No manual path setup, everything auto-configured</li>
+<li><strong>Smart Model Loading</strong>: Auto-download from Hugging Face registry</li>
 <li><strong>Hardware Auto-Config</strong>: Detects VRAM and optimizes settings automatically</li>
 <li><strong>11 Curated Models</strong>: Ready to use out of the box</li>
 <li><strong>Performance Metrics</strong>: P50/P95/P99 latency tracking built-in</li>
-<li><strong>Production Ready</strong>: Published to PyPI, works like PyTorch</li>
-<li><strong>Empirical Performance</strong>: ~15 tokens/second with Gemma 3 1B Q4_K_M on GeForce 940M</li>
+<li><strong>Professional Distribution</strong>: Matches PyTorch/TensorFlow pattern</li>
+<li><strong>Empirical Performance</strong>: ~15 tokens/second on GeForce 940M and Tesla T4</li>
 </ul>
 <hr />
 <h2 id="philosophy-product-minded-engineering">Philosophy: Product-Minded Engineering</h2>
@@ -1043,18 +1045,48 @@
 </ol>
 <hr />
 <h2 id="performance-data">Performance Data</h2>
-<p>All benchmarks run on <strong>GeForce 940M (1GB VRAM, 384 CUDA cores, Maxwell architecture)</strong> on Ubuntu 22.04 with llcuda v1.0.1.</p>
-<h3 id="gemma-3-1b-q4_k_m">Gemma 3 1B Q4_K_M</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Model: google/gemma-3-1b-it (Q4_K_M quantization)
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Hardware: GeForce 940M (1GB VRAM)
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Performance: ~15 tokens/second
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>GPU Layers: 20 (auto-configured)
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>Context: 512 tokens
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>Memory Usage: ~800MB VRAM
-</code></pre></div>
-<p><strong>Auto-Configuration Details:</strong>
-- VRAM detected: 1.0 GB
-- Optimal settings calculated automatically
+<p>All benchmarks run on real hardware with llcuda v1.1.0.</p>
+<h3 id="gemma-3-1b-q4_k_m-performance">Gemma 3 1B Q4_K_M Performance</h3>
+<table>
+<thead>
+<tr>
+<th>GPU</th>
+<th>VRAM</th>
+<th>Speed</th>
+<th>GPU Layers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GeForce 940M</strong> (Local)</td>
+<td>1 GB</td>
+<td>~15 tok/s</td>
+<td>20</td>
+</tr>
+<tr>
+<td><strong>Tesla T4</strong> (Colab/Kaggle)</td>
+<td>15 GB</td>
+<td>~15 tok/s</td>
+<td>26 (all)</td>
+</tr>
+<tr>
+<td><strong>Tesla P100</strong> (Colab)</td>
+<td>16 GB</td>
+<td>~18 tok/s</td>
+<td>26 (all)</td>
+</tr>
+<tr>
+<td><strong>Tesla V100</strong> (Colab Pro)</td>
+<td>16 GB</td>
+<td>~20 tok/s</td>
+<td>26 (all)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Auto-Configuration:</strong>
+- GPU and platform detected automatically
+- VRAM analyzed
+- Optimal settings calculated (gpu_layers, ctx_size, batch_size)
 - No manual tuning required</p>
 <h3 id="available-models-11-total">Available Models (11 total)</h3>
 <p>llcuda includes a curated registry of models tested on GeForce 940M:</p>
@@ -1076,39 +1108,40 @@
 </ul>
 <hr />
 <h2 id="quick-start">Quick Start</h2>
-<p>Get up and running in under 5 minutes:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Install or upgrade llcuda (includes all CUDA binaries)</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>llcuda
+<p>Get up and running in under 10 minutes (includes one-time setup):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Install llcuda (51 KB package)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>llcuda
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Basic usage - auto-downloads model with confirmation</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">llcuda</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">engine</span> <span class="o">=</span> <span class="n">llcuda</span><span class="o">.</span><span class="n">InferenceEngine</span><span class="p">()</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">engine</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;gemma-3-1b-Q4_K_M&quot;</span><span class="p">)</span>  <span class="c1"># Auto-downloads from HuggingFace</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">result</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">infer</span><span class="p">(</span><span class="s2">&quot;Explain quantum computing in simple terms.&quot;</span><span class="p">)</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Performance: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">tokens_per_sec</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> tok/s&quot;</span><span class="p">)</span>
+<p><strong>First-time setup</strong>: On first <code>import llcuda</code>, binaries (~700 MB) and models (~770 MB) will auto-download (3-5 minutes). Subsequent runs are instant.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Basic usage - auto-downloads model with confirmation</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">llcuda</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">engine</span> <span class="o">=</span> <span class="n">llcuda</span><span class="o">.</span><span class="n">InferenceEngine</span><span class="p">()</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">engine</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;gemma-3-1b-Q4_K_M&quot;</span><span class="p">)</span>  <span class="c1"># Auto-downloads from HuggingFace</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">result</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">infer</span><span class="p">(</span><span class="s2">&quot;Explain quantum computing in simple terms.&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Performance: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">tokens_per_sec</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> tok/s&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>For JupyterLab integration:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">llcuda</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">engine</span> <span class="o">=</span> <span class="n">llcuda</span><span class="o">.</span><span class="n">InferenceEngine</span><span class="p">()</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1"># Load model with auto-configuration for your GPU</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="n">engine</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;gemma-3-1b-Q4_K_M&quot;</span><span class="p">)</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="c1"># Interactive chat with performance tracking</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="n">conversation</span> <span class="o">=</span> <span class="p">[</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    <span class="s2">&quot;What is machine learning?&quot;</span><span class="p">,</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    <span class="s2">&quot;How does it differ from traditional programming?&quot;</span><span class="p">,</span>
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    <span class="s2">&quot;Give me a practical example&quot;</span>
-<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="p">]</span>
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
-<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">conversation</span><span class="p">:</span>
-<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">infer</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;User: </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;AI: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Speed: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">tokens_per_sec</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> tok/s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">llcuda</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">engine</span> <span class="o">=</span> <span class="n">llcuda</span><span class="o">.</span><span class="n">InferenceEngine</span><span class="p">()</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># Load model with auto-configuration for your GPU</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">engine</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;gemma-3-1b-Q4_K_M&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1"># Interactive chat with performance tracking</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="n">conversation</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    <span class="s2">&quot;What is machine learning?&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>    <span class="s2">&quot;How does it differ from traditional programming?&quot;</span><span class="p">,</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    <span class="s2">&quot;Give me a practical example&quot;</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="p">]</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">conversation</span><span class="p">:</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">infer</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">max_tokens</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;User: </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;AI: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Speed: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">tokens_per_sec</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> tok/s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p><a href="/llcuda/quickstart/">View detailed quick start guide &rarr;</a></p>
 <hr />
@@ -1137,14 +1170,15 @@
 </ol>
 <hr />
 <h2 id="project-llcuda">Project: llcuda</h2>
-<p><strong><a href="https://pypi.org/project/llcuda/">PyPI Package</a></strong> | <strong><a href="https://github.com/waqasm86/llcuda">GitHub</a></strong> | <strong><a href="https://github.com/waqasm86/llcuda/releases/tag/v1.0.1">v1.0.1 Release</a></strong></p>
-<p>PyTorch-style Python package for LLM inference on legacy NVIDIA GPUs. Zero-configuration installation with bundled CUDA 12.8 binaries, smart model loading from HuggingFace, hardware auto-configuration, and JupyterLab integration. Empirically tested on GeForce 940M.</p>
-<p><strong>What's New in v1.0.1:</strong>
-- Fixed critical parameter mapping bug (<code>batch_size</code> vs <code>n_batch</code>)
-- Fixed shared library loading issues
-- Automatic <code>LD_LIBRARY_PATH</code> configuration
-- Works correctly on low-VRAM GPUs (GeForce 940M tested)
-- All v1.0.0 features included</p>
+<p><strong><a href="https://pypi.org/project/llcuda/">PyPI Package</a></strong> | <strong><a href="https://github.com/waqasm86/llcuda">GitHub</a></strong> | <strong><a href="https://github.com/waqasm86/llcuda/releases/tag/v1.1.0">v1.1.0 Release</a></strong></p>
+<p>PyTorch-style Python package for LLM inference on all modern NVIDIA GPUs. Hybrid bootstrap architecture with 51 KB PyPI package, auto-download binaries and models, universal GPU support (SM 5.0-8.9), Google Colab and Kaggle compatibility. Empirically tested on GeForce 940M and Tesla T4.</p>
+<p><strong>What's New in v1.1.0:</strong>
+- <strong>Hybrid Bootstrap Architecture</strong>: 51 KB PyPI package (was 327 MB)
+- <strong>Universal GPU Support</strong>: SM 5.0, 6.0, 6.1, 7.0, 7.5, 8.0, 8.6, 8.9 (8 architectures)
+- <strong>Cloud Platforms</strong>: Google Colab (T4, P100, V100, A100), Kaggle (T4)
+- <strong>Auto-Download</strong>: Binaries and models downloaded on first import
+- <strong>Professional Distribution</strong>: Matches PyTorch/TensorFlow pattern
+- <strong>Fully Backward Compatible</strong>: All v1.0.x code works unchanged</p>
 <p><a href="/llcuda/">Explore llcuda documentation &rarr;</a></p>
 <hr />
 <h2 id="technical-stack">Technical Stack</h2>
