@@ -45,8 +45,6 @@ engine.load_model("gemma-3-1b-Q4_K_M")
 - ✅ **Better Error Messages** - Clear guidance when issues occur
 - ✅ **No Breaking Changes** - Fully backward compatible with v1.0.x
 
-See [RELEASE_v1.1.0.md](RELEASE_v1.1.0.md) for full changelog.
-
 ---
 
 ## 🎯 Supported GPUs
@@ -145,7 +143,7 @@ result = engine.infer("Explain machine learning", max_tokens=100)
 print(result.text)
 ```
 
-**Complete Cloud Guide**: See [COLAB_KAGGLE_GUIDE.md](COLAB_KAGGLE_GUIDE.md) for detailed examples, troubleshooting, and best practices.
+**Complete Cloud Guide**: See the [cloud platforms guide](cloud-platforms.md) for detailed examples, troubleshooting, and best practices.
 
 ---
 
@@ -258,10 +256,12 @@ print(f"P95 latency: {metrics['latency']['p95_ms']:.0f}ms")
 
 ## 📖 Documentation
 
-- **Cloud Platform Guide**: [COLAB_KAGGLE_GUIDE.md](COLAB_KAGGLE_GUIDE.md)
-- **Release Notes**: [RELEASE_v1.1.0.md](RELEASE_v1.1.0.md)
+- **Quick Start Guide**: [quickstart.md](quickstart.md)
+- **Installation Guide**: [installation.md](installation.md)
+- **Cloud Platform Guide**: [cloud-platforms.md](cloud-platforms.md)
+- **Performance Benchmarks**: [performance.md](performance.md)
+- **Examples**: [examples.md](examples.md)
 - **API Documentation**: https://waqasm86.github.io/
-- **Examples**: [examples/](examples/) directory
 
 ---
 
@@ -342,15 +342,13 @@ assert compat['compatible'], f"GPU issue: {compat['reason']}"
 assert compat['compute_capability'] >= 5.0
 ```
 
-See [COLAB_KAGGLE_GUIDE.md](COLAB_KAGGLE_GUIDE.md) for more troubleshooting.
+See the [cloud platforms guide](cloud-platforms.md) for more troubleshooting.
 
 ---
 
 ## 🤝 Contributing
 
-Contributions welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-Found a bug? Open an issue: https://github.com/waqasm86/llcuda/issues
+Contributions welcome! Found a bug? Open an issue: https://github.com/waqasm86/llcuda/issues
 
 ---
 
@@ -378,7 +376,6 @@ See [LICENSE](LICENSE) for details.
 - **GitHub**: https://github.com/waqasm86/llcuda
 - **Documentation**: https://waqasm86.github.io/
 - **Bug Tracker**: https://github.com/waqasm86/llcuda/issues
-- **Changelog**: [CHANGELOG.md](CHANGELOG.md)
 
 ---
 
