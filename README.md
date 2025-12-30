@@ -1,4 +1,4 @@
-# Waqas Muhammad — Product Engineer
+# Waqas Muhammad — Software Developer
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://waqasm86.github.io)
 [![MkDocs Material](https://img.shields.io/badge/MkDocs-Material-blue)](https://squidfunk.github.io/mkdocs-material/)
