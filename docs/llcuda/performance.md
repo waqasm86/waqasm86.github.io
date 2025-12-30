@@ -266,12 +266,16 @@ print(result.text)
 
 | Metric | v1.0.x | v1.1.0 |
 |--------|--------|--------|
-| **Supported GPUs** | Compute 5.0 only | Compute 5.0-8.9 |
+| **Supported GPUs** | Compute 5.0 only | Compute 5.0-8.9 (8 architectures) |
 | **Cloud Platforms** | ❌ None | ✅ Colab, Kaggle |
-| **Package Size** | 50 MB | 313 MB |
+| **PyPI Package Size** | 50 MB | **51 KB** (hybrid architecture) |
+| **First Install** | Quick | +3-5 min (downloads binaries/model) |
+| **Subsequent Use** | ~1 sec | ~1 sec (cached) |
 | **Performance (940M)** | ~15 tok/s | ~15 tok/s (same) |
-| **T4 Support** | ❌ Failed | ✅ Works |
-| **P100 Support** | ❌ Failed | ✅ Works |
+| **T4 Support** | ❌ Failed | ✅ Works (~15 tok/s) |
+| **P100 Support** | ❌ Failed | ✅ Works (~18 tok/s) |
+
+**Hybrid Bootstrap Architecture**: v1.1.0 uses a lightweight PyPI package (51 KB) that automatically downloads optimized binaries (~700 MB) and models (~770 MB) on first import based on your GPU. This solves PyPI's 100 MB file size limit while providing universal GPU support.
 
 **Backward compatible**: v1.1.0 works exactly the same on GeForce 940M as v1.0.x.
 

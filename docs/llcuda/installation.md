@@ -1,6 +1,6 @@
 # Installation Guide
 
-Complete installation instructions for llcuda v1.0.1.
+Complete installation instructions for llcuda v1.1.0.
 
 ---
 
@@ -11,10 +11,19 @@ Complete installation instructions for llcuda v1.0.1.
 pip install --upgrade llcuda
 
 # Or install specific version
-pip install llcuda==1.0.1
+pip install llcuda==1.1.0
 ```
 
-That's it! All CUDA binaries and libraries are bundled in the 47 MB wheel.
+**First-time setup:** On first import, llcuda will automatically download optimized binaries (~700 MB) and a default model (~770 MB) based on your GPU. This is a one-time download that takes 3-5 minutes depending on your internet connection.
+
+```python
+import llcuda  # First import triggers automatic setup
+# 🎯 llcuda First-Time Setup
+# 🎮 GPU Detected: [Your GPU] (Compute X.X)
+# 📥 Downloading binaries...
+# 📥 Downloading model...
+# ✅ Setup Complete!
+```
 
 ---
 
