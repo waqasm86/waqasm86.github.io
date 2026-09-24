@@ -1,0 +1,55 @@
+name: Validate content
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install Python tooling
+        run: python -m pip install -r requirements-dev.txt
+
+      - name: Validate article metadata and local links
+        run: |
+          python -m tools.article.validate_frontmatter
+          python -m tools.article.check_links
+
+      - name: Verify technical syntax lexers
+        run: bundle exec ruby tools/article/check_rouge.rb
+
+      - name: Run Python tests
+        run: python -m pytest
+
+      - name: Build Jekyll site
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+
+      - name: Check required pages and local generated links
+        run: python -m tools.article.check_generated_site
+
+      - name: Check generated HTML
+        run: bundle exec htmlproofer _site --disable-external

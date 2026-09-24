@@ -1,0 +1,90 @@
+name: Import kaggle-vllm evidence
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_repo:
+        description: Public owner/repository to read
+        required: true
+        default: kaggle-vllm/kaggle-vllm
+        type: string
+      source_ref:
+        description: Immutable commit SHA or reviewed tag
+        required: true
+        type: string
+      manifest:
+        description: Manifest path under publishing/
+        required: true
+        default: publishing/example.yml
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  render-review-artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate inputs
+        env:
+          SOURCE_REPO: ${{ inputs.source_repo }}
+          MANIFEST: ${{ inputs.manifest }}
+        run: |
+          python - <<'PY'
+          import os
+          import re
+          from pathlib import PurePosixPath
+
+          repository = os.environ["SOURCE_REPO"]
+          manifest = PurePosixPath(os.environ["MANIFEST"])
+          if not re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", repository):
+              raise SystemExit("source_repo must be owner/repository")
+          if manifest.is_absolute() or ".." in manifest.parts or not manifest.parts or manifest.parts[0] != "publishing":
+              raise SystemExit("manifest must remain under publishing/")
+          PY
+
+      - name: Checkout publication repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Checkout public source at requested ref
+        uses: actions/checkout@v7
+        with:
+          repository: ${{ inputs.source_repo }}
+          ref: ${{ inputs.source_ref }}
+          path: .source
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install manifest dependency
+        run: python -m pip install 'PyYAML>=6.0,<7'
+
+      - name: Render reviewable source and evidence assets
+        env:
+          MANIFEST: ${{ inputs.manifest }}
+        run: |
+          python -m tools.article.render_manifest \
+            --manifest "$MANIFEST" \
+            --repo .source \
+            --output-dir artifacts/import
+
+      - name: Validate publication content
+        run: |
+          python -m tools.article.validate_frontmatter
+          python -m tools.article.check_links
+
+      - name: Upload review artifact
+        uses: actions/upload-artifact@v5
+        with:
+          name: publication-review-${{ github.run_id }}
+          path: artifacts/import/
+          if-no-files-found: error
+
+      - name: Human review boundary
+        run: echo 'Artifact created. No prose was generated, committed, or published.'
