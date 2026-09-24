@@ -1,0 +1,28 @@
+title: "Dual-T4 Tensor Parallel Smoke Configuration"
+slug: "dual-t4-tp2-smoke"
+
+source:
+  repository: "kaggle-vllm/kaggle-vllm"
+  ref: "39f194eebf56c44e0f56bff54c1123a41725c049"
+
+code:
+  - file: "examples/dual_t4_tp2.py"
+    lines: "3:16"
+    language: "python"
+
+evidence:
+  - "compat/kaggle-t4x2-cu128.json"
+
+categories:
+  - "LLM Inference"
+  - "kaggle-vllm"
+
+tags:
+  - vllm
+  - cuda
+  - nvidia-t4
+  - tensor-parallelism
+
+social:
+  linkedin: true
+  buffer: draft
