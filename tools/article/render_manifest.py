@@ -35,6 +35,7 @@ def load_manifest(path: Path) -> dict[str, Any]:
 
 
 def render(manifest_path: Path, repo: Path, output_dir: Path) -> list[Path]:
+    repo = repo.resolve()
     manifest = load_manifest(manifest_path)
     expected_ref = str(manifest["source"]["ref"])
     actual_commit = git(repo, "rev-parse", "HEAD")
