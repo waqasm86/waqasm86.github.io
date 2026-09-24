@@ -1,0 +1,65 @@
+---
+---
+
+@use 'abstracts/variables' with (
+  $theme: '{{ site.theme_mode }}'
+);
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+.engineering-hero,
+.featured-project {
+  border: 1px solid var(--main-border-color);
+  border-radius: 0.9rem;
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  margin-bottom: 2rem;
+  background: linear-gradient(145deg, var(--card-bg), var(--main-bg));
+}
+
+.engineering-hero h1 {
+  margin: 0.15rem 0;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+}
+
+.eyebrow {
+  font: 700 0.76rem/1.2 monospace;
+  letter-spacing: 0.12em;
+  color: var(--link-color);
+  margin-bottom: 0.7rem;
+}
+
+.hero-role {
+  font-size: clamp(1.15rem, 3vw, 1.5rem);
+  color: var(--text-muted-color);
+}
+
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.featured-project {
+  border-left: 4px solid var(--link-color);
+}
+
+.recent-heading {
+  margin: 2.25rem 0 1rem;
+}
+
+@media (max-width: 576px) {
+  .engineering-hero,
+  .featured-project {
+    border-radius: 0.65rem;
+  }
+
+  .hero-links .btn {
+    width: 100%;
+  }
+}

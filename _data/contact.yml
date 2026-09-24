@@ -1,0 +1,10 @@
+- type: github
+  icon: "fab fa-github"
+
+- type: linkedin
+  icon: "fab fa-linkedin"
+  url: "https://www.linkedin.com/in/mohammad-waqas-3a1384270/"
+
+- type: rss
+  icon: "fas fa-rss"
+  noblank: true
